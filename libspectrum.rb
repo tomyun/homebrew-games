@@ -4,6 +4,13 @@ class Libspectrum < Formula
   url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.1.1/libspectrum-1.1.1.tar.gz"
   sha256 "178d3607af2109b6b8dafac4f91912745b9f3c087319945c3a886bb7fe7989d5"
 
+  bottle do
+    cellar :any
+    sha256 "e3efaf8fc8244b235eceddcc2e4c4d67426fc998ad8abfa51299f32cb3cc7b75" => :yosemite
+    sha256 "9c7a0df553f8107c7457014ad721dda5e02baa8db1ce4f42395c7a1d82cb70fd" => :mavericks
+    sha256 "74a4325399792684a82e436ca673c6d1c8b14b4a0f1fdc069436870d8533876f" => :mountain_lion
+  end
+
   head do
     url "http://svn.code.sf.net/p/fuse-emulator/code/trunk/libspectrum"
     depends_on "automake" => :build
