@@ -7,9 +7,9 @@ end
 class Ckan < Formula
   desc "The Comprehensive Kerbal Archive Network"
   homepage "https://github.com/KSP-CKAN/CKAN/"
-  url "https://github.com/KSP-CKAN/CKAN/releases/download/v1.12.0/ckan.exe", :using => :nounzip
-  version "1.12.0"
-  sha256 "7056e1a9f02f25e8592562f9d128a0de02d6bd40e9c0defd8cf165dfec0083cc"
+  url "https://github.com/KSP-CKAN/CKAN/releases/download/v1.14.0/ckan.exe", :using => :nounzip
+  version "1.14.0"
+  sha256 "bb777b3c8fc689255b0a176bdbdb22cbd9ef523102298d1becea7fa9c49a4f66"
 
   depends_on MonoRequirement
 
