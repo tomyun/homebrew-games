@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0164.tar.gz"
-  version "0.164"
-  sha256 "01e9b3c03c7a379a0aecea50415c9ba687d8f0af282a8447027d02d279055a81"
+  url "https://github.com/mamedev/mame/archive/mame0165.tar.gz"
+  version "0.165"
+  sha256 "00959b21d949685106528af7d68b92d8ba51ace72651ad582c2fb033ed77292e"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -13,24 +13,30 @@ class Mame < Formula
     sha256 "1ecb32b9e6a014d87c321420bbda325223dfaac04467dfa72e1e2a26a6ee1483" => :mountain_lion
   end
 
+  depends_on :python => :build
   depends_on "sdl2"
+  depends_on "jpeg"
+  depends_on "flac"
+  depends_on "sqlite"
+  depends_on "portmidi"
 
   def install
-    ENV["MACOSX_USE_LIBSDL"] = "1"
-    ENV["PTR64"] = (MacOS.prefer_64_bit? ? "1" : "0")
-
-    system "make", "CC=#{ENV.cc}", "LD=#{ENV.cxx}",
-                   "TARGET=mame", "SUBTARGET=mame"
-
-    if MacOS.prefer_64_bit?
-      bin.install "mame64" => "mame"
-    else
-      bin.install "mame"
-    end
+    inreplace "scripts/src/main.lua", /(targetsuffix) "\w+"/, '\1 ""'
+    system "make", "MACOSX_USE_LIBSDL=1",
+                   "USE_SYSTEM_LIB_EXPAT=", # brewed version not picked up
+                   "USE_SYSTEM_LIB_ZLIB=1",
+                   "USE_SYSTEM_LIB_JPEG=1",
+                   "USE_SYSTEM_LIB_FLAC=1",
+                   "USE_SYSTEM_LIB_LUA=", # lua53 not available yet
+                   "USE_SYSETM_LIB_SQLITE3=1",
+                   "USE_SYSTEM_LIB_PORTMIDI=1",
+                   "USE_SYSTEM_LIB_PORTAUDIO=1" # currently not used yet
+    bin.install "mame"
     man6.install "src/osd/sdl/man/mame.6"
   end
 
   test do
-    system "#{bin}/mame", "-help"
+    assert shell_output("#{bin}/mame -help").start_with? "M.A.M.E. v#{version}"
+    system "#{bin}/mame", "-validate"
   end
 end
