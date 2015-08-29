@@ -5,6 +5,13 @@ class Stella < Formula
   sha256 "c1921671dbc08422ae8a7a4102c6a2a34433f04594d67f55a7129c1504bcd288"
   head "http://svn.code.sf.net/p/stella/code/trunk"
 
+  bottle do
+    cellar :any
+    sha256 "d03cfaf52ddde28e64af20c41154c3784889b080abe9abc59d8392f596502a73" => :yosemite
+    sha256 "ae0b69db944de4763d432633da62af711e179a39cf777333237a92fa36fbe4c4" => :mavericks
+    sha256 "17c207be83ef5afafe5e8fb2dd8b6af78858453a55e61dcecdf9b961e0cd8909" => :mountain_lion
+  end
+
   depends_on :xcode => :build
   depends_on "sdl2"
   depends_on "libpng"
