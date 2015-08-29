@@ -3,6 +3,13 @@ class Dgen < Formula
   homepage "http://dgen.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/dgen/dgen/1.33/dgen-sdl-1.33.tar.gz"
   sha256 "99e2c06017c22873c77f88186ebcc09867244eb6e042c763bb094b02b8def61e"
+  bottle do
+    cellar :any
+    sha256 "5379f2bf8ba906aeb913c9aedfff0ba532446649a50b76ef5ff1908e6818921c" => :yosemite
+    sha256 "40b6276a88b0476ad9f9b6863bc771d75c32a88fc3c9046ccc719164adbdd29d" => :mavericks
+    sha256 "83fe75efa17f0c2e9d09ae8e08e8346b3e80c938148dd17c853b52627079b506" => :mountain_lion
+  end
+
   head do
     url "git://git.code.sf.net/p/dgen/dgen"
     depends_on "automake" => :build
