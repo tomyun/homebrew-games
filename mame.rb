@@ -13,7 +13,6 @@ class Mame < Formula
     sha256 "7cbd9c9c36bdd1665b76343c971f7847d2955a22a173aeb18ad6833d45241c18" => :mountain_lion
   end
 
-  depends_on :python => :build
   depends_on "sdl2"
   depends_on "jpeg"
   depends_on "flac"
@@ -22,7 +21,8 @@ class Mame < Formula
 
   def install
     inreplace "scripts/src/main.lua", /(targetsuffix) "\w+"/, '\1 ""'
-    system "make", "MACOSX_USE_LIBSDL=1",
+    system "make", "PTR64=#{MacOS.prefer_64_bit? ? 1 : 0}", # for old Macs
+                   "MACOSX_USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=", # brewed version not picked up
                    "USE_SYSTEM_LIB_ZLIB=1",
                    "USE_SYSTEM_LIB_JPEG=1",
