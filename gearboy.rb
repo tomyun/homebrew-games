@@ -5,6 +5,13 @@ class Gearboy < Formula
   sha256 "846642f9a57c58693dce0835959c95b804aac6ba9cfa800deca45e71efcf1d7d"
   head "https://github.com/drhelius/Gearboy.git"
 
+  bottle do
+    cellar :any
+    sha256 "1aaec7e67d1d0b23e603cc0c65f72bc48f7c3312f04e8a6d0bbc9bb3d1730d67" => :yosemite
+    sha256 "bd312f6475195adfdca99c040e0131f44d6c09f001bd7a7718b3c18720a1342e" => :mavericks
+    sha256 "1ddfd4c2033d2212fa3855e127d54a2ef8218084fc101c9dfc07b9fdec47c3a9" => :mountain_lion
+  end
+
   depends_on "qt5"
   depends_on "sdl2"
 
