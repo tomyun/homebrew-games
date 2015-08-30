@@ -3,6 +3,12 @@ class Enigma < Formula
   homepage "http://www.nongnu.org/enigma/"
   url "https://downloads.sourceforge.net/project/enigma-game/Release%201.21/enigma-1.21.tar.gz"
   sha256 "d872cf067d8eb560d3bb1cb17245814bc56ac3953ae1f12e2229c8eb6f82ce01"
+  bottle do
+    sha256 "60274053ae5662f56c2443578c873513b3f493e62a903f1a4f11befafd3aa970" => :yosemite
+    sha256 "70e36b4ad59bf95db896a2517615af904fbb8c1a409bbf5b1633980bbfc8b7bb" => :mavericks
+    sha256 "692a47168fbd05dc95395d0aeaa6e9d6077a7f3e0f93e983edafd5a01081f4a1" => :mountain_lion
+  end
+
   head do
     url "https://github.com/Enigma-Game/Enigma.git"
     depends_on "texi2html" => :build
