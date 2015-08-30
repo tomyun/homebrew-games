@@ -5,6 +5,13 @@ class Gearsystem < Formula
   sha256 "6da587157bac694045d7bbdd79e41ca3f900011191a4331fa54a88aa4b536fde"
   head "https://github.com/drhelius/Gearsystem.git"
 
+  bottle do
+    cellar :any
+    sha256 "461a8f282d4b2879668be2e493c3a497450a68d3850dccd4d979917793450cfd" => :yosemite
+    sha256 "8f90071ca74b6c14d9208fc664fd180aa4e02b3df78b6ef6f664e2fe9c0d490b" => :mavericks
+    sha256 "976494cfd5d33a5c7fff92c31b87c51748680023e28ec7b1691609a7d09f6aeb" => :mountain_lion
+  end
+
   depends_on "qt5"
   depends_on "sdl2"
 
