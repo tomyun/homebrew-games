@@ -4,6 +4,12 @@ class Nuvie < Formula
   url "https://downloads.sourceforge.net/project/nuvie/Nuvie/0.5/nuvie-0.5.tgz"
   sha256 "ff026f6d569d006d9fe954f44fdf0c2276dbf129b0fc5c0d4ef8dce01f0fc257"
 
+  bottle do
+    sha256 "c0c3f49017d8aca42f7abf1681db052d699585741aad47ae9c92f19f1aa9208c" => :yosemite
+    sha256 "cf1ca12f0dc0fdf4b26fb53be5899b979eb277005de257e94c5b1509d53cf2eb" => :mavericks
+    sha256 "b44e21612d24b3f2552f342f445408a19b82449e5686c1b40b1c72686fe20b09" => :mountain_lion
+  end
+
   head do
     url "https://github.com/nuvie/nuvie.git"
     depends_on "autoconf" => :build
