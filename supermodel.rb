@@ -20,12 +20,12 @@ class Supermodel < Formula
       s.gsub! "-framework SDL", "`sdl-config --libs`"
       s.gsub! /(\$\(COMPILER_FLAGS\))/, "\\1 -I#{Formula["sdl"].opt_prefix}/include"
       # Fix missing label issue for auto-generated code
-      s.gsub! /(\$\(OBJ_DIR\)\/m68k\w+)\.o: \1.c (.*)\n(\s*\$\(CC\)) \$</, "\\1.o: \\2\n\\3 \\1.c"
+      s.gsub! %r[(\$\(OBJ_DIR\)/m68k\w+)\.o: \1.c (.*)\n(\s*\$\(CC\)) \$<], "\\1.o: \\2\n\\3 \\1.c"
     end
 
     # Use /usr/local/var/supermodel for saving runtime files
     inreplace "Src/OSD/SDL/Main.cpp" do |s|
-      s.gsub! /(Config|Saves|NVRAM)\//, "#{var}/supermodel/\\1/"
+      s.gsub! %r[(Config|Saves|NVRAM)/], "#{var}/supermodel/\\1/"
       s.gsub! /(\w+\.log)/, "#{var}/supermodel/Logs/\\1"
     end
 
