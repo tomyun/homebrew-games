@@ -4,6 +4,12 @@ class Ufoai < Formula
   url "git://git.code.sf.net/p/ufoai/code", :branch => "ufoai_2.5", :revision => "3e28f7cbf9f5e1cfd0fa7fdc852f833e498757c1"
   version "2.5.0+20150216"
 
+  bottle do
+    sha256 "b136b3592e549f5d8580667fda0619004141abae21efca53871d2da78f34103e" => :yosemite
+    sha256 "47c913420a0f29c6766a4a8049c2ac721e510fdbdc0c7e04f47b098c315f9236" => :mavericks
+    sha256 "ab723bb0f061635c079f82633b2c2dc707287bb993b200bf89312224eadb68a3" => :mountain_lion
+  end
+
   depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "sdl2_ttf"
