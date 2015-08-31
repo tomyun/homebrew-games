@@ -5,6 +5,13 @@ class Supermodel < Formula
   sha256 "ecaf3e7fc466593e02cbf824b722587d295a7189654acb8206ce433dcff5497b"
   head "https://svn.code.sf.net/p/model3emu/code/trunk"
 
+  bottle do
+    cellar :any
+    sha256 "22b954de0fec618766e906c66ea6ec1db6c0e7d85a169f0aae7c7992f4d30c45" => :yosemite
+    sha256 "f045680f22f303cb961766043167f14eb18d35c0e457bafa3fef0c7955676567" => :mavericks
+    sha256 "ead509808d61964e21798b91c88b106035c816d59ff9b8e03685d0acaab5f52b" => :mountain_lion
+  end
+
   depends_on "sdl"
 
   def install
