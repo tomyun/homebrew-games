@@ -1,4 +1,5 @@
 class GnuChess < Formula
+  desc "GNU Chess"
   homepage "https://www.gnu.org/software/chess/"
   url "http://ftpmirror.gnu.org/chess/gnuchess-6.2.1.tar.gz"
   mirror "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.1.tar.gz"
@@ -10,6 +11,14 @@ class GnuChess < Formula
     sha256 "ff097e03ea2d16d8a677504ff065a801bbcf47a335c24a7a7ee1255c8d86f47d" => :mountain_lion
   end
 
+  head do
+    url "svn://svn.savannah.gnu.org/chess/trunk"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "help2man" => :build
+    depends_on "gettext"
+  end
+
   option "with-book", "Download the opening book (~25MB)"
 
   resource "book" do
@@ -18,11 +27,14 @@ class GnuChess < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    if build.head?
+      system "autoreconf", "--install"
+      chmod 0755, "install-sh"
+    end
+
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
-    doc.install Dir["doc/*"], "TODO", "README"
 
     if build.with? "book"
       resource("book").stage do
@@ -41,7 +53,6 @@ class GnuChess < Formula
   end
 
   test do
-    assert_match version.to_s,
-                 shell_output("#{bin}/gnuchess --version")
+    assert_equal "GNU Chess #{version}", shell_output("#{bin}/gnuchess --version").chomp
   end
 end
