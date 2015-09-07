@@ -1,8 +1,8 @@
 class Liblcf < Formula
   desc "Library for RPG Maker 2000/2003 games data"
   homepage "https://easy-rpg.org/"
-  url "https://github.com/EasyRPG/liblcf/archive/0.3.tar.gz"
-  sha256 "c99bdc51badb1b644b7a24fcb3e19b209d75e9d9d3051bbd4fc6ef0114e7c63f"
+  url "https://github.com/EasyRPG/liblcf/archive/0.3.1.tar.gz"
+  sha256 "b809b649aaf5c435465c77cd2e3a573817455c54e487410bb04eaea096f4432a"
   head "https://github.com/EasyRPG/liblcf.git"
 
   bottle do
