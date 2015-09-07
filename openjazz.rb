@@ -6,6 +6,13 @@ class Openjazz < Formula
 
   head "https://github.com/AlisterT/openjazz.git"
 
+  bottle do
+    cellar :any
+    sha256 "2af3cfc16369b10add552cb8fe84656857473e1f567087cc9b37ddbe1b82049e" => :yosemite
+    sha256 "faa962823262bace1d0105d5be10cbebdc5ebb244ebe170ba3b4b4b7ae56afeb" => :mavericks
+    sha256 "70f56d799b82522426d011face63f33665af096c0d22f18c432c6d2cae25033e" => :mountain_lion
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
