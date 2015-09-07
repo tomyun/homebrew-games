@@ -1,8 +1,8 @@
 class EasyrpgPlayer < Formula
   desc "RPG Maker 2000/2003 games interpreter"
   homepage "https://easy-rpg.org/"
-  url "https://github.com/EasyRPG/Player/archive/0.3.tar.gz"
-  sha256 "5c1201a36c555d80b8f30af758b74e60314f0f35fe084fe785b39ead7e2eff49"
+  url "https://github.com/EasyRPG/Player/archive/0.3.1.tar.gz"
+  sha256 "f1bd236e471066d299d2fb35727c4ec855a0944d4e0c83796096b8a27e018115"
   head "https://github.com/EasyRPG/Player.git"
 
   bottle do
@@ -33,6 +33,6 @@ class EasyrpgPlayer < Formula
   end
 
   test do
-    system "#{bin}/easyrpg-player", "-v"
+    assert_match /EasyRPG Player #{version}$/, shell_output("#{bin}/easyrpg-player -v")
   end
 end
