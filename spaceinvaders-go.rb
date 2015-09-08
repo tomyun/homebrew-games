@@ -6,6 +6,13 @@ class SpaceinvadersGo < Formula
   url "https://github.com/asib/spaceinvaders/archive/v1.2.tar.gz"
   sha256 "e5298c4c13ff42f5cb3bf3913818c5155cf6918fd757124920045485d7ab5b9e"
 
+  bottle do
+    cellar :any
+    sha256 "d87c8842da8a374186432fe48113900a1c8d2d0293972d67d8bdb727802d82ba" => :yosemite
+    sha256 "081fa658e03709c18853713bf81d21159c5a1648ae555a3dac65cab2e3df332f" => :mavericks
+    sha256 "ff2cbca94485e91ec6202ab637c6b7035f6b24c6112bef51d9b004e5627e61c4" => :mountain_lion
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/mattn/go-runewidth" do
