@@ -1,95 +1,47 @@
-require 'formula'
-
 class Xu4 < Formula
-  homepage 'http://xu4.sourceforge.net/'
-  url 'http://xu4.svn.sourceforge.net/svnroot/xu4/trunk/u4',
-          :revision => '2999'
-  version 'r2999'
+  desc "Remake of Ultima IV"
+  homepage "http://xu4.sourceforge.net/"
+  url "http://xu4.svn.sourceforge.net/svnroot/xu4/trunk/u4", :revision => "3088"
+  version "1.0beta4+r3088"
+  head "http://xu4.svn.sourceforge.net/svnroot/xu4/trunk/u4"
 
-  head 'http://xu4.svn.sourceforge.net/svnroot/xu4/trunk/u4'
+  depends_on "sdl"
+  depends_on "sdl_mixer"
+  depends_on "libpng"
 
-  depends_on 'sdl'
-  depends_on 'sdl_mixer'
-  depends_on :x11
+  resource "ultima4" do
+    url "http://www.thatfleminggent.com/ultima/ultima4.zip", :using => :nounzip
+    sha256 "94aa748cfa1d0e7aa2e518abebb994f3c18acf7edb78c3bd37cd0a4404e6ba74"
+  end
 
-  patch :DATA
+  resource "u4upgrad" do
+    url "https://downloads.sourceforge.net/project/xu4/Ultima%204%20VGA%20Upgrade/1.3/u4upgrad.zip", :using => :nounzip
+    sha256 "400ac37311f3be74c1b2d7836561b2ead2b146f5162586865b0f4881225cca58"
+  end
 
   def install
-    ultima_zips = [
-      "http://www.thatfleminggent.com/ultima/ultima4.zip",
-      "http://downloads.sourceforge.net/project/xu4/Ultima%204%20VGA%20Upgrade/1.3/u4upgrad.zip"
-    ]
+    (buildpath/"src").install resource("ultima4")
+    (buildpath/"src").install resource("u4upgrad")
 
-    ohai "Downloading support files"
-    ultima_zips.each { |f| curl f, "-O" }
+    cd "src" do
+      # Include ultima4.zip in the bundle
+      inreplace "Makefile.macosx", /# (cp \$\(ULTIMA4\))/, '\1'
 
-    cd 'src' do
       # Copy over SDL's ObjC main files
-      `cp -R #{Formula["sdl"].libexec}/* macosx`
+      cp_r Dir[Formula["sdl"].libexec/"*"], "macosx"
 
-      args = %W[SYSROOT=#{MacOS.sdk_path}
-      PREFIX=#{HOMEBREW_PREFIX}
-      CC=#{ENV.cc}
-      CXX=#{ENV.cxx}]
-
-      system "make", "bundle", "-f", "Makefile.macosx", *args
+      system "make", "bundle", "-f", "Makefile.macosx",
+                               "CC=#{ENV.cc}",
+                               "CXX=#{ENV.cxx}",
+                               "PREFIX=#{HOMEBREW_PREFIX}",
+                               "UILIBS=-framework Cocoa -L#{Formula["sdl"].lib} -lSDL -L#{Formula["sdl_mixer"].lib} -lSDL_mixer -L#{Formula["libpng"].lib} -lpng",
+                               "UIFLAGS=-I#{Formula["sdl"].include}/SDL -I#{Formula["sdl_mixer"].include}/SDL -I#{Formula["libpng"].include}"
       prefix.install "XU4.app"
+      bin.write_exec_script "#{prefix}/XU4.app/Contents/MacOS/u4"
     end
   end
 
-  def caveats
-    "XU4.app installed to #{prefix}"
+  test do
+    system "#{bin}/u4", "-help"
   end
 end
-
-__END__
-diff --git a/src/Makefile.macosx b/src/Makefile.macosx
-index c8e4812..1317029 100644
---- a/src/Makefile.macosx
-+++ b/src/Makefile.macosx
-@@ -18,15 +18,16 @@ UI=sdl
- PREFIX=/usr
- UILIBS=-L/Library/Frameworks \
- 	-framework Cocoa \
--	-framework SDL \
--	-framework SDL_mixer \
--	-framework libpng
-+	-lpng \
-+	-lSDL \
-+	-lSDL_mixer
- 	
- UIFLAGS=-F/Library/Frameworks \
--	-I/Library/Frameworks/SDL.framework/Headers \
--	-I/Library/Frameworks/SDL_mixer.framework/Headers \
- 	-I/Library/Frameworks/libpng.framework/Headers \
--	-I$(PREFIX)/include
-+	-I$(PREFIX)/include \
-+	-I$(PREFIX)/include/SDL \
-+	-I/usr/include \
-+	-I/usr/X11/include
- 
- FEATURES=-DHAVE_BACKTRACE=0 -DHAVE_VARIADIC_MACROS=1
-
-diff --git a/src/Makefile.macosx b/src/Makefile.macosx
-index c7b9a32..f721589 100644
---- a/src/Makefile.macosx
-+++ b/src/Makefile.macosx
-@@ -3,8 +3,8 @@
- #
- 
- # name and path to ultima4.zip and u4upgrad.zip
--ULTIMA4=ultima4*.zip
--U4UPGRADE=u4upgrad.zip
-+ULTIMA4=../ultima4.zip
-+U4UPGRADE=../u4upgrad.zip
- 
- # for crosscompiling arch ppc or i386 from OS X 10.6 use 
- # CC=/usr/bin/gcc-4.0
-@@ -100,7 +100,7 @@ bundle: u4
- 	cp ../graphics/vga2/*.png $(bundle_name)/Contents/Resources/vga2
- 	# if you want to include the ultima4.zip in the bundle uncomment the
- 	# following line.
--	# cp $(ULTIMA4) $(bundle_name)/Contents/Resources
-+	cp $(ULTIMA4) $(bundle_name)/Contents/Resources
- 	cp $(U4UPGRADE) $(bundle_name)/Contents/Resources
- 	cp $< $(bundle_name)/Contents/MacOS
