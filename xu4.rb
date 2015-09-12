@@ -5,6 +5,13 @@ class Xu4 < Formula
   version "1.0beta4+r3088"
   head "http://xu4.svn.sourceforge.net/svnroot/xu4/trunk/u4"
 
+  bottle do
+    cellar :any
+    sha256 "f16e6b85d800aeb69636b5c63144505572e20bd21205defb8d3d5a7288904e52" => :yosemite
+    sha256 "e82e64b77ba616ba3d50367fd12d154aee709710682523039032257979384272" => :mavericks
+    sha256 "e686a6ed031cd79462ced50885703b0872ce8a96bb02549598d7a1354fa5d491" => :mountain_lion
+  end
+
   depends_on "sdl"
   depends_on "sdl_mixer"
   depends_on "libpng"
