@@ -1,38 +1,57 @@
-require 'formula'
-
 class Exult < Formula
-  url 'https://downloads.sourceforge.net/project/exult/exult-all-versions/1.4.9rc1/exult-1.4.9rc1.tar.gz'
-  sha1 '259f778d6b8b5e9c9466e2f4967b6352435b6792'
-  homepage 'http://exult.sourceforge.net/'
+  desc "Recreation of Ultima 7"
+  homepage "http://exult.sourceforge.net/"
+  url "svn://svn.code.sf.net/p/exult/code/exult/trunk", :revision => 7520
+  version "1.4.9rc1+r7520"
+  head "svn://svn.code.sf.net/p/exult/code/exult/trunk"
 
-  head 'http://exult.svn.sourceforge.net/svnroot/exult/exult/trunk'
+  option "with-audio-pack", "Install audio pack"
 
-  depends_on 'sdl'
-  depends_on 'sdl_mixer'
-  depends_on 'libvorbis'
+  depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "sdl2"
+  depends_on "libogg"
+  depends_on "libvorbis"
+
+  resource "audio" do
+    url "https://downloads.sourceforge.net/project/exult/exult-data/exult_audio.zip"
+    sha256 "72e10efa8664a645470ceb99f6b749ce99c3d5fd1c8387c63640499cfcdbbc68"
+  end
 
   def install
-    inreplace "autogen.sh", "libtoolize", "glibtoolize"
+    # Use ~/Library/... instead of /Library for the games
+    inreplace "files/utils.cc" do |s|
+      s.gsub! /(gamehome_dir)\("\."\)/, '\1(home_dir)'
+      s.gsub! /(gamehome_dir) =/, '\1 +='
+    end
 
     system "./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-sdltest"
-
-    system "make"
-    system "make bundle"
+                          "--prefix=#{prefix}"
+    system "make", "EXULT_DATADIR=#{pkgshare}/data"
+    system "make", "bundle"
+    pkgshare.install "Exult.app/Contents/Resources/data"
+    (pkgshare/"data").install resource("audio") if build.with? "audio-pack"
     prefix.install "Exult.app"
+    bin.write_exec_script "#{prefix}/Exult.app/Contents/MacOS/exult"
   end
 
   def caveats; <<-EOS.undent
-    Cocoa app installed to:
-      #{prefix}
-
     Note that this includes only the game engine; you will need to supply your own
     own legal copy of the Ultima 7 game files. Try here (Amazon.com):
       http://bit.ly/8JzovU
+
+    Update audio settings accordingly with configuration file:
+      ~/Library/Preferences/exult.cfg
+
+      To use CoreAudio, set `driver` to `CoreAudio`.
+      To use audio pack, set `use_oggs` to `yes`.
     EOS
+  end
+
+  test do
+    system "#{bin}/exult", "-v"
   end
 end
