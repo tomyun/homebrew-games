@@ -1,8 +1,8 @@
 class Openmsx < Formula
   desc "MSX emulator"
   homepage "http://openmsx.org/"
-  url "https://github.com/openMSX/openMSX/archive/RELEASE_0_11_0.tar.gz"
-  sha256 "0d83ed98a0a121669b83e22f2a004f945c89ed315bf2f070e6e03d788c4e6512"
+  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_0_12_0/openmsx-0.12.0.tar.gz"
+  sha256 "1d96a466badd625e7b6860a65afb10a7b5283a15721faa4186546693fec06a92"
   head "https://github.com/openMSX/openMSX.git"
 
   bottle do
@@ -15,9 +15,9 @@ class Openmsx < Formula
   option "without-opengl", "Disable OpenGL post-processing renderer"
   option "with-laserdisc", "Enable Laserdisc support"
 
-  depends_on :python => :build
   depends_on "sdl"
   depends_on "sdl_ttf"
+  depends_on "freetype"
   depends_on "libpng"
   depends_on "glew" if build.with? "opengl"
 
