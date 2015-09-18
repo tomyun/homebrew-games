@@ -1,8 +1,8 @@
 class EasyrpgPlayer < Formula
   desc "RPG Maker 2000/2003 games interpreter"
   homepage "https://easy-rpg.org/"
-  url "https://github.com/EasyRPG/Player/archive/0.3.1.tar.gz"
-  sha256 "f1bd236e471066d299d2fb35727c4ec855a0944d4e0c83796096b8a27e018115"
+  url "https://github.com/EasyRPG/Player/archive/0.3.2.tar.gz"
+  sha256 "ef9c751521930890eb8dab9f7fa40b6614c47ec3aa2e72b7bd4d6c4e162b9449"
   head "https://github.com/EasyRPG/Player.git"
 
   bottle do
