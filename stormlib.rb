@@ -1,7 +1,8 @@
 class Stormlib < Formula
+  desc "Library for handling Blizzard MPQ archives"
   homepage "http://www.zezula.net/en/mpq/stormlib.html"
-  url "https://github.com/ladislav-zezula/StormLib/archive/v9.10.tar.gz"
-  sha256 "c3aca98b5a95649dfb2110eaf475eb6dd87119db62c3564f8b09b3d1d1f63f96"
+  url "https://github.com/ladislav-zezula/StormLib/archive/v9.20.tar.gz"
+  sha256 "fdfc7d0b444cd5d540c5732155a7c5011c573e90029947198f651aec93db4887"
 
   head "https://github.com/ladislav-zezula/StormLib.git"
 
@@ -33,7 +34,7 @@ class Stormlib < Formula
       }
     EOS
     system ENV.cc, "-o", "test", "test.c"
-    system "./test", "-v"
+    assert_equal "#{version}", shell_output("./test")
   end
 end
 
