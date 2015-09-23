@@ -6,6 +6,12 @@ class MoonBuggy < Formula
     url "http://m.seehuhn.de/programs/moon-buggy-1.0.tar.gz"
     sha256 "f8296f3fabd93aa0f83c247fbad7759effc49eba6ab5fdd7992f603d2d78e51a"
   end
+  bottle do
+    sha256 "9f44df57048fc5b62befc56fb63b662aacba8d653369e369cbc5e2750d37d47a" => :el_capitan
+    sha256 "a231f045e3ce9fad9f40f31c7ee9609ae17feb735325595e4a73ccd160ceb889" => :yosemite
+    sha256 "cb4ff729fadd4bc9ac84bb9bc695d06cb715c177660229466e5fb8f2cd83fff7" => :mavericks
+  end
+
 
   devel do
     url "http://m.seehuhn.de/programs/moon-buggy-1.0.51.tar.gz"
