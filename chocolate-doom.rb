@@ -1,6 +1,5 @@
-require 'formula'
-
 class ChocolateDoom < Formula
+  desc "Accurate source port of Doom"
   homepage "http://www.chocolate-doom.org/"
   url "http://www.chocolate-doom.org/downloads/2.2.1/chocolate-doom-2.2.1.tar.gz"
   sha256 "ad11e2871667c6fa0658abf2dcba0cd9b26fbd651ee8df55adfdc18ad8fd674a"
@@ -12,20 +11,27 @@ class ChocolateDoom < Formula
     sha256 "394c2b0a47e3f71fa13b21669e1bff2b5a850abf054fcc37c0ac8e849e9e2c93" => :mountain_lion
   end
 
+  head do
+    url "https://github.com/chocolate-doom/chocolate-doom.git"
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+  end
+
   depends_on "sdl"
   depends_on "sdl_net"
   depends_on "sdl_mixer"
+  depends_on "libsamplerate" => :recommended
+  depends_on "libpng" => :recommended
 
   def install
+    system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-debug",
                           "--disable-dependency-tracking",
+                          "--disable-silent-rules",
                           "--disable-sdltest"
-    system "make install"
-
-    # This project installs to 'games', but we want it in 'bin' so it symlinks in.
-    # Can't find a ./configure switch, so just rename it.
-    (prefix+"games").rename bin
+    system "make", "install", "execgamesdir=#{bin}"
+    (share/"applications").rmtree
+    (share/"icons").rmtree
   end
 
   def caveats; <<-EOS.undent
