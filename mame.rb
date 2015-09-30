@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0165.tar.gz"
-  version "0.165"
-  sha256 "00959b21d949685106528af7d68b92d8ba51ace72651ad582c2fb033ed77292e"
+  url "https://github.com/mamedev/mame/archive/mame0166.tar.gz"
+  version "0.166"
+  sha256 "702a2019a05afd7f050db6b38c3aaee4cc46ec2214cecaed3420889a685637f4"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -14,6 +14,7 @@ class Mame < Formula
     sha256 "5249566244a12de60e07b63b94f0ce1b4e1b5cf5bff6a85d5dadc48a87f93038" => :mountain_lion
   end
 
+  depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "sdl2"
   depends_on "jpeg"
   depends_on "flac"
@@ -34,6 +35,9 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_PORTAUDIO=1" # currently not used yet
     bin.install "mame"
     man6.install "src/osd/sdl/man/mame.6"
+    doc.install Dir["docs/*"]
+    pkgshare.install %w[artwork hash keymaps samples]
+    (pkgshare/"shader").install Dir["src/osd/modules/opengl/shader/*.[vf]sh"]
   end
 
   test do
