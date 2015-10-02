@@ -1,8 +1,8 @@
 class Mednafen < Formula
   desc "Multi-system emulator"
   homepage "http://mednafen.fobby.net/"
-  url "http://mednafen.fobby.net/releases/files/mednafen-0.9.38.6.tar.bz2"
-  sha256 "9460da3c6cd8cb8a02293d51c958cbc6ab5555aa6d115b952d4db2e0f1067e47"
+  url "http://mednafen.fobby.net/releases/files/mednafen-0.9.38.7.tar.bz2"
+  sha256 "1bb3beef883a325c35d1a1ce14959c307a4c321f2ea29d4ddb216c6dd03aded8"
 
   bottle do
     sha256 "b6a19caa842e3e136ee90bc3f817a92212a0bcb26b6c41fa58e0ad3b2f053be9" => :yosemite
@@ -18,7 +18,7 @@ class Mednafen < Formula
   needs :cxx11
 
   fails_with :clang do
-    build 602
+    build 700
     cause <<-EOS.undent
       LLVM miscompiles some loop code with optimization
       https://llvm.org/bugs/show_bug.cgi?id=15470
