@@ -5,6 +5,12 @@ class Exult < Formula
   version "1.4.9rc1+r7520"
   head "svn://svn.code.sf.net/p/exult/code/exult/trunk"
 
+  bottle do
+    sha256 "f9cac006633608c628a8d069e44c7c6f3c1ceb6c9f45eccfb3a011f4ca32fb41" => :el_capitan
+    sha256 "c36761dc9db169de70f9e9a56b64c3f609924728562d50f8ed04ac9354c06c9a" => :yosemite
+    sha256 "031de2aab1ec65682d2d89f029e4a8f574539d6048c9082a3ce8e5c88084b4fa" => :mavericks
+  end
+
   option "with-audio-pack", "Install audio pack"
 
   depends_on "autoconf" => :build
