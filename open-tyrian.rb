@@ -5,6 +5,12 @@ class OpenTyrian < Formula
   sha256 "f54b6b3cedcefa187c9f605d6164aae29ec46a731a6df30d351af4c008dee45f"
   head "https://bitbucket.org/opentyrian/opentyrian", :using => :hg
 
+  bottle do
+    sha256 "f9761c338f5e39984b19661cb95293eae561fb24762ccf5721f91105e353dd20" => :el_capitan
+    sha256 "370c59cf4f742979b78c7923c57b533f6c5ec8eec3522db7d9143dd07554334d" => :yosemite
+    sha256 "730f02623ca48c3bb9f40f7610b01988a3434d7cb6bf5ecda013300206fdd21d" => :mavericks
+  end
+
   depends_on "sdl"
   depends_on "sdl_net"
 
