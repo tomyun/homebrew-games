@@ -15,9 +15,9 @@ class FsUae < Formula
   end
 
   devel do
-    url "http://fs-uae.net/fs-uae/devel/2.7.0dev/fs-uae-2.7.0dev.tar.gz"
-    version "2.7.0dev"
-    sha256 "e34e2eedba97f177124737bdaf64b7ef1d6607de45f56da9667e84ca39fff82b"
+    url "http://fs-uae.net/fs-uae/devel/2.7.1dev/fs-uae-2.7.1dev.tar.gz"
+    version "2.7.1dev"
+    sha256 "8239fcdff87437961e2de3b935eb7e787657bf440f4e4cec0838c598fa7083cd"
   end
 
   head do
