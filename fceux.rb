@@ -17,7 +17,6 @@ class Fceux < Formula
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on "sdl"
-  depends_on "libzip"
   depends_on "gtk+3" => :recommended
 
   # Make scons honor PKG_CONFIG_PATH and PKG_CONFIG_LIBDIR
