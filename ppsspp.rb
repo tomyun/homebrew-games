@@ -1,6 +1,8 @@
 class Ppsspp < Formula
+  desc "PlayStation Portable emulator"
   homepage "http://ppsspp.org/"
-  url "https://github.com/hrydgard/ppsspp.git", :tag => "v1.0.1"
+  url "https://github.com/hrydgard/ppsspp.git", :tag => "v1.1.0",
+                                                :revision => "5b3a75542723047bab47fb01793d500685831e96"
   head "https://github.com/hrydgard/ppsspp.git"
 
   bottle do
@@ -12,20 +14,14 @@ class Ppsspp < Formula
 
   depends_on "cmake" => :build
   depends_on "sdl2"
+  depends_on "glew"
+  depends_on "snappy"
   depends_on "ffmpeg"
 
   def install
-    # Build type will be set to "Release" by default
     args = std_cmake_args
-    args.delete "-DCMAKE_BUILD_TYPE=None"
-
     # Use brewed FFmpeg rather than precompiled binaries in the repo
-    ffmpeg = Formula["ffmpeg"]
-    args << "-DFFMPEG_BUILDDIR=#{ffmpeg.opt_prefix}"
-    inreplace "CMakeLists.txt" do |s|
-      s.gsub! "STATIC IMPORTED", "SHARED IMPORTED"
-      s.gsub! %r{\${FFMPEG_BUILDDIR}\/lib.*\/(lib.*)\.a}, "${FFMPEG_BUILDDIR}/lib/\\1.dylib"
-    end
+    args << "-DUSE_SYSTEM_FFMPEG=ON"
 
     mkdir "build" do
       system "cmake", "..", *args
