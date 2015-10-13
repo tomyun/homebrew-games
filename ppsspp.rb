@@ -7,9 +7,9 @@ class Ppsspp < Formula
 
   bottle do
     cellar :any
-    sha1 "9ec048258882fb2ea2f71661f6ccf4bcd4373ff6" => :yosemite
-    sha1 "cfd18d4a6a6d2e07daa74d6a626d9614c6f201c3" => :mavericks
-    sha1 "b6f556ce03d30c0c7ab57c21663a929ebdb9e0dd" => :mountain_lion
+    sha256 "3fb8565a791c9cb833e3d13e2d151b94f11cd3c342efec1f02b66333b53be388" => :el_capitan
+    sha256 "423ad210c24560ae00be752d7ab01722ea0f9cacebff907f773e9262b0a07b5e" => :yosemite
+    sha256 "174e912494af66a752491f0e78d8ac68b313d1bce2aea20b69b00d44b0038077" => :mavericks
   end
 
   depends_on "cmake" => :build
