@@ -1,11 +1,10 @@
-require 'formula'
-
 class Unnethack < Formula
-  homepage 'http://sourceforge.net/apps/trac/unnethack/'
-  url 'https://downloads.sourceforge.net/project/unnethack/unnethack/5.1.0/unnethack-5.1.0-20131208.tar.gz'
-  sha1 '8535f69eca4f510a29dd1bf869aa55d6dea4664d'
+  desc "Fork of Nethack"
+  homepage "http://sourceforge.net/apps/trac/unnethack/"
+  url "https://downloads.sourceforge.net/project/unnethack/unnethack/5.1.0/unnethack-5.1.0-20131208.tar.gz"
+  sha256 "d92886a02fd8f5a427d1acf628e12ee03852fdebd3af0e7d0d1279dc41c75762"
 
-  head 'https://github.com/UnNetHack/UnNetHack.git'
+  head "https://github.com/UnNetHack/UnNetHack.git"
 
   # directory for temporary level data of running games
   skip_clean "var/unnethack/level"
@@ -22,20 +21,22 @@ class Unnethack < Formula
     # upgrading/uninstalling
     version_specific_directory = "#{var}/unnethack/#{version}"
 
-    args = [ "--prefix=#{prefix}",
-             "--with-owner=#{`id -un`}", "--with-group=admin",
-             # common xlogfile for all versions
-             "--enable-xlogfile=#{var}/unnethack/xlogfile",
-             "--with-bonesdir=#{version_specific_directory}/bones",
-             "--with-savesdir=#{version_specific_directory}/saves",
-             "--enable-wizmode=#{`id -un`}" ]
+    args = ["--prefix=#{prefix}",
+            "--with-owner=#{`id -un`}",
+            "--with-group=admin",
+            # common xlogfile for all versions
+            "--enable-xlogfile=#{var}/unnethack/xlogfile",
+            "--with-bonesdir=#{version_specific_directory}/bones",
+            "--with-savesdir=#{version_specific_directory}/saves",
+            "--enable-wizmode=#{`id -un`}",]
 
-    args << "--enable-lisp-graphics" if build.with? 'lisp-graphics'
-
-    args << "--enable-curses-graphics" if build.with? 'curses-graphics'
+    args << "--enable-lisp-graphics" if build.with? "lisp-graphics"
+    args << "--enable-curses-graphics" if build.with? "curses-graphics"
 
     system "./configure", *args
     ENV.j1 # Race condition in make
-    system "make install"
+
+    # disable the `chgrp` calls
+    system "make", "install", "CHGRP=#"
   end
 end
