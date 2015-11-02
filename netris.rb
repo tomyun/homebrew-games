@@ -1,5 +1,12 @@
 class Netris < Formula
   desc "Networked variant of tetris"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "f884ada9bc59b53601b77b93e1b0b87e25dff13c7fbf5f078c309c08af9495c6" => :el_capitan
+    sha256 "5c62fe0fa8814eabf4689098111f3c67f413295f1200e1b67971d699ed3adc82" => :yosemite
+    sha256 "0f3ddd592b107ba5526d0de0a02ebc46f93ce9d069d7558d9104f56fe1ad6722" => :mavericks
+  end
+
   # Official site is non-responsive - 3/19/2012 - @adamv
   homepage "http://www.netris.org/"
   url "ftp://ftp.netris.org/pub/netris/netris-0.52.tar.gz"
