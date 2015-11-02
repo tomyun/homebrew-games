@@ -4,6 +4,13 @@ class Vitetris < Formula
   url "http://www.victornils.net/tetris/vitetris-0.57.tar.gz"
   sha256 "0c9fa6c8b16e2f8968f65e16a87f1bcd39b827d510c6efb0771f0400ab91cdc2"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "4d894a98104d29fc3bfcfb59e2796aff6edce184440f8211e3db00d7fe6a70fc" => :el_capitan
+    sha256 "5a924675df65dfa62e04be4ab2d9ab4edc44b2095583a87b26a354a83ea62838" => :yosemite
+    sha256 "8a15d0e55e5fe09cf569c977882bb33c725de38cb5019b70c0a8dcd66c1fda21" => :mavericks
+  end
+
   # remove a 'strip' option not supported on OS X and root options for
   # 'install'
   patch :DATA
