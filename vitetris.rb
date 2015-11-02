@@ -1,9 +1,8 @@
-require 'formula'
-
 class Vitetris < Formula
-  homepage 'http://www.victornils.net/tetris/'
-  url 'http://www.victornils.net/tetris/vitetris-0.57.tar.gz'
-  sha1 'af9d539ae208fb174db4b86e535e7e29b7ffa3cf'
+  desc "Terminal-based Tetris clone"
+  homepage "http://www.victornils.net/tetris/"
+  url "http://www.victornils.net/tetris/vitetris-0.57.tar.gz"
+  sha256 "0c9fa6c8b16e2f8968f65e16a87f1bcd39b827d510c6efb0771f0400ab91cdc2"
 
   # remove a 'strip' option not supported on OS X and root options for
   # 'install'
@@ -15,7 +14,7 @@ class Vitetris < Formula
   end
 
   test do
-    system "tetris", "-hiscore"
+    system "#{bin}/tetris", "-hiscore"
   end
 end
 __END__
