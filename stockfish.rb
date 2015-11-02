@@ -1,9 +1,8 @@
-require "formula"
-
 class Stockfish < Formula
+  desc "Strong open-source chess engine"
   homepage "http://stockfishchess.org/"
   url "http://stockfish.s3.amazonaws.com/stockfish-6-src.zip"
-  sha1 "a2d630c991d13bc5533c72896421eff14e4faa6a"
+  sha256 "a69a371d3f84338cefde4575669bd930d186b046a10fa5ab0f8d1aed6cb204c3"
   head "https://github.com/official-stockfish/Stockfish.git"
 
   bottle do
@@ -21,10 +20,8 @@ class Stockfish < Formula
       arch += "-" + (MacOS.prefer_64_bit? ? "64" : "32")
     end
 
-    cd "src" do
-      system "make", "build", "ARCH=#{arch}"
-      bin.install "stockfish"
-    end
+    system "make", "-C", "src", "build", "ARCH=#{arch}"
+    bin.install "src/stockfish"
   end
 
   test do
