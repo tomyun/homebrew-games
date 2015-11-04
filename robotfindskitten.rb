@@ -1,17 +1,17 @@
-require 'formula'
-
 class Robotfindskitten < Formula
-  url 'https://downloads.sourceforge.net/project/rfk/robotfindskitten-POSIX/rfk%20rises%20from%20the%20dead%21%20%20braaaains.../robotfindskitten-1.7320508.406.tar.gz'
-  homepage 'http://robotfindskitten.org/'
-  sha1 '226da9cbf644d786c573b3409af26d3714dcd661'
+  desc "Zen Simulation of robot finding kitten"
+  homepage "http://robotfindskitten.org/"
+  url "https://downloads.sourceforge.net/project/rfk/robotfindskitten-POSIX/mayan_apocalypse_edition/robotfindskitten-2.7182818.701.tar.gz"
+  sha256 "7749a370796fd23e3b306b00de5f7fb7997a35fef30e3910ff159448c932d719"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install", "execgamesdir=#{bin}"
+  end
 
-    # This project installs to 'games', but we want it in 'bin' so it symlinks in.
-    # Can't find a ./configure switch, so just rename it.
-    (prefix+"games").rename bin
+  test do
+    assert_equal "robotfindskitten: #{version}",
+      shell_output("#{bin}/robotfindskitten -V").chomp
   end
 end
