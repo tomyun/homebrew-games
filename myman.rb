@@ -1,9 +1,8 @@
-require "formula"
-
 class Myman < Formula
+  desc "Text-mode videogame inspired by Namco's Pac-Man"
   homepage "http://myman.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/myman/myman-cvs/myman-cvs-2009-10-30/myman-wip-2009-10-30.tar.gz"
-  sha1 "41240e96945aabe2f9c6519aeaf512c3664e4ec5"
+  sha256 "bf69607eabe4c373862c81bf56756f2a96eecb8eaa8c911bb2abda78b40c6d73"
 
   depends_on "coreutils" => :build
   depends_on "gnu-sed" => :build
