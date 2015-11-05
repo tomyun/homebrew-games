@@ -1,9 +1,8 @@
-require "formula"
-
 class ArxLibertatis < Formula
+  desc "Cross-platform, open source port of Arx Fatalis"
   homepage "https://arx-libertatis.org/"
   url "https://arx-libertatis.org/files/arx-libertatis-1.1.2.tar.xz"
-  sha1 "3b14a55553c564fd33caafb3a5bdb2d328e1fde8"
+  sha256 "82adb440a9c86673e74b84abd480cae968e1296d625b6d40c69ca35b35ed4e42"
 
   option "without-innoextract", "Build without arx-install-data"
 
@@ -17,13 +16,13 @@ class ArxLibertatis < Formula
 
   def install
     mkdir "build" do
-     system "cmake", "..", *std_cmake_args
-     system "make"
-     system "make install"
+      system "cmake", "..", *std_cmake_args
+      system "make"
+      system "make", "install"
     end
   end
 
-  def caveats;
+  def caveats
     if build.with? "innoextract"; then <<-EOS.undent
       This package only contains the Arx Libertatis binary, not the game data.
       To play Arx Fatalis you will need to obtain the game from GOG.com and install
@@ -32,5 +31,9 @@ class ArxLibertatis < Formula
         arx-install-data /path/to/setup_arx_fatalis.exe
       EOS
     end
+  end
+
+  test do
+    system "#{bin}/arx", "-h"
   end
 end
