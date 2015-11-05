@@ -4,6 +4,13 @@ class ArxLibertatis < Formula
   url "https://arx-libertatis.org/files/arx-libertatis-1.1.2.tar.xz"
   sha256 "82adb440a9c86673e74b84abd480cae968e1296d625b6d40c69ca35b35ed4e42"
 
+  bottle do
+    cellar :any
+    sha256 "c9501246f02d0a560b5c66206f11a77f2398806d1a195280b5efbdb057924891" => :el_capitan
+    sha256 "4ac17cd6760c07a2fc01902346fd96e25253b0ee6cf171e1ed0855c82d1604ee" => :yosemite
+    sha256 "8f1938381423b45d798c8a2665484b4f9a09b8070443b80986e935d07b0410af" => :mavericks
+  end
+
   option "without-innoextract", "Build without arx-install-data"
 
   depends_on "cmake" => :build
