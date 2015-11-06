@@ -4,6 +4,13 @@ class C10t < Formula
   url "https://github.com/udoprog/c10t/archive/1.7.tar.gz"
   sha256 "0e5779d517105bfdd14944c849a395e1a8670bedba5bdab281a0165c3eb077dc"
 
+  bottle do
+    cellar :any
+    sha256 "ee486643c14a847b7cc83549ab65049d4ce86dfa92caa31b985cd6751060d16c" => :el_capitan
+    sha256 "f92f8344c43c7c02351d1e4d6868949c31c97e6a71decac044a7d5b104a67329" => :yosemite
+    sha256 "77e6d3767099897ef8dab8587a73a19f460c158647cfc67fe82230ecf234c90e" => :mavericks
+  end
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "freetype"
