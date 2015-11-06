@@ -1,12 +1,11 @@
-require 'formula'
-
 class Dopewars < Formula
-  homepage 'http://dopewars.sourceforge.net'
-  url 'https://downloads.sourceforge.net/project/dopewars/dopewars/1.5.12/dopewars-1.5.12.tar.gz'
-  sha1 'ad46a38e225680e591b078eeec563d47b96684bc'
+  desc 'Free rewrite of a game originally based on "Drug Wars"'
+  homepage "http://dopewars.sourceforge.net"
+  url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.5.12/dopewars-1.5.12.tar.gz"
+  sha256 "23059dcdea96c6072b148ee21d76237ef3535e5be90b3b2d8239d150feee0c19"
 
-  depends_on 'pkg-config' => :build
-  depends_on 'glib'
+  depends_on "pkg-config" => :build
+  depends_on "glib"
 
   def install
     inreplace "src/Makefile.in", "$(dopewars_DEPENDENCIES)", ""
