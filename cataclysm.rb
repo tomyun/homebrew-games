@@ -1,8 +1,9 @@
 class Cataclysm < Formula
-  homepage 'http://www.cataclysmdda.com/'
-  url 'https://github.com/CleverRaven/Cataclysm-DDA/archive/0.C.tar.gz'
-  sha1 '37e317a75e7bf7e3425da86382551958d890e872'
-  version '0.C'
+  desc "Fork/variant of Cataclysm Roguelike"
+  homepage "https://github.com/CleverRaven/Cataclysm-DDA"
+  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.C.tar.gz"
+  version "0.C"
+  sha256 "69e947824626fffb505ca4ec44187ec94bba32c1e5957ba5c771b3445f958af6"
 
   head "https://github.com/CleverRaven/Cataclysm-DDA.git"
 
@@ -13,13 +14,13 @@ class Cataclysm < Formula
     sha256 "b65caa16de5a82ef49ce723e2d8e9be800ee88fc5f8f22ad7c349518054b0ced" => :mountain_lion
   end
 
+  option "with-tiles", "Enable tileset support"
+
   needs :cxx11
 
   depends_on "gettext"
   # needs `set_escdelay`, which isn't present in system ncurses before 10.6
   depends_on "homebrew/dupes/ncurses" if MacOS.version < :snow_leopard
-
-  option "with-tiles", "Enable tileset support"
 
   if build.with? "tiles"
     depends_on "sdl2"
@@ -32,7 +33,7 @@ class Cataclysm < Formula
 
     # cataclysm tries to #import <curses.h>, but Homebrew ncurses installs no
     # top-level headers
-    ENV.append_to_cflags "-I#{Formula['ncurses'].include}/ncursesw" if MacOS.version < :snow_leopard
+    ENV.append_to_cflags "-I#{Formula["ncurses"].include}/ncursesw" if MacOS.version < :snow_leopard
 
     args = %W[
       NATIVE=osx RELEASE=1
@@ -52,7 +53,7 @@ class Cataclysm < Formula
     end
 
     inreplace "cataclysm-launcher" do |s|
-      s.change_make_var! 'DIR', libexec
+      s.change_make_var! "DIR", libexec
     end
     bin.install "cataclysm-launcher" => "cataclysm"
   end
