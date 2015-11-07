@@ -8,6 +8,14 @@ class DwarfFortress < Formula
   depends_on :x11
 
   def install
+    # Dwarf Fortress uses freetype from X11, but hardcodes a path that
+    # isn't installed by modern XQuartz. Point it at wherever XQuartz
+    # happens to be on the user's system.
+    system "install_name_tool", "-change",
+                                "/usr/X11/lib/libfreetype.6.dylib",
+                                "#{MacOS::XQuartz.prefix}/lib/libfreetype.6.dylib",
+                                "libs/SDL_ttf.framework/SDL_ttf"
+
     (bin/"dwarffortress").write <<-EOS.undent
       #!/bin/sh
       exec #{libexec}/df
