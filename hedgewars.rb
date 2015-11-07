@@ -3,22 +3,18 @@ require "language/haskell"
 class Hedgewars < Formula
   include Language::Haskell::Cabal
 
-  desc "A turn based strategy/artillery/action and comedy game"
+  desc "Turn-based strategy/artillery/action and comedy game"
   homepage "http://www.hedgewars.org"
+  url "http://download.gna.org/hedgewars/hedgewars-src-0.9.22.tar.bz2"
+  sha256 "b699c8971ff420c3edd6533527ae2e99040f1e79207c9140826945bcf0e62192"
+  head "https://code.google.com/p/hedgewars/", :using => :hg
 
-  stable do
-    url "http://download.gna.org/hedgewars/hedgewars-src-0.9.22.tar.bz2"
-    sha256 "b699c8971ff420c3edd6533527ae2e99040f1e79207c9140826945bcf0e62192"
-  end
   bottle do
     cellar :any
     sha256 "610d40fdded988fe751f9fbae0ff88101b6bb3280ffa1887ed42988d607cdf1f" => :el_capitan
     sha256 "5747caf4e9d9fc043ef5293e8f4f738aa90f83b72a14113e5193bfcfdb3bf306" => :yosemite
     sha256 "9ab2e4f4c7bf03944110c77c3215d9349f047af408d97bf7be2c996162adf34b" => :mavericks
   end
-
-
-  head "https://code.google.com/p/hedgewars/", :using => :hg
 
   option "with-server", "Enable local LAN play"
   option "with-videorec", "Enable video recording"
