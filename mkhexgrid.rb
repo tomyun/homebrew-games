@@ -1,9 +1,8 @@
-require "formula"
-
 class Mkhexgrid < Formula
+  desc "Fully-configurable hex grid generator"
   homepage "http://www.nomic.net/~uckelman/mkhexgrid/"
   url "http://www.nomic.net/~uckelman/mkhexgrid/releases/mkhexgrid-0.1.1.src.tar.bz2"
-  sha1 "3b8e0be3636f90a3217a5e3556bdaf7bb0c49116"
+  sha256 "122609261cc91c2063ab5315d4316a27c9a0ab164f663a6cb781dd87310be3dc"
 
   depends_on "boost"
   depends_on "gd"
@@ -25,9 +24,9 @@ class Mkhexgrid < Formula
   test do
     # test the example from the man page (but without inches)
     system "mkhexgrid", "--output=ps", "--image-width=2448",
-    "--image-height=1584", "--hex-side=36", "--coord-bearing=0",
-    "--coord-dist=22", "--coord-size=8", "--grid-thickness=1",
-    "--coord-font=Helvetica", "--grid-grain=h", "--grid-start=o",
-    "--coord-tilt=-90", "--centered", "-o", "test.ps"
+      "--image-height=1584", "--hex-side=36", "--coord-bearing=0",
+      "--coord-dist=22", "--coord-size=8", "--grid-thickness=1",
+      "--coord-font=Helvetica", "--grid-grain=h", "--grid-start=o",
+      "--coord-tilt=-90", "--centered", "-o", "test.ps"
   end
 end
