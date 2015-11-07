@@ -13,6 +13,12 @@ class Inform6 < Formula
       sha256 "bd470d6d254002dd13bbbec8018afee24f4a2ebc1444c0b786262a847ed55a52"
     end
   end
+  bottle do
+    sha256 "cb34e6f295f88c06963dda66a16898168176ac81c04a6066bc3b8f844d68589f" => :el_capitan
+    sha256 "b67089656bd67b7e2abcaf62c25077c09fd9ce8575978d8e79434bd5a5d99b7d" => :yosemite
+    sha256 "8426fbe1af57b5e7f8f26328335e56af3ad13814cece9d6697c60597d6caa9f8" => :mavericks
+  end
+
 
   devel do
     url "http://ifarchive.flavorplex.com/if-archive/infocom/compilers/inform6/source/inform-6.33.1-b2.tar.gz"
