@@ -1,10 +1,8 @@
-require 'formula'
-
 class Rogue < Formula
-  url 'http://rogue.rogueforge.net/files/rogue5.4/rogue5.4.4-src.tar.gz'
-  homepage 'http://rogue.rogueforge.net/'
-  version '5.4.4'
-  sha1 'aef9e589c4f31eb6d3eeb9d543ab8787b00fb022'
+  homepage "http://rogue.rogueforge.net/"
+  url "http://rogue.rogueforge.net/files/rogue5.4/rogue5.4.4-src.tar.gz"
+  version "5.4.4"
+  sha256 "7d37a61fc098bda0e6fac30799da347294067e8e079e4b40d6c781468e08e8a1"
 
   def install
     ENV.ncurses_define if MacOS.version >= :snow_leopard
@@ -20,9 +18,13 @@ class Rogue < Formula
       s.gsub! "-if test ! -d $(man6dir) ; then $(INSTALL) -m 0644 rogue.6 $(DESTDIR)$(mandir)/$(PROGRAM).6 ; fi", ""
     end
 
-    system "make install"
+    system "make", "install"
     man6.install gzip("rogue.6")
-    libexec.mkdir
-    mkdir_p var/"rogue"
+    libexec.mkpath
+    (var/"rogue").mkpath
+  end
+
+  test do
+    system "#{bin}/rogue", "-s"
   end
 end
