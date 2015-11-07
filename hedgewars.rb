@@ -12,9 +12,9 @@ class Hedgewars < Formula
   end
   bottle do
     cellar :any
-    sha256 "ecfa4fdcf61d7092808eaa3ea9d55548d2bdb3d3c92d16f429d009a66477b720" => :yosemite
-    sha256 "e26fe494b20c8bbaf4b7ddc938e22c5be21a938411cce30f4fd822bd355d4c06" => :mavericks
-    sha256 "cc3962dcfaf925f88568ae2bb76b7ad19462814409a8c0b67d45521997519faa" => :mountain_lion
+    sha256 "610d40fdded988fe751f9fbae0ff88101b6bb3280ffa1887ed42988d607cdf1f" => :el_capitan
+    sha256 "5747caf4e9d9fc043ef5293e8f4f738aa90f83b72a14113e5193bfcfdb3bf306" => :yosemite
+    sha256 "9ab2e4f4c7bf03944110c77c3215d9349f047af408d97bf7be2c996162adf34b" => :mavericks
   end
 
 
