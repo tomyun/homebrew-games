@@ -1,7 +1,8 @@
 class Mapcrafter < Formula
+  desc "Minecraft map renderer"
   homepage "http://mapcrafter.org"
   url "https://github.com/mapcrafter/mapcrafter/archive/v.1.5.4.tar.gz"
-  sha1 "ffe7d17a57099506b572bb6866ea76c8ad5f0564"
+  sha256 "3701de840e565e347c6f2487dfa29722f801a0ca83d17e1b8cf0c3584f9d7511"
 
   bottle do
     cellar :any
@@ -34,7 +35,7 @@ class Mapcrafter < Formula
   end
 
   test do
-    output = shell_output("#{bin}/mapcrafter --version")
-    assert output.include?("Mapcrafter")
+    assert_match(/Mapcrafter/,
+      shell_output("#{bin}/mapcrafter --version"))
   end
 end
