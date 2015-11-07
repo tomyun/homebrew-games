@@ -1,15 +1,15 @@
-require 'formula'
-require 'etc'
+require "etc"
 
 class Slashem < Formula
-  homepage 'http://slashem.sourceforge.net'
-  url 'https://downloads.sourceforge.net/project/slashem/slashem-source/0.0.8E0F1/se008e0f1.tar.gz'
-  sha1 'eec6615f8ed04691a996ef62a7305f6812e6ae26'
+  desc "Fork/variant of Nethack"
+  homepage "http://slashem.sourceforge.net"
+  url "https://downloads.sourceforge.net/project/slashem/slashem-source/0.0.8E0F1/se008e0f1.tar.gz"
   version "0.0.8E0F1"
+  sha256 "e9bd3672c866acc5a0d75e245c190c689956319f192cb5d23ea924dd77e426c3"
 
-  skip_clean 'slashemdir/save'
+  skip_clean "slashemdir/save"
 
-  depends_on 'pkg-config' => :build
+  depends_on "pkg-config" => :build
 
   # Fixes compilation error in OS X:
   # http://sourceforge.net/tracker/index.php?func=detail&aid=1644971&group_id=9746&atid=109746
@@ -19,21 +19,21 @@ class Slashem < Formula
   # Fixed upstream: http://slashem.cvs.sourceforge.net/viewvc/slashem/slashem/configure?r1=1.13&r2=1.14&view=patch
   patch :p0 do
     url "https://gist.githubusercontent.com/mistydemeo/76dd291c77a509216418/raw/65a41804b7d7e1ae6ab6030bde88f7d969c955c3/slashem-configure.patch"
-    sha1 "b05bab5b2f93ca598d9c9c0ad935374a150c4e9d"
+    sha256 "c91ac045f942d2ee1ac6af381f91327e03ee0650a547bbe913a3bf35fbd18665"
   end
 
   def install
     ENV.j1
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-mandir=#{man}",
                           "--with-group=admin",
                           "--with-owner=#{Etc.getpwuid.name}",
                           "--enable-wizmode=#{Etc.getpwuid.name}"
-    system "make install"
+    system "make", "install"
 
-    man6.install 'doc/slashem.6'
-    man6.install 'doc/recover.6'
+    man6.install "doc/slashem.6", "doc/recover.6"
   end
 end
 
