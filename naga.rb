@@ -15,4 +15,8 @@ class Naga < Formula
     bin.mkpath
     system "make", "install", "INSTALL_PATH=#{bin}/naga"
   end
+
+  test do
+    File.exist? "#{bin}/naga"
+  end
 end
