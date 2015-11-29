@@ -1,8 +1,8 @@
 class Stella < Formula
   desc "Atari 2600 VCS emulator"
   homepage "http://stella.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/stella/stella/4.6.5/stella-4.6.5-src.tar.gz"
-  sha256 "7936a2755d029162df3ad45467d6fe4d026361c4ac51354102fa77953472e4e9"
+  url "https://downloads.sourceforge.net/project/stella/stella/4.6.7/stella-4.6.7-src.tar.gz"
+  sha256 "486e0d1abe30c76216132b042253e2ea12e4039067139603dfde800796f0e650"
   head "http://svn.code.sf.net/p/stella/code/trunk"
 
   bottle do
@@ -19,8 +19,8 @@ class Stella < Formula
   def install
     cd "src/macosx" do
       inreplace "stella.xcodeproj/project.pbxproj" do |s|
-        s.gsub! /(\w{24} \/\* SDL2\.framework)/, '//\1'
-        s.gsub! /(\w{24} \/\* png)/, '//\1'
+        s.gsub! %r{(\w{24} \/\* SDL2\.framework)}, '//\1'
+        s.gsub! %r{(\w{24} \/\* png)}, '//\1'
         s.gsub! /(HEADER_SEARCH_PATHS) = \(/, "\\1 = (#{Formula["sdl2"].include}/SDL2, #{Formula["libpng"].include},"
         s.gsub! /(LIBRARY_SEARCH_PATHS) = \.;/, "\\1 = (#{Formula["sdl2"].lib}, #{Formula["libpng"].lib}, .);"
         s.gsub! /(OTHER_LDFLAGS) = "((-\w+)*)"/, '\1 = "-lSDL2 -lpng \2"'
