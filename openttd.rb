@@ -1,8 +1,8 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://binaries.openttd.org/releases/1.5.1/openttd-1.5.1-source.tar.xz"
-  sha256 "c98e76e57de213c8d2ccafa4fa2e02b91c031b2487639ccf9b85c725c1428f49"
+  url "https://binaries.openttd.org/releases/1.5.3/openttd-1.5.3-source.tar.xz"
+  sha256 "d8b9a7aaca7c9f3ff69b1d210daf1e2658402941bb9b30cb2789a9df73d1ba63"
 
   head "git://git.openttd.org/openttd/trunk.git"
 
@@ -38,6 +38,14 @@ class Openttd < Formula
     sha256 "95c3d54a109c93dc88a693ab3bcc031ced5d936993f3447b875baa50d4e87dac"
   end
 
+  # Fixes for 10.11
+  # https://bugs.openttd.org/task/6380
+  patch :DATA, :p1
+  patch :p0 do
+    url "https://bugs.openttd.org/task/6380/getfile/10390/patch-src__video__cocoa__wnd_quartz.mm-avoid-removed-cmgetsystemprofile.diff"
+    sha256 "2cf010eb69df588134aceda0eba62cc21e221b6f2dfb7d836869b6edf4bdc093"
+  end
+
   def install
     system "./configure", "--prefix-dir=#{prefix}"
     system "make", "bundle"
@@ -61,3 +69,18 @@ class Openttd < Formula
     File.executable? prefix/"OpenTTD.app/Contents/MacOS/openttd"
   end
 end
+
+__END__
+diff --git a/src/music/cocoa_m.cpp b/src/music/cocoa_m.cpp
+index b0cb879..8818893 100644
+--- a/src/music/cocoa_m.cpp
++++ b/src/music/cocoa_m.cpp
+@@ -68,7 +68,7 @@ static void DoSetVolume()
+			 * risk compilation errors. The header AudioComponent.h
+			 * was introduced in 10.6 so use it to decide which
+			 * type definition to use. */
+-#ifdef __AUDIOCOMPONENT_H__
++#if defined(AUDIO_UNIT_VERSION) && (AUDIO_UNIT_VERSION >= 1060)
+			AudioComponentDescription desc;
+ #else
+			ComponentDescription desc;
