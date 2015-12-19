@@ -1,8 +1,8 @@
 class StoneSoup < Formula
   desc "Dungeon Crawl Stone Soup: a roguelike game"
   homepage "https://crawl.develz.org/"
-  url "https://crawl.develz.org/release/stone_soup-0.17.0.tar.xz"
-  sha256 "1004d783d55642d36d0365d214babe70108c6cb2217ebea303d6670a8600446b"
+  url "https://crawl.develz.org/release/stone_soup-0.17.1.tar.xz"
+  sha256 "b380f22670a09aab2e433098e2f6bde3a0e15e6b043c711866fb0973f8f3c5a4"
 
   bottle do
     sha256 "49b12bf23316218c1d085eee02ce7b85e2065f8eeb43b7bf108bfff24844328e" => :el_capitan
