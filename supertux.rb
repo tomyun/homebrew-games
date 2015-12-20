@@ -5,9 +5,10 @@ class Supertux < Formula
   sha256 "d18dde3c415e619b4bb035e694ffc384be16576250c9df16929d9ec38daff782"
 
   bottle do
-    sha256 "5dce574690fa4f983731166849a339a6afbce201bd4abef609ea986297e2b495" => :el_capitan
-    sha256 "bb4a521d8d992934a68fe6227091f42e100546b20499ec12aba65edf6d2cd962" => :yosemite
-    sha256 "f3fde4a559bd5d3edbd9af221f89322f2d3a83c67ef998dcabc0aea42ab9fe83" => :mavericks
+    cellar :any
+    sha256 "e0c4508852c7f695277c568db22aa515b0c86e957126ff3df816b84f9763ff7c" => :el_capitan
+    sha256 "009318506dfbfbc1e0b5ae77c5e83ddb49175a4b95d1f9863e7b1a047b3c9fa8" => :yosemite
+    sha256 "2eedad9175fdb8d2f4803bcf9e8482b1e73288d946605f06a24990875f596b8b" => :mavericks
   end
 
   depends_on "cmake" => :build
