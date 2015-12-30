@@ -5,6 +5,12 @@ class Mgba < Formula
   sha256 "119fae887df51b28adc807ffe264dfc0f4d872fdd75f60eb2855bd2662fd0b64"
   head "https://github.com/mgba-emu/mgba.git"
 
+  bottle do
+    sha256 "18a2c503009274918388d91eff2a3fd17b92278474a0c44f01c7629e65b58d36" => :el_capitan
+    sha256 "23b99aa31be27eb98bb08e89d4cb313ef0a3fbc6420d6168f919dbf120ef9fe6" => :yosemite
+    sha256 "bd420d2c6993ebe5f20221d8a728da35072d98236c3eb3abf01c2536536152c9" => :mavericks
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "ffmpeg" => :recommended
