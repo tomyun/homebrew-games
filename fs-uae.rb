@@ -3,8 +3,8 @@ class FsUae < Formula
   homepage "http://fs-uae.net/"
 
   stable do
-    url "http://fs-uae.net/fs-uae/stable/2.6.1/fs-uae-2.6.1.tar.gz"
-    sha256 "e5506f18017449fcc1e63e1186720c10beeff0fac44fb53cb08c4fb3bca74ba7"
+    url "http://fs-uae.net/fs-uae/stable/2.6.2/fs-uae-2.6.2.tar.gz"
+    sha256 "31328e8da0d31d85ce5ce46830698b83c0ce04dfe6b0f5df6fd3529dba3c0dd4"
   end
 
   bottle do
@@ -15,9 +15,9 @@ class FsUae < Formula
   end
 
   devel do
-    url "http://fs-uae.net/fs-uae/devel/2.7.1dev/fs-uae-2.7.1dev.tar.gz"
-    version "2.7.1dev"
-    sha256 "8239fcdff87437961e2de3b935eb7e787657bf440f4e4cec0838c598fa7083cd"
+    url "http://fs-uae.net/fs-uae/devel/2.7.6dev/fs-uae-2.7.6dev.tar.gz"
+    version "2.7.6dev"
+    sha256 "2a8c9d010e739f4e42c11557b86bf0b30ee3ee9f2bf2289d70799e20ea2be630"
   end
 
   head do
@@ -30,10 +30,12 @@ class FsUae < Formula
   depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "libpng"
+  depends_on "libmpeg2"
   depends_on "glib"
   depends_on "gettext"
   depends_on "freetype"
   depends_on "glew"
+  depends_on "openal-soft" if MacOS.version <= :mavericks
 
   def install
     system "./bootstrap" if build.head?
