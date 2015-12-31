@@ -7,9 +7,9 @@ class Solarus < Formula
 
   bottle do
     cellar :any
-    sha256 "20cb99b7e755776e5d41f9c3a8fe32e421a22d47037d9866bcefab97bcc1a914" => :el_capitan
-    sha256 "7748d677b23fc236c8fd48e56ef041f13ce18a82144ab581452718d0420784a0" => :yosemite
-    sha256 "d883c70103feba9416b2493929bdbc4e323102b63f600fe84a86234a06bb4805" => :mavericks
+    sha256 "b85242759dfcbefe43a0daa9b70cd781cc53e4763e3f14efec903d5df1d8734d" => :el_capitan
+    sha256 "7756d1ea97ee4967085209d2ddd02159a542400f992aab3a026e7f73d9cab61e" => :yosemite
+    sha256 "872f69a071cf26254a5ce3fb0214ca23be983bda097a1daf65cc0d60529fbfed" => :mavericks
   end
 
   depends_on "cmake" => :build
