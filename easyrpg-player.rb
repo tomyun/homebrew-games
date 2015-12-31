@@ -7,9 +7,9 @@ class EasyrpgPlayer < Formula
 
   bottle do
     cellar :any
-    sha256 "d593abf3cd8e51ff7c5543760b5bfa3a6abd399d5a45bde846a19314ac01048b" => :el_capitan
-    sha256 "ff258675a7533b022b90cb662cee3e12da3cd4007f62d18ee4e3486798988675" => :yosemite
-    sha256 "631284d8f58da6c0b93e2ea6d35152f19bffbda711ba015145e9be81b4c5e23e" => :mavericks
+    sha256 "4e1171a4476ae9f794ba527bbd7b8fc33c65b32af2e44dda5148e1beb0c750a1" => :el_capitan
+    sha256 "2b5f3050949289bb24efcc878c27c2e691e3e14e88cb501a8ad237f9a741ddfd" => :yosemite
+    sha256 "44f3488b66b12ef5243c17465fd6e995d0d277443d4c066e6ba41be6923da047" => :mavericks
   end
 
   depends_on "autoconf" => :build
