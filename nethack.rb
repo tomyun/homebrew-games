@@ -7,6 +7,12 @@ class Nethack < Formula
   version "3.6.0"
   sha256 "1ade698d8458b8d87a4721444cb73f178c74ed1b6fde537c12000f8edf2cb18a"
 
+  bottle do
+    sha256 "084d5b20224c58b8564ddd42e689c4774be6ae25e59e22b5d48e2857bd14c57b" => :el_capitan
+    sha256 "866bd31a499ed58a1ae9cf2606e861bbde2a8077a9562c18499e913eb3251d6f" => :yosemite
+    sha256 "73ba72cfac3baf22f57532a0811e13ceab204022634bb730e34a7c9803352d04" => :mavericks
+  end
+
   # Don't remove save folder
   skip_clean "libexec/save"
 
