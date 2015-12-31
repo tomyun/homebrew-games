@@ -5,6 +5,13 @@ class Pc6001vx < Formula
   sha256 "09c689975b95b48687efc5124c9decb4c64e4cbc9566f9b476b0b81b346f206c"
   head "https://github.com/eighttails/PC6001VX.git"
 
+  bottle do
+    cellar :any
+    sha256 "6f545abd902bcc35f5f794bf8419a0f718f093aa67ad88c70cf8d9dba9a0e864" => :el_capitan
+    sha256 "460fe81d428cd317a12524d4759ed682b08f02a47a6b30bdee1ea6b710f1e091" => :yosemite
+    sha256 "56744dfacc45b7a85cb0515f6760ff1b2260a213aaf27577bafd3f9d27e2724c" => :mavericks
+  end
+
   depends_on "qt5"
   depends_on "sdl2"
   depends_on "ffmpeg"
