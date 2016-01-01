@@ -3,6 +3,13 @@ class Pytouhou < Formula
   homepage "http://pytouhou.linkmauve.fr/"
   url "http://hg.linkmauve.fr/touhou", :revision => "5270c34b4c00", :using => :hg
   version "634"
+  bottle do
+    cellar :any
+    sha256 "fc1abc1c09ddeda141d9e6abdf8c47b92a940a5d4428bfd5805b2f18228dd010" => :el_capitan
+    sha256 "a047cc7ebd5ca9c9f5b56bdf66e17dd0fd0accd10e09ce4ffa73a652e7cecedd" => :yosemite
+    sha256 "583472b341316760c1dea2336d052c5d0596db493c08652e8c5f42b5a97b732a" => :mavericks
+  end
+
   head "http://hg.linkmauve.fr/touhou", :using => :hg
 
   option "with-demo", "Install demo version of Touhou 6"
