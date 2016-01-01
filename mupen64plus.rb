@@ -6,9 +6,10 @@ class Mupen64plus < Formula
 
   bottle do
     cellar :any
-    sha256 "fcc0f6c7b4b125d5d00eaf22870aaa1315900913007703baab07848e71fd7b36" => :yosemite
-    sha256 "a2535a29684c1cc94f16fac22ad209490b9b8319f7bfa189c81d716ee206e51a" => :mavericks
-    sha256 "722bdaeb709fa4e4e2defae1f5f92ce15c9c19a2ed1e01e182c5c165936d69a3" => :mountain_lion
+    revision 1
+    sha256 "4cd138b1288a6bed93507b5cabac1ece7da4e4f14bc16710258ad3d7a4add7c6" => :el_capitan
+    sha256 "67d1d0c84f96191f88b3cf7bde4da1c0c801dec0534c962b2c550660e00c707d" => :yosemite
+    sha256 "f99cc7177a1e5e9cffaa3bd03826237f0fdfc02acbeddf2f1c165251b181208a" => :mavericks
   end
 
   option "without-osd", "Disables the On Screen Display"
