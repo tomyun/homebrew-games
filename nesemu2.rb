@@ -5,6 +5,13 @@ class Nesemu2 < Formula
   version "0.6.1+20140930"
   head "https://github.com/holodnak/nesemu2.git"
 
+  bottle do
+    cellar :any
+    sha256 "c2096564a3a460a3a76d6a982f7c8a46c0ee776696dc7882a3c1d0069f68f5e6" => :el_capitan
+    sha256 "47b2366f4edcf4be2a4d0adf3745274195d920b560778c43d3bec3c2ef434e23" => :yosemite
+    sha256 "a6a6fb240a1a4d4ae660f35d5cb8253f35ea58e428048760f9882f1e0ab66dd1" => :mavericks
+  end
+
   depends_on "wla-dx" => :build
   depends_on "sdl"
 
