@@ -7,9 +7,9 @@ class Fceux < Formula
 
   bottle do
     cellar :any
-    sha256 "5a2fc373529149ab867256b5b8ba6e00520ff2d2e54b88a5c8ddeacb12f1644b" => :yosemite
-    sha256 "9348e088694ad88dff6a013b04e62acb9ab4290898c038b8317e792de46e4d0f" => :mavericks
-    sha256 "853048f6c9cc2021dd600c9d6e928a915bd21313775f2f824e5400ea59cc321e" => :mountain_lion
+    sha256 "56512e7e3f4f874b330928f5a0ba9e30e71c9779772f342df348712e821cf583" => :el_capitan
+    sha256 "a4d73c5f9ea1e74c74a3c4d25d3b2ee50f2724e1484a164cbf68636b740bb2cc" => :yosemite
+    sha256 "d0bc3e23c70b73ee69ef17e5ceff417fa2d712998630711a66fd95e8df6e15ae" => :mavericks
   end
 
   deprecated_option "no-gtk" => "without-gtk+3"
