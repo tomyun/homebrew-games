@@ -8,6 +8,12 @@ class LincityNg < Formula
     sha256 "e05a2c1e1d682fbf289caecd0ea46ca84b0db9de43c7f1b5add08f0fdbf1456b"
   end
 
+  bottle do
+    sha256 "2ca12358600a0f519c6f0533d168b681846906c4bde8da58a01901a3dc814add" => :el_capitan
+    sha256 "32b7470801b2450cdb8c4341d99b249bf5a84d7953517e65f43fbc8b10394f5e" => :yosemite
+    sha256 "342b641c542d30f0d0a290bd2f8de3a37a884241b61b4e7ecea49b563ce25037" => :mavericks
+  end
+
   devel do
     url "https://downloads.sourceforge.net/project/lincity-ng.berlios/lincity-ng-2.9.beta.tar.bz2"
     version "2.9.beta"
