@@ -3,6 +3,7 @@ class Openttd < Formula
   homepage "https://www.openttd.org/"
   url "https://binaries.openttd.org/releases/1.5.3/openttd-1.5.3-source.tar.xz"
   sha256 "d8b9a7aaca7c9f3ff69b1d210daf1e2658402941bb9b30cb2789a9df73d1ba63"
+  revision 1
 
   head "git://git.openttd.org/openttd/trunk.git"
 
@@ -17,8 +18,8 @@ class Openttd < Formula
   depends_on "pkg-config" => :build
 
   resource "opengfx" do
-    url "https://bundles.openttdcoop.org/opengfx/releases/0.5.2/opengfx-0.5.2.zip"
-    sha256 "19be61f1cb04cbb3cb9602f0b8eb6e6f56ecbefbfdd6e0e03f9579e5a5c1cbc8"
+    url "https://bundles.openttdcoop.org/opengfx/releases/0.5.3/opengfx-0.5.3.zip"
+    sha256 "f744e3bafc27ee03703554128f8dd6d187858af486b0dcfe9570832028073220"
   end
 
   resource "opensfx" do
