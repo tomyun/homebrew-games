@@ -1,6 +1,13 @@
 class Brogue < Formula
   desc "Roguelike game"
   homepage "https://sites.google.com/site/broguegame/"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "f5c2b2946ecd5c601b424b3f05181a6716707063de42ab7a27bac1a8c07bc290" => :el_capitan
+    sha256 "94ed4b691fdaa5dc7de98421b7ebb66fe8ea9d43c427aaa37fba5fc89f287feb" => :yosemite
+    sha256 "6263ae6a78f59f4a95690c35075b7f3156cddb53063f2c2564024ebc78c0bab2" => :mavericks
+  end
+
   # The OS X version doesn't contain a Makefile, so we
   # need to download the Linux version
   url "https://sites.google.com/site/broguegame/brogue-1.7.4-linux-amd64.tbz2"
