@@ -11,6 +11,8 @@ class Ckan < Formula
   version "1.16.0"
   sha256 "15c0c4a2fe876a560a53d0c706e0398bbc0e8058c355d7fa31e12c66acad4ca0"
 
+  bottle :unneeded
+
   depends_on MonoRequirement
 
   def install
