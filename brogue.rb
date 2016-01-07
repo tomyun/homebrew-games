@@ -23,7 +23,7 @@ class Brogue < Formula
     # and the provided `brogue` shell script,
     # which is just a convenient way to launch the game,
     # is placed in the `bin` directory.
-    inreplace "brogue", /`dirname \$0`\/bin$/, libexec
+    inreplace "brogue", %r{`dirname \$0`/bin$}, libexec
     bin.install "brogue"
     libexec.install "bin/brogue", "bin/keymap"
   end
