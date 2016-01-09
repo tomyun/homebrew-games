@@ -36,7 +36,7 @@ class Cataclysm < Formula
     ENV.append_to_cflags "-I#{Formula["ncurses"].include}/ncursesw" if MacOS.version < :snow_leopard
 
     args = %W[
-      NATIVE=osx RELEASE=1
+      NATIVE=osx RELEASE=1 OSX_MIN=#{MacOS.version}
       CXX=#{ENV.cxx} LD=#{ENV.cxx} CXXFLAGS=#{[ENV.cxxflags, ENV.cppflags].join(" ")}
     ]
 
