@@ -15,6 +15,7 @@ class StoneSoup < Formula
   depends_on "pkg-config" => :build
   depends_on "lua51"
   depends_on "pcre"
+  depends_on "sqlite" if MacOS.version < :snow_leopard
 
   if build.with? "tiles"
     depends_on "sdl2"
