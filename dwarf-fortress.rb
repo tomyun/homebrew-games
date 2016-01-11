@@ -5,6 +5,7 @@ class DwarfFortress < Formula
   version "0.42.02"
   sha256 "563f242af8403d7a100111ea924d26313a41287ea6c9a1b3cc29b1975934766e"
 
+  depends_on :arch => :intel
   depends_on :x11
 
   def install
