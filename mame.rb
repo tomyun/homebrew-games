@@ -20,6 +20,13 @@ class Mame < Formula
   depends_on "sqlite"
   depends_on "portmidi"
 
+  # Needs GCC 4.9 or newer
+  fails_with :gcc_4_0
+  fails_with :gcc
+  ("4.3".."4.8").each do |n|
+    fails_with :gcc => n
+  end
+
   def install
     inreplace "scripts/src/main.lua", /(targetsuffix) "\w+"/, '\1 ""'
     system "make", "PTR64=#{MacOS.prefer_64_bit? ? 1 : 0}", # for old Macs
