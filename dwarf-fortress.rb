@@ -28,7 +28,6 @@ class DwarfFortress < Formula
       #!/bin/sh
       exec #{libexec}/df
     EOS
-    rm_rf "sdl" # only contains a readme
     libexec.install Dir["*"]
   end
 
