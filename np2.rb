@@ -6,9 +6,9 @@ class Np2 < Formula
 
   bottle do
     cellar :any
-    sha256 "79a012d83dfbeda5cc093e2556c93d6492acc5aebbf97da7119009ff024e4513" => :yosemite
-    sha256 "07dd43fc72d3268d451861f44d05bd4786dda23e3bd81054aa54231afbd93017" => :mavericks
-    sha256 "c45a27bbb88896776406f03b6d83192fa8c567f8506358b36e562ab0c0dfc8d9" => :mountain_lion
+    sha256 "85c39c15387e6b5dabd7c72ab9228cb14d24fa43d5336ed77b96400f50a04cff" => :el_capitan
+    sha256 "34a7f3ade2995062e35f2ed08a6c4bc49af1e46c36865a6c279a4c5a5044b2ba" => :yosemite
+    sha256 "6bafaf81c147591598249b1a8a1829614d2b436fcd07a5d8019e958f51d0d9a5" => :mavericks
   end
 
   depends_on :xcode => :build
