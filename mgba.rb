@@ -1,8 +1,8 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "http://mgba.io/"
-  url "https://github.com/mgba-emu/mgba/archive/0.3.2.tar.gz"
-  sha256 "119fae887df51b28adc807ffe264dfc0f4d872fdd75f60eb2855bd2662fd0b64"
+  url "https://github.com/mgba-emu/mgba/archive/0.4.0.tar.gz"
+  sha256 "bec8cb17b366ed9a61ea41efe830716215dc8fa08706fc8cdebadfff723c0448"
   head "https://github.com/mgba-emu/mgba.git"
 
   bottle do
@@ -15,6 +15,7 @@ class Mgba < Formula
   depends_on "pkg-config" => :build
   depends_on "ffmpeg" => :recommended
   depends_on "imagemagick" => :recommended
+  depends_on "libepoxy" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libzip" => :recommended
   depends_on "qt5" => :recommended
