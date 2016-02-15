@@ -1,8 +1,8 @@
 class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "http://ppsspp.org/"
-  url "https://github.com/hrydgard/ppsspp.git", :tag => "v1.1.1",
-                                                :revision => "91e576449fd538e9a0885128b8156a32ad939222"
+  url "https://github.com/hrydgard/ppsspp.git", :tag => "v1.2",
+                                                :revision => "951c79f6c3d0fc2122c7f995255aec345ae9ddf0"
   head "https://github.com/hrydgard/ppsspp.git"
 
   bottle do
@@ -15,6 +15,7 @@ class Ppsspp < Formula
   depends_on "cmake" => :build
   depends_on "sdl2"
   depends_on "glew"
+  depends_on "libzip"
   depends_on "snappy"
   depends_on "ffmpeg"
 
@@ -23,11 +24,15 @@ class Ppsspp < Formula
     # Use brewed FFmpeg rather than precompiled binaries in the repo
     args << "-DUSE_SYSTEM_FFMPEG=ON"
 
+    # fix missing include for zipconf.h
+    ENV.append_to_cflags "-I#{Formula["libzip"].opt_prefix}/lib/libzip/include"
+
     mkdir "build" do
       system "cmake", "..", *args
       system "make"
       prefix.install "PPSSPPSDL.app"
       bin.write_exec_script "#{prefix}/PPSSPPSDL.app/Contents/MacOS/PPSSPPSDL"
+      mv "#{bin}/PPSSPPSDL", "#{bin}/ppsspp"
     end
   end
 end
