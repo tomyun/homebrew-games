@@ -11,9 +11,10 @@ class Hedgewars < Formula
 
   bottle do
     cellar :any
-    sha256 "610d40fdded988fe751f9fbae0ff88101b6bb3280ffa1887ed42988d607cdf1f" => :el_capitan
-    sha256 "5747caf4e9d9fc043ef5293e8f4f738aa90f83b72a14113e5193bfcfdb3bf306" => :yosemite
-    sha256 "9ab2e4f4c7bf03944110c77c3215d9349f047af408d97bf7be2c996162adf34b" => :mavericks
+    revision 1
+    sha256 "f22a0bc05f83ee16155ba3a6a46ad543afefefde39397b069e887eeea22703c6" => :el_capitan
+    sha256 "f13e497b31f9d0e02f6ea3f1da2c3b84c6f7b4f5cc1f7e26bb6cc4e085819cec" => :yosemite
+    sha256 "32086ae22b80ee9bc661444628741df41c47a326ad17104978e991da8b1cfa73" => :mavericks
   end
 
   option "with-server", "Enable local LAN play"
