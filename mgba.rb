@@ -7,9 +7,9 @@ class Mgba < Formula
   head "https://github.com/mgba-emu/mgba.git"
 
   bottle do
-    sha256 "2c60b70aac4267813917474566694d1bdd26c88759ee9d2ea068f15653e9c646" => :el_capitan
-    sha256 "9a11d65e9cda5b48a19f4c9b7d76f12a2a19885b496dc43c29aef2432e308f31" => :yosemite
-    sha256 "a64b2b2563581863a007682dff44469a294ecd33e2a40371059746db62ad0a11" => :mavericks
+    sha256 "78bac667af943aaf92d165c38d0b1c68ab9b69187f25c0d6744f739305cb6292" => :el_capitan
+    sha256 "39c35238489f2f510f6370a59643b975bed7d7c91e24333b27e79d35cd00442e" => :yosemite
+    sha256 "26a3c1328cf06e2c158bc9d585e2d4ec0e4397db1e8b57161a8c79d840265262" => :mavericks
   end
 
   depends_on "cmake" => :build
