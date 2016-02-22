@@ -3,6 +3,7 @@ class Pc6001vx < Formula
   homepage "http://eighttails.seesaa.net/"
   url "http://eighttails.up.seesaa.net/bin/PC6001VX_2.11_src.tar.gz"
   sha256 "09c689975b95b48687efc5124c9decb4c64e4cbc9566f9b476b0b81b346f206c"
+  revision 1
   head "https://github.com/eighttails/PC6001VX.git"
 
   bottle do
