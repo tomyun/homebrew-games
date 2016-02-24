@@ -4,6 +4,12 @@ class Dungeon < Formula
   url "https://github.com/GOFAI/dungeon/archive/4.0.tar.gz"
   sha256 "be2217be9e23861f22c14c4395da272fca5fb08a1741f52fd393792908279bea"
 
+  bottle do
+    sha256 "110f44d3092cf19c39d7cff3b04f8e35fb5632947946c8220f2be09252aaac93" => :el_capitan
+    sha256 "069328a426945492aaa3be86a6d350f03492444e312af6added4b0290e33bdea" => :yosemite
+    sha256 "afbec28e7b16494c771182195fda4b38855d97adebb0d4f7f8c2c965fdeb918c" => :mavericks
+  end
+
   depends_on :fortran
 
   def install
