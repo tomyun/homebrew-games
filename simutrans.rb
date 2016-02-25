@@ -6,6 +6,13 @@ class Simutrans < Formula
   sha256 "2d29b849fc39d25a0580091e1377270bddb2cae36c0fc32bd7c2d0f1d7ccfb84"
   head "https://github.com/aburch/simutrans.git"
 
+  bottle do
+    cellar :any
+    sha256 "3ec72849c7370772e47897a09fe0dd704ab2c0cc2800b1599c18cac9c0a8a073" => :el_capitan
+    sha256 "00e6e8a41c72ae7c9e0cec181238936e56aac1dfd4d3fa232a39604eb59ec79d" => :yosemite
+    sha256 "db0ed05ffea3b6d5abdf73d2576cdea74827cd8af7e0f4de128afff30c1a8c27" => :mavericks
+  end
+
   option "with-makeobj", "Build makeobj tool"
 
   depends_on "libpng" if build.with? "makeobj"
