@@ -1,9 +1,9 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0169.tar.gz"
-  version "0.169"
-  sha256 "3c71d44260899ee01a1f85bd173d57edcc98f2973f8f068e038e30ad4d1ba5dc"
+  url "https://github.com/mamedev/mame/archive/mame0171.tar.gz"
+  version "0.171"
+  sha256 "e543316e238b02ae80f8de6e1da3eaaac3754bc8370deb7c31a4bc73121763c5"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -14,6 +14,7 @@ class RomTools < Formula
   end
 
   depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "flac"
   depends_on "sqlite"
@@ -21,9 +22,10 @@ class RomTools < Formula
 
   def install
     inreplace "scripts/src/main.lua", /(targetsuffix) "\w+"/, '\1 ""'
+    inreplace "scripts/src/osd/sdl.lua", "--static", ""
     system "make", "TARGET=ldplayer", "TOOLS=1",
                    "PTR64=#{MacOS.prefer_64_bit? ? 1 : 0}", # for old Macs
-                   "MACOSX_USE_LIBSDL=1",
+                   "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_PORTMIDI=1"
@@ -53,7 +55,7 @@ class RomTools < Formula
     system "#{bin}/romcmp"
     system "#{bin}/rom-split"
     # system "#{bin}/src2html"
-    # system "#{bin}/srcclean"
+    system "#{bin}/srcclean"
     # system "#{bin}/testkeys"
     # system "#{bin}/unidasm"
   end
