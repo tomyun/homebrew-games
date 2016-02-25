@@ -1,8 +1,8 @@
 class Stella < Formula
   desc "Atari 2600 VCS emulator"
   homepage "http://stella.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/stella/stella/4.6.7/stella-4.6.7-src.tar.gz"
-  sha256 "486e0d1abe30c76216132b042253e2ea12e4039067139603dfde800796f0e650"
+  url "https://downloads.sourceforge.net/project/stella/stella/4.7.1/stella-4.7.1-src.tar.xz"
+  sha256 "b9397d3d64260a2973c43be2fe67bba871f55ff419c52e7bb601ab8a329a97c0"
   head "http://svn.code.sf.net/p/stella/code/trunk"
 
   bottle do
