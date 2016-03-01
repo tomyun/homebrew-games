@@ -6,9 +6,9 @@ class Pioneer < Formula
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
-    sha256 "b0fcd30fb0b5b2f7adc22494f036075bf19f240bff6be880ff7eee20700bc221" => :el_capitan
-    sha256 "4e0d9b7e73a5119a0d424e9ec2e14567a0631b72fe62a7413ae09d3fc7c04421" => :yosemite
-    sha256 "745c5a2144b934c673f52514ca84bf9e54e6e8e0398950fbef59d9ef927e3516" => :mavericks
+    sha256 "03db93365681a34f3c3e17e6f8372328b21d1a7806dc95e5255dd23af19fbb1d" => :el_capitan
+    sha256 "ec77b6e6dbc3f4d98f879475551b26c54aab1536d3089bf0ba9da6c3ccb2fda0" => :yosemite
+    sha256 "e1a6a470ecc3868b7ffac4c1a2129bdf1be4888dcecf403ef7ab76bd11379c8a" => :mavericks
   end
 
   depends_on "autoconf" => :build
