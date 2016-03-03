@@ -1,8 +1,8 @@
 class Gearboy < Formula
   desc "Nintendo Game Boy (Color) emulator"
   homepage "https://github.com/drhelius/Gearboy"
-  url "https://github.com/drhelius/Gearboy/archive/gearboy-2.1.tar.gz"
-  sha256 "846642f9a57c58693dce0835959c95b804aac6ba9cfa800deca45e71efcf1d7d"
+  url "https://github.com/drhelius/Gearboy/archive/gearboy-2.2.tar.gz"
+  sha256 "7f77cec8897a6b2905a8bf0f1c580755e5b6e605f0f1a48ba09ed919e10b7a16"
   head "https://github.com/drhelius/Gearboy.git"
 
   bottle do
@@ -14,11 +14,6 @@ class Gearboy < Formula
 
   depends_on "qt5"
   depends_on "sdl2"
-
-  patch do
-    url "https://patch-diff.githubusercontent.com/raw/drhelius/Gearboy/pull/31.diff"
-    sha256 "7d10252324b5b77dd80e30c587ec72c87153bb7ea88c4688e06bc7802461dfff"
-  end
 
   def install
     cd "platforms/macosx/Gearboy" do
