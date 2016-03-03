@@ -1,8 +1,8 @@
 class Gearsystem < Formula
   desc "Sega Master System / Game Gear emulator"
   homepage "https://github.com/drhelius/Gearsystem"
-  url "https://github.com/drhelius/Gearsystem/archive/gearsystem-2.1.tar.gz"
-  sha256 "6da587157bac694045d7bbdd79e41ca3f900011191a4331fa54a88aa4b536fde"
+  url "https://github.com/drhelius/Gearsystem/archive/gearsystem-2.2.tar.gz"
+  sha256 "58004ae6cc7497d466213d2b7f00f2f1abbbd2ea900de228e2f392ceb505984a"
   head "https://github.com/drhelius/Gearsystem.git"
 
   bottle do
@@ -14,12 +14,6 @@ class Gearsystem < Formula
 
   depends_on "qt5"
   depends_on "sdl2"
-
-  # Fix rendering glitches on Mac OS X
-  patch do
-    url "https://patch-diff.githubusercontent.com/raw/drhelius/Gearsystem/pull/7.diff"
-    sha256 "353288034539b350eff71ca8bf47e9e619a149256944d335722e62d4f6d01c1b"
-  end
 
   def install
     cd "platforms/macosx/Gearsystem" do
