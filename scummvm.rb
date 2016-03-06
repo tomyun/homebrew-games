@@ -1,8 +1,8 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "http://scummvm.org/"
-  url "https://downloads.sourceforge.net/project/scummvm/scummvm/1.7.0/scummvm-1.7.0.tar.bz2"
-  sha256 "d9ff0e8cf911afa466d5456d28fef692a17d47ddecfd428bf2fef591237c2e66"
+  url "http://www.scummvm.org/frs/scummvm/1.8.0/scummvm-1.8.0.tar.xz"
+  sha256 "a85c23a2b1fcb7586a7527ecdbdf6c899a45ecbdcba28b9322057dc27914daa8"
   head "https://github.com/scummvm/scummvm.git"
 
   bottle do
@@ -35,6 +35,7 @@ class Scummvm < Formula
     system "make"
     system "make", "install"
     (share+"pixmaps").rmtree
+    (share+"icons").rmtree
   end
 
   test do
