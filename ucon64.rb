@@ -6,9 +6,9 @@ class Ucon64 < Formula
   head ":pserver:anonymous:@ucon64.cvs.sourceforge.net:/cvsroot/ucon64", :using => :cvs
 
   bottle do
-    sha256 "506f4a137c9afe2237eabbe56b019f6273ea8fefeae42b5587c15cf3a9ac0576" => :yosemite
-    sha256 "e437363bcc306c62c4cac284423f9dbdb21363bcb53faf7db71b6dbf64043341" => :mavericks
-    sha256 "435790895fbe1cb663963ae6c9a872e24691085f423acdc9ed9f439634cf7f54" => :mountain_lion
+    sha256 "e53964f03c96339c55777287baefc70a7983fbcbc0df632b9271b6195759ac00" => :el_capitan
+    sha256 "2e3374d6985209c430b81b0f50b16b97cb91696df041fa4a7700793de5959faa" => :yosemite
+    sha256 "cd3f63bdce54eeca0723c9150d8916d980dd5ca98d6ba2e956bc7553922ca864" => :mavericks
   end
 
   resource "super_bat_puncher_demo" do
