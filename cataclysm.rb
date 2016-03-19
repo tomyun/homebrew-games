@@ -35,12 +35,8 @@ class Cataclysm < Formula
     # top-level headers
     ENV.append_to_cflags "-I#{Formula["ncurses"].include}/ncursesw" if MacOS.version < :snow_leopard
 
-    # Because our CXXFLAGS override the default, need to set these for the tests to build
-    # See https://github.com/Homebrew/homebrew-games/issues/449
-    flags = [ENV.cxxflags, ENV.cppflags, "-I../src -Wno-unused-variable"].join(" ")
     args = %W[
       NATIVE=osx RELEASE=1 OSX_MIN=#{MacOS.version}
-      CXX=#{ENV.cxx} LD=#{ENV.cxx} CXXFLAGS=#{flags}
     ]
 
     args << "TILES=1" if build.with? "tiles"
