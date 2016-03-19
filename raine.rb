@@ -1,8 +1,8 @@
 class Raine < Formula
   desc "680x0 arcade emulator"
   homepage "http://raine.1emulation.com/"
-  url "https://github.com/zelurker/raine/archive/0.64.10.tar.gz"
-  sha256 "d25fdc705828d4dde5bf6734da799ea6f1986ee7e1996ac29db537047a8d3eac"
+  url "https://github.com/zelurker/raine/archive/0.64.11.tar.gz"
+  sha256 "50f13531c380999be83fc6ed004290e2ca83ee378ebb2709a0abe5e1f25bbb71"
   head "https://github.com/zelurker/raine.git"
 
   bottle do
@@ -10,12 +10,6 @@ class Raine < Formula
     sha256 "959bf845d5eba202ee4e3ffcf465a6f754a56382f8d0c44a66ff7437211f6ade" => :el_capitan
     sha256 "1e5d5a1890a5502083eb22775af1382d2749d1b6c9e4855b1c846dc45e064579" => :yosemite
     sha256 "44f7c3153be208b8000a5288a92d41c236dcf34a6872bdfc9f0716f3fbd60b17" => :mavericks
-  end
-
-  # Fix str(n)cpy source/target overlap issue
-  patch do
-    url "https://github.com/zelurker/raine/commit/f5e835b8dc253e0eb70d7756f3578960c4fcf09e.diff"
-    sha256 "764e0fdc80b0bc3e24654f5cedd6fd6183105ff6c1c0ca3a73561366954cb435"
   end
 
   depends_on "gettext" => "universal"
