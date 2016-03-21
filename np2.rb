@@ -1,7 +1,7 @@
 class Np2 < Formula
   desc "Neko Project 2: PC-9801 emulator"
   homepage "http://www.yui.ne.jp/np2/"
-  url "http://amethyst.yui.ne.jp/svn/pc98/np2/tags/VER_0_85/", :using => :svn, :revision => "2408"
+  url "http://amethyst.yui.ne.jp/svn/pc98/np2/tags/VER_0_86/", :using => :svn, :revision => "2606"
   head "http://amethyst.yui.ne.jp/svn/pc98/np2/trunk/", :using => :svn
 
   bottle do
@@ -42,6 +42,6 @@ class Np2 < Formula
   end
 
   test do
-    assert_match /Usage: #{bin}\/np2/, shell_output("#{bin}/np2 -h", 1)
+    assert_match %r{Usage: #{bin}/np2}, shell_output("#{bin}/np2 -h", 1)
   end
 end
