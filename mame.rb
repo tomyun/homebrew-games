@@ -4,6 +4,7 @@ class Mame < Formula
   url "https://github.com/mamedev/mame/archive/mame0171.tar.gz"
   version "0.171"
   sha256 "e543316e238b02ae80f8de6e1da3eaaac3754bc8370deb7c31a4bc73121763c5"
+  revision 1
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -38,7 +39,7 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_JPEG=1",
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_LUA=", # lua53 not available yet
-                   "USE_SYSETM_LIB_SQLITE3=1",
+                   "USE_SYSTEM_LIB_SQLITE3=1",
                    "USE_SYSTEM_LIB_PORTMIDI=1",
                    "USE_SYSTEM_LIB_PORTAUDIO=1" # currently not used yet
     bin.install "mame"
