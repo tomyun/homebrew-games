@@ -1,10 +1,9 @@
 class Freeciv < Formula
   desc "A Free and Open Source empire-building strategy game"
   homepage "http://freeciv.wikia.com"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.1/freeciv-2.5.1.tar.bz2"
-  mirror "http://download.gna.org/freeciv/stable/freeciv-2.5.1.tar.bz2"
-  sha256 "4e420a9ad91aa7966039ec3b63501725c8261a4ff734d56fe801414fae772696"
-  revision 1
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.1/freeciv-2.5.3.tar.bz2"
+  mirror "http://download.gna.org/freeciv/stable/freeciv-2.5.3.tar.bz2"
+  sha256 "480b0381c64bf1a9423f2507a75d76bda9bf45c3c3badd30b5bad105e75d805c"
 
   bottle do
     sha256 "22168345afa399415f87394ee5d376ee7321f6a2f80a3a58aeeb0909709f401f" => :el_capitan
