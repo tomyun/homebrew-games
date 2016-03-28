@@ -6,9 +6,9 @@ class Freeciv < Formula
   sha256 "480b0381c64bf1a9423f2507a75d76bda9bf45c3c3badd30b5bad105e75d805c"
 
   bottle do
-    sha256 "22168345afa399415f87394ee5d376ee7321f6a2f80a3a58aeeb0909709f401f" => :el_capitan
-    sha256 "c3030c74ccc960b3555d88cf99723e149170901ab04a7bc3d353a3bc7113bac2" => :yosemite
-    sha256 "e86fbfaa9c47300c0be9b7b6acf6c6a06a2d4a5ee61adccd6b52bb5844807e38" => :mavericks
+    sha256 "ba466b67bacfafc80908a1bc2728813786ba1f9bf1a8d5e425359f158036b34a" => :el_capitan
+    sha256 "69f9a823551284639ffe98e792a22505b1eb9fba2e25ababe5941f6bb05b716e" => :yosemite
+    sha256 "6c2b752103cf17192baff22404c55e4dcc5e9c017ed82d24dc46a8cd5d9806ac" => :mavericks
   end
 
   head do
