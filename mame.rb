@@ -1,10 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0171.tar.gz"
-  version "0.171"
-  sha256 "e543316e238b02ae80f8de6e1da3eaaac3754bc8370deb7c31a4bc73121763c5"
-  revision 1
+  url "https://github.com/mamedev/mame/archive/mame0172.tar.gz"
+  version "0.172"
+  sha256 "8e7f4dddf987b51c0166b4ca27443977ebea2618249e81dfc0066c3a3f4efb45"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -21,6 +20,8 @@ class Mame < Formula
   depends_on "flac"
   depends_on "sqlite"
   depends_on "portmidi"
+  depends_on "portaudio"
+  depends_on "libuv"
 
   # Needs GCC 4.9 or newer
   fails_with :gcc_4_0
@@ -41,11 +42,12 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_LUA=", # lua53 not available yet
                    "USE_SYSTEM_LIB_SQLITE3=1",
                    "USE_SYSTEM_LIB_PORTMIDI=1",
-                   "USE_SYSTEM_LIB_PORTAUDIO=1" # currently not used yet
+                   "USE_SYSTEM_LIB_PORTAUDIO=1",
+                   "USE_SYSTEM_LIB_UV=1"
     bin.install "mame"
     man6.install "src/osd/sdl/man/mame.6"
     doc.install Dir["docs/*"]
-    pkgshare.install %w[artwork hash keymaps samples]
+    pkgshare.install %w[artwork bgfx hash keymaps plugins samples]
     (pkgshare/"shader").install Dir["src/osd/modules/opengl/shader/*.[vf]sh"]
   end
 
