@@ -1,8 +1,8 @@
 class Onscripter < Formula
   desc "NScripter-compatible visual novel engine"
   homepage "https://onscripter.osdn.jp/"
-  url "https://onscripter.osdn.jp/onscripter-20150820.tar.gz"
-  sha256 "5bbf4d393c9d0874670c22f897ade93c83b4b47d0d70ae0423bf0a8acdeaf56f"
+  url "https://onscripter.osdn.jp/onscripter-20160327.tar.gz"
+  sha256 "1a852515feda20eee2447dd737478d86b90d99591d415bbffe9152f18acfd47e"
 
   bottle do
     cellar :any
@@ -26,14 +26,14 @@ class Onscripter < Formula
     incs = [
       `pkg-config --cflags sdl SDL_ttf SDL_image SDL_mixer`.chomp,
       `smpeg-config --cflags`.chomp,
-      "-I#{Formula["jpeg"].include}"
+      "-I#{Formula["jpeg"].include}",
     ]
 
     libs = [
       `pkg-config --libs sdl SDL_ttf SDL_image SDL_mixer`.chomp,
       `smpeg-config --libs`.chomp,
       "-ljpeg",
-      "-lbz2"
+      "-lbz2",
     ]
 
     defs = %w[
