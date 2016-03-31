@@ -7,9 +7,9 @@ class Jpcsp < Formula
 
   bottle do
     cellar :any
-    sha256 "e584e73a5ce65f7e7b16448a7ac77c0fb0a78284f95e4dca913633dc7c56ddfb" => :el_capitan
-    sha256 "a191fcb7a169c762071b6ad98075582d1044911d41adddcdeeb9fcf5e0db6597" => :yosemite
-    sha256 "68ada314543335cd2832d80db2f15a043fda8c22ac7318a3aeb43e452280556f" => :mavericks
+    sha256 "cdfd6715e70f271ee1df320a230951edcc173bb9d70c84298c1665c4c64c868c" => :el_capitan
+    sha256 "68861093a2cb32f11c6769abca9e718b404547824f86f14eb7564ae65dfc4f4a" => :yosemite
+    sha256 "d04a5ffea0538bc056a009e307343a05cc06f3e53cac6125c5916c31b44953f3" => :mavericks
   end
 
   depends_on "ant" => :build
