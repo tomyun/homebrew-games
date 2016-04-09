@@ -7,9 +7,9 @@ class Openttd < Formula
   head "git://git.openttd.org/openttd/trunk.git"
 
   bottle do
-    sha256 "1aab1d07eaa620ff3a98aacee907dec1c83fa8ce87b0d56696cf46866fd8d39e" => :el_capitan
-    sha256 "67c85299e9e83e08c458118f0186da507961a95dc18053d6b5a4842a23fe3151" => :yosemite
-    sha256 "28c49c3ba4e506887d155cc066ab51ae2318c96dc89b31802b5fb94ba4b7cdee" => :mavericks
+    sha256 "3b4a7f816b3d65054164ba4606ab041e8f6e5a52dbea41daf9ac5c063d15a14e" => :el_capitan
+    sha256 "63fc284a318388f6a286c878f9a8af78913cc0778d03ef4b7cb8c1b8b1769e7c" => :yosemite
+    sha256 "d36574cea485994e50554c809770302312115d59d2976a8759fa7a404292714e" => :mavericks
   end
 
   depends_on "lzo"
