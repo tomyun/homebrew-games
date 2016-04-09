@@ -1,9 +1,8 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://binaries.openttd.org/releases/1.5.3/openttd-1.5.3-source.tar.xz"
-  sha256 "d8b9a7aaca7c9f3ff69b1d210daf1e2658402941bb9b30cb2789a9df73d1ba63"
-  revision 1
+  url "http://binaries.openttd.org/releases/1.6.0/openttd-1.6.0-source.tar.xz"
+  sha256 "4c12e6b516ffdee20a03ebad80dad85d137130002d6d3e123a568376fe4b4eb2"
 
   head "git://git.openttd.org/openttd/trunk.git"
 
@@ -18,8 +17,8 @@ class Openttd < Formula
   depends_on "pkg-config" => :build
 
   resource "opengfx" do
-    url "https://bundles.openttdcoop.org/opengfx/releases/0.5.3/opengfx-0.5.3.zip"
-    sha256 "f744e3bafc27ee03703554128f8dd6d187858af486b0dcfe9570832028073220"
+    url "https://bundles.openttdcoop.org/opengfx/releases/0.5.4/opengfx-0.5.4.zip"
+    sha256 "3d136d776906dbe8b5df1434cb9a68d1249511a3c4cfaca55cc24cc0028ae078"
   end
 
   resource "opensfx" do
@@ -41,10 +40,13 @@ class Openttd < Formula
 
   # Fixes for 10.11
   # https://bugs.openttd.org/task/6380
-  patch :DATA, :p1
   patch :p0 do
     url "https://bugs.openttd.org/task/6380/getfile/10390/patch-src__video__cocoa__wnd_quartz.mm-avoid-removed-cmgetsystemprofile.diff"
     sha256 "2cf010eb69df588134aceda0eba62cc21e221b6f2dfb7d836869b6edf4bdc093"
+  end
+  patch :p1 do
+    url "https://bugs.openttd.org/task/6380/getfile/10422/cocoa_m.patch"
+    sha256 "cbd559318f653a2e7aaadad2fd7eb1097b24a68ad42cf417c4ca530b34d2a776"
   end
 
   def install
@@ -56,10 +58,10 @@ class Openttd < Formula
     (buildpath/"bundle/OpenTTD.app/Contents/Resources/gm/openmsx").install resource("openmsx")
 
     prefix.install "bundle/OpenTTD.app"
+    bin.write_exec_script "#{prefix}/OpenTTD.app/Contents/MacOS/openttd"
   end
 
   def caveats; <<-EOS.undent
-      OpenTTD.app installed to: #{prefix}
       If you have access to the sound and graphics files from the original
       Transport Tycoon Deluxe, you can install them by following the
       instructions in section 4.1 of #{prefix}/readme.txt
@@ -67,21 +69,6 @@ class Openttd < Formula
   end
 
   test do
-    File.executable? prefix/"OpenTTD.app/Contents/MacOS/openttd"
+    assert_match /OpenTTD #{version}\n/, shell_output("#{bin}/openttd -h")
   end
 end
-
-__END__
-diff --git a/src/music/cocoa_m.cpp b/src/music/cocoa_m.cpp
-index b0cb879..8818893 100644
---- a/src/music/cocoa_m.cpp
-+++ b/src/music/cocoa_m.cpp
-@@ -68,7 +68,7 @@ static void DoSetVolume()
-			 * risk compilation errors. The header AudioComponent.h
-			 * was introduced in 10.6 so use it to decide which
-			 * type definition to use. */
--#ifdef __AUDIOCOMPONENT_H__
-+#if defined(AUDIO_UNIT_VERSION) && (AUDIO_UNIT_VERSION >= 1060)
-			AudioComponentDescription desc;
- #else
-			ComponentDescription desc;
