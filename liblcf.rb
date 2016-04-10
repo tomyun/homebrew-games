@@ -39,7 +39,8 @@ class Liblcf < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}/liblcf", "-L#{lib}", "-llcf", "-o", "test"
+    system ENV.cc, "test.cpp", "-I#{include}/liblcf", "-L#{lib}", "-llcf", "-std=c++11", \
+      "-o", "test"
     system "./test"
   end
 end
