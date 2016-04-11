@@ -4,6 +4,7 @@ class Freeciv < Formula
   url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.1/freeciv-2.5.3.tar.bz2"
   mirror "http://download.gna.org/freeciv/stable/freeciv-2.5.3.tar.bz2"
   sha256 "480b0381c64bf1a9423f2507a75d76bda9bf45c3c3badd30b5bad105e75d805c"
+  revision 1
 
   bottle do
     sha256 "ba466b67bacfafc80908a1bc2728813786ba1f9bf1a8d5e425359f158036b34a" => :el_capitan
