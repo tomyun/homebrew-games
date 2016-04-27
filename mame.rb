@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0172.tar.gz"
-  version "0.172"
-  sha256 "8e7f4dddf987b51c0166b4ca27443977ebea2618249e81dfc0066c3a3f4efb45"
+  url "https://github.com/mamedev/mame/archive/mame0173.tar.gz"
+  version "0.173"
+  sha256 "499172e28eb53f30b3036a036c3834f0a865d5505f7234aebd49145358621654"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -45,8 +45,8 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_PORTAUDIO=1",
                    "USE_SYSTEM_LIB_UV=1"
     bin.install "mame"
-    man6.install "src/osd/sdl/man/mame.6"
-    doc.install Dir["docs/*"]
+    man6.install "docs/man/mame.6"
+    doc.install Dir["docs/*.txt", "docs/*.md", "docs/LICENSE"]
     pkgshare.install %w[artwork bgfx hash keymaps plugins samples]
     (pkgshare/"shader").install Dir["src/osd/modules/opengl/shader/*.[vf]sh"]
   end
