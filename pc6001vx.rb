@@ -1,9 +1,8 @@
 class Pc6001vx < Formula
   desc "PC-6001 emulator"
   homepage "http://eighttails.seesaa.net/"
-  url "http://eighttails.up.seesaa.net/bin/PC6001VX_2.11_src.tar.gz"
-  sha256 "09c689975b95b48687efc5124c9decb4c64e4cbc9566f9b476b0b81b346f206c"
-  revision 1
+  url "http://eighttails.up.seesaa.net/bin/PC6001VX_2.21.0_src.tar.gz"
+  sha256 "734f9b5d75c5c3bdba9ed2f33a4de83d5659481f9701fbaac3d9756305602ee9"
   head "https://github.com/eighttails/PC6001VX.git"
 
   bottle do
@@ -23,6 +22,8 @@ class Pc6001vx < Formula
     ENV.append_to_cflags "-I#{Formula["ffmpeg"].opt_include}"
     # Turn off errors on C++11 build which used for properly linking standard lib
     ENV.append_to_cflags "-Wno-reserved-user-defined-literal"
+    # Use libc++ explicitly, otherwise build fails
+    ENV.append_to_cflags "-stdlib=libc++" if ENV.compiler == :clang
     system "#{Formula["qt5"].bin}/qmake", "PREFIX=#{prefix}", "QMAKE_CXXFLAGS=#{ENV.cxxflags}", "CONFIG+=c++11"
     system "make"
     prefix.install "PC6001VX.app"
