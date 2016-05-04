@@ -1,9 +1,9 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0171.tar.gz"
-  version "0.171"
-  sha256 "e543316e238b02ae80f8de6e1da3eaaac3754bc8370deb7c31a4bc73121763c5"
+  url "https://github.com/mamedev/mame/archive/mame0173.tar.gz"
+  version "0.173"
+  sha256 "499172e28eb53f30b3036a036c3834f0a865d5505f7234aebd49145358621654"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -31,10 +31,10 @@ class RomTools < Formula
                    "USE_SYSTEM_LIB_PORTMIDI=1"
     bin.install %W[
       aueffectutil castool chdman floptool imgtool jedutil ldplayer ldresample
-      ldverify nltool nlwav pngcmp regrep romcmp src2html srcclean testkeys unidasm
+      ldverify nltool nlwav pngcmp regrep romcmp src2html srcclean unidasm
     ]
     bin.install "split" => "rom-split"
-    man1.install Dir["src/osd/sdl/man/*.1"]
+    man1.install Dir["docs/man/*.1"]
   end
 
   # Needs more comprehensive tests
@@ -56,7 +56,6 @@ class RomTools < Formula
     system "#{bin}/rom-split"
     # system "#{bin}/src2html"
     system "#{bin}/srcclean"
-    # system "#{bin}/testkeys"
     # system "#{bin}/unidasm"
   end
 end
