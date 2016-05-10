@@ -1,16 +1,9 @@
 class DwarfFortress < Formula
   desc "Open-ended rogelike game"
   homepage "http://bay12games.com/dwarves/"
-  url "http://www.bay12games.com/dwarves/df_42_06_osx.tar.bz2"
-  version "0.42.06"
-  sha256 "50ff2c0b8a6a2c041cc53a7860f9e8ee421fb91d93aaf6b8d55d9d646b68f21a"
-
-  bottle do
-    cellar :any
-    sha256 "daeea3c158f9454f407db39e5f3f171a3f005f69fb2243435ca89be1f2decd1e" => :el_capitan
-    sha256 "8888b73196f4b418def57fd07ff78f448d1e73358dd05ae800b60b24e737e274" => :yosemite
-    sha256 "e6f11aac3f9c1aab30a9f8fa3bf10557e9b1cf176b6faa121065a2e9f1507257" => :mavericks
-  end
+  url "http://www.bay12games.com/dwarves/df_43_01_osx.tar.bz2"
+  version "0.43.01"
+  sha256 "7fe378b7aeee67f10a1f88a2341b8724edbf91795fd928506f01dfb403304d43"
 
   depends_on :arch => :intel
   depends_on :x11
