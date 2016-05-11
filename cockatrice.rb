@@ -1,9 +1,9 @@
 class Cockatrice < Formula
   desc "Virtual tabletop for multiplayer card games"
   homepage "https://github.com/Cockatrice/Cockatrice"
-  url "https://github.com/Cockatrice/Cockatrice/archive/2016-02-03-Release.tar.gz"
-  version "2016-02-03"
-  sha256 "eb5ae01422b92cf8461c0f2e4540820f1120c8b0cbfafc4044ad0290a3ef3381"
+  url "https://github.com/Cockatrice/Cockatrice/archive/2016-05-06-Release.tar.gz"
+  version "2016-05-06"
+  sha256 "379835006f38b603af01cf46d508fd40e862b451045807b444042914e8736fee"
   head "https://github.com/Cockatrice/Cockatrice.git"
 
   bottle do
@@ -14,6 +14,7 @@ class Cockatrice < Formula
 
   option "with-server", "Build `servatrice` for running game servers"
 
+  depends_on :macos => :mavericks
   depends_on "cmake" => :build
   depends_on "protobuf"
 
