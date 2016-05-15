@@ -9,9 +9,10 @@ class Cataclysm < Formula
 
   bottle do
     cellar :any
-    sha256 "d238e5fa398e9dba4b807108a5885025185f91269128b47690ce8422c7cd6d44" => :yosemite
-    sha256 "2d8ab27ec069acecb344bfa2ab57f346352650de1877767dcb220af7129ae879" => :mavericks
-    sha256 "b65caa16de5a82ef49ce723e2d8e9be800ee88fc5f8f22ad7c349518054b0ced" => :mountain_lion
+    revision 1
+    sha256 "d971aada9f12856f4821060da28dd27c279f5c9fdbd5e5b986f0b1625bac8c8f" => :el_capitan
+    sha256 "2a85ba8077717c40e87ff3534f2a16303ec9b7534de435ec5f4c8d03bb5a90a7" => :yosemite
+    sha256 "48e06785a79eb82ee72d180dc88b400fd0875026f21e0bb69a03ccd0aa9bb506" => :mavericks
   end
 
   option "with-tiles", "Enable tileset support"
