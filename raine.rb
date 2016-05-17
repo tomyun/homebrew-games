@@ -1,8 +1,8 @@
 class Raine < Formula
   desc "680x0 arcade emulator"
   homepage "http://raine.1emulation.com/"
-  url "https://github.com/zelurker/raine/archive/0.64.11.tar.gz"
-  sha256 "50f13531c380999be83fc6ed004290e2ca83ee378ebb2709a0abe5e1f25bbb71"
+  url "https://github.com/zelurker/raine/archive/0.64.12.tar.gz"
+  sha256 "8189867e8c600571a29f371be5ca310b37c5e5f85d485256f312bc09bc987e3c"
   head "https://github.com/zelurker/raine.git"
 
   bottle do
