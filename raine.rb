@@ -7,9 +7,9 @@ class Raine < Formula
 
   bottle do
     cellar :any
-    sha256 "5c28c2e102f518a5edc5e926aa449147f6130837b04f1a53a694f9eb0560d20e" => :el_capitan
-    sha256 "d5b8f5a769a56a0992212b14bb06b4d2229429a53ca0b005b56abe1ab5357e95" => :yosemite
-    sha256 "034cd60e803d0aeda9cd1ee3c6f698fd299bee86474dce20d05b92407c7a6d01" => :mavericks
+    sha256 "88abdfb9d5b01586a863bf0e76cdde4d8f5e3ad16d3998dfc7aec59914ed61fa" => :el_capitan
+    sha256 "43a1362c8d535963105b8cc6072907d0bf5fa914a29b820549291871c48c9661" => :yosemite
+    sha256 "761b92f036d8c08f1f71effe374def595af2363296f67ab258b7f3394f76ed44" => :mavericks
   end
 
   depends_on "gettext" => "universal"
