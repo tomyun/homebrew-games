@@ -1,8 +1,8 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "http://scummvm.org/"
-  url "http://www.scummvm.org/frs/scummvm/1.8.0/scummvm-1.8.0.tar.xz"
-  sha256 "a85c23a2b1fcb7586a7527ecdbdf6c899a45ecbdcba28b9322057dc27914daa8"
+  url "http://www.scummvm.org/frs/scummvm/1.8.1/scummvm-1.8.1.tar.xz"
+  sha256 "42c9d485385135e9befc6d487f72e32d55201e26350a7bad1c0c27cbbddea9f1"
   head "https://github.com/scummvm/scummvm.git"
 
   bottle do
