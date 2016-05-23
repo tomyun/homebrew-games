@@ -3,6 +3,7 @@ class Hatari < Formula
   homepage "http://hatari.tuxfamily.org"
   url "http://download.tuxfamily.org/hatari/1.9.0/hatari-1.9.0.tar.bz2"
   sha256 "b2b56e6cbe7f8769a5e8b1d96599f392d9351b44cacf959da6905da06d30e992"
+  revision 1
   head "http://hg.tuxfamily.org/mercurialroot/hatari/hatari", :using => :hg, :branch => "default"
 
   bottle do
@@ -19,8 +20,8 @@ class Hatari < Formula
 
   # Download EmuTOS ROM image
   resource "emutos" do
-    url "https://downloads.sourceforge.net/project/emutos/emutos/0.9.4/emutos-512k-0.9.4.zip"
-    sha256 "a8445ce74bf642fecf237953a20641a2e97b74feaadc7fb7149e8221634f4218"
+    url "https://downloads.sourceforge.net/project/emutos/emutos/0.9.6/emutos-512k-0.9.6.zip"
+    sha256 "2c7d57cac6792d0c7e921f9655f224b039402283dd24c894b085c7b6e9a053a6"
   end
 
   def install
