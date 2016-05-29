@@ -1,8 +1,8 @@
 class Pioneer < Formula
   desc "Game of lonely space adventure"
   homepage "http://pioneerspacesim.net/"
-  url "https://github.com/pioneerspacesim/pioneer/archive/20160504.tar.gz"
-  sha256 "b8e2dd8a6275a75bbd9587e624ccc538154718ac889c9eb9d7d6e81d41f47bc0"
+  url "https://github.com/pioneerspacesim/pioneer/archive/20160525.tar.gz"
+  sha256 "9eeca58338ad24e1dd8a1c42235d6eba00e32d3453eca17d2a889ebdbebd2e59"
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
@@ -39,5 +39,6 @@ class Pioneer < Formula
 
   test do
     assert_equal "#{name} #{version}", shell_output("#{bin}/pioneer -v 2>&1").chomp
+    assert_equal "modelcompiler #{version}", shell_output("#{bin}/modelcompiler -v 2>&1").chomp
   end
 end
