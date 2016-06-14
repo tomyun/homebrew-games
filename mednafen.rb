@@ -3,6 +3,7 @@ class Mednafen < Formula
   homepage "http://mednafen.fobby.net/"
   url "http://mednafen.fobby.net/releases/files/mednafen-0.9.38.7.tar.bz2"
   sha256 "1bb3beef883a325c35d1a1ce14959c307a4c321f2ea29d4ddb216c6dd03aded8"
+  revision 1
 
   bottle do
     sha256 "31809d08bae8a6a6b132a10b5bdbbc01910306e62b137dfcd71f53709814fee9" => :el_capitan
@@ -18,7 +19,7 @@ class Mednafen < Formula
   needs :cxx11
 
   fails_with :clang do
-    build 700
+    build 703
     cause <<-EOS.undent
       LLVM miscompiles some loop code with optimization
       https://llvm.org/bugs/show_bug.cgi?id=15470
@@ -26,12 +27,16 @@ class Mednafen < Formula
   end
 
   def install
+    # Fix ambiguous call of abs() with gcc-6
+    # http://forum.fobby.net/index.php?t=msg&th=1318
+    inreplace "src/cdrom/CDAccess_CCD.cpp", "abs(lba - s)", "abs((int)(lba - s))"
+
     ENV.cxx11
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
   end
 
   test do
-    assert_equal "#{version}", shell_output("#{bin}/mednafen -dump_modules_def M >/dev/null || head -n 1 M").chomp
+    assert_equal version.to_s, shell_output("#{bin}/mednafen -dump_modules_def M >/dev/null || head -n 1 M").chomp
   end
 end
