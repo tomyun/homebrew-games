@@ -6,9 +6,9 @@ class Libspectrum < Formula
 
   bottle do
     cellar :any
-    sha256 "e3efaf8fc8244b235eceddcc2e4c4d67426fc998ad8abfa51299f32cb3cc7b75" => :yosemite
-    sha256 "9c7a0df553f8107c7457014ad721dda5e02baa8db1ce4f42395c7a1d82cb70fd" => :mavericks
-    sha256 "74a4325399792684a82e436ca673c6d1c8b14b4a0f1fdc069436870d8533876f" => :mountain_lion
+    sha256 "00f56a030c0e8f872b31cf7a604b39a985520adb0c7c80c721c535566f8c0be2" => :el_capitan
+    sha256 "c7ccd9faddfcfb022b99362b3c931c4e602857b2c6aa464227411835d8dbd7ae" => :yosemite
+    sha256 "af84b7f6a252aee1cb2f7475978022b2b72d348fb44e29d5738635019b448fdb" => :mavericks
   end
 
   head do
