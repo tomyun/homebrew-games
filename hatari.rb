@@ -8,9 +8,9 @@ class Hatari < Formula
 
   bottle do
     cellar :any
-    sha256 "e0011e9e4f0c70954d10082c0665e46b49fd98dd41e61928247f710c9f5d9129" => :el_capitan
-    sha256 "0353909d1e922d9b0ae77b4b89b99297769544d0565cfd40f2b01a3065bcf9a6" => :yosemite
-    sha256 "a652a30950ea90b36d8c550b54a30413fafc6918a8385bddaecb5d1de3ceada4" => :mavericks
+    sha256 "ae856c5fc7c8dc79fd8f0ffa113fa85ca44e00f5c800332407d1286a7da07828" => :el_capitan
+    sha256 "14d3e6bb5adb4850865eeac58a3b758fefcde0af680cd15269fdf295e47cd485" => :yosemite
+    sha256 "f3c7bd7721388948266df6180c0f1734270b720fd4180338d74233219bf1a774" => :mavericks
   end
 
   depends_on "cmake" => :build
