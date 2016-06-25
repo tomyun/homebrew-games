@@ -19,7 +19,6 @@ class Cockatrice < Formula
   depends_on "protobuf"
 
   if build.with? "server"
-    depends_on "libgcrypt"
     depends_on "qt5" => "with-mysql"
   else
     depends_on "qt5"
