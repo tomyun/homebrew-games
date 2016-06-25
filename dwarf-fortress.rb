@@ -7,9 +7,9 @@ class DwarfFortress < Formula
 
   bottle do
     cellar :any
-    sha256 "8e818bce8b233273510e6f1131d5e5c9c3c1c44db3d9e5ea8ce0dad89ce773d2" => :el_capitan
-    sha256 "20811d2204053c0bbd67db4bcf52e39edc637cf5b3c9d8a6e6c789f6a0842350" => :yosemite
-    sha256 "a3dbfaa17c91330cb8e502bf2a9874d0f53682fd3c5140a2cb1716504c135c82" => :mavericks
+    sha256 "41a0201d11434d85c463a1bca29a5ad2ebc6fcab73f81cd4331bea4b6f3ede97" => :el_capitan
+    sha256 "2a2ea33a322d0af8a6a90393302ba5ae238999b830217875916d1b25fcf3ad21" => :yosemite
+    sha256 "e71d1e5b1ad819f7cf93e48208a3ee62927b7e2c2c119744b5a8ab27c91a5b3d" => :mavericks
   end
 
   depends_on :arch => :intel
