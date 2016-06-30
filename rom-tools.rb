@@ -1,9 +1,9 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0174.tar.gz"
-  version "0.174"
-  sha256 "249dc43d27f435b47e6bd30754eaa2b52253da37aa04498cb9cc6df5c2041cfa"
+  url "https://github.com/mamedev/mame/archive/mame0175.tar.gz"
+  version "0.175"
+  sha256 "b24a889cff0fa98c04e0a14dc06f72ba8dbec57b251a01cdd201da1824a3afd4"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -19,6 +19,12 @@ class RomTools < Formula
   depends_on "flac"
   depends_on "sqlite"
   depends_on "portmidi"
+
+  # Fix ldplayer compile error (fixed upstream)
+  patch do
+    url "https://github.com/mamedev/mame/commit/9a2ab78eb5e25cf1c3700635054177533c034c86.diff"
+    sha256 "1519f8f4f735b03e3f0355f4da14f2ffae1c63ebe90b2214d9786d66446ae1e4"
+  end
 
   def install
     inreplace "scripts/src/main.lua", /(targetsuffix) "\w+"/, '\1 ""'
