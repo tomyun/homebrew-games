@@ -8,9 +8,9 @@ class Mame < Formula
 
   bottle do
     cellar :any
-    sha256 "60012126b73ecdc28c9314243bc10b9343e41f70e05320f83bc783b472200d08" => :el_capitan
-    sha256 "067165583a803a0ef2096a000da3c83d03ef3b7db5917efdf40ee0ae53cff854" => :yosemite
-    sha256 "211d7cc49ae3da124f4d2fb4acc453945dce6cf9cf5ab5c10a837946865c7b72" => :mavericks
+    sha256 "89a8d797887bfea6ad6ee55f30ae9054f1fab85f1f2797cafe8f52dc2d97ba4a" => :el_capitan
+    sha256 "f06d31b549c19b4d7e5adad75d75dc923d52479d7cd0a18ed6da8066f97bb38f" => :yosemite
+    sha256 "0894c17ca3605eb47136c19f27b76a0015f9fa16d89762ec9ebb69d4f08ab86d" => :mavericks
   end
 
   depends_on :python => :build if MacOS.version <= :snow_leopard
