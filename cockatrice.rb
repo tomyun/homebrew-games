@@ -1,9 +1,9 @@
 class Cockatrice < Formula
   desc "Virtual tabletop for multiplayer card games"
   homepage "https://github.com/Cockatrice/Cockatrice"
-  url "https://github.com/Cockatrice/Cockatrice/archive/2016-05-06-Release.tar.gz"
-  version "2016-05-06"
-  sha256 "379835006f38b603af01cf46d508fd40e862b451045807b444042914e8736fee"
+  url "https://github.com/Cockatrice/Cockatrice/archive/2016-06-30-Release.tar.gz"
+  version "2016-06-30"
+  sha256 "18c7ec245be8600d4c4be5868b71238ec669a38a24053d84aed608dae888a6f5"
   head "https://github.com/Cockatrice/Cockatrice.git"
 
   bottle do
