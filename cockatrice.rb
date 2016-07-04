@@ -9,9 +9,10 @@ class Cockatrice < Formula
   head "https://github.com/Cockatrice/Cockatrice.git"
 
   bottle do
-    sha256 "ece8a49fbe4d366bd0d7a7ee2d6a98447885883e0a0531d5734e65ab735545ea" => :el_capitan
-    sha256 "ad0f95bf12cfc79371f80992e6065d4973e0957be8637fbc1ec1ae6a83373665" => :yosemite
-    sha256 "6b7c516c212b2611c4bedd7836edeb663281bc197169b218d1c1a54b9ad5fda0" => :mavericks
+    revision 1
+    sha256 "9928ada01084b35b9a4bdef522eeae4b5a859f607fe62cc05919e7623a60b921" => :el_capitan
+    sha256 "896af772671beede76a8d0a8c781abffb8f393ed2a863f3b73f26fc4b2fddad6" => :yosemite
+    sha256 "f742846216b6f421a321c6c09bdc65a86f3a0f8750df843247e30865c553f9c8" => :mavericks
   end
 
   option "with-server", "Build `servatrice` for running game servers"
