@@ -6,9 +6,9 @@ class Mapcrafter < Formula
 
   bottle do
     cellar :any
-    sha256 "d21c510dda79488850e6bf5f52fdf7dcb97c273426962ebc90a1f96fafc03127" => :yosemite
-    sha256 "5b6141324b7187245b9fb5fe64acd1da022e2017bc338e04434e008b76da84b0" => :mavericks
-    sha256 "6e6be34d8043a96d98cb9b72d83b6d3ac25c8cdc3425ce7df0b6b7e557dc2081" => :mountain_lion
+    sha256 "b50819f741e29cc54d1c09d361f0311c7b40f4619f6ebfb7b4119e29958a0a97" => :el_capitan
+    sha256 "ce2979a74e7c56906867df248577e82d8cf45274385c61393f646bf1c5bc7ac7" => :yosemite
+    sha256 "7136bb5b641e1a9675339f8d8ee6d4c9c4b2c635f3e7d02720fdc5e3c7d89851" => :mavericks
   end
 
   needs :cxx11
