@@ -3,6 +3,7 @@ class Openmsx < Formula
   homepage "http://openmsx.org/"
   url "https://github.com/openMSX/openMSX/releases/download/RELEASE_0_12_0/openmsx-0.12.0.tar.gz"
   sha256 "1d96a466badd625e7b6860a65afb10a7b5283a15721faa4186546693fec06a92"
+  revision 1
   head "https://github.com/openMSX/openMSX.git"
 
   bottle do
