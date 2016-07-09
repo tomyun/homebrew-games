@@ -8,9 +8,9 @@ class Openmsx < Formula
 
   bottle do
     cellar :any
-    sha256 "1aae521eede398ab57dedadb80ddeb505da5fedb065a555998ac2496dee9a2c5" => :el_capitan
-    sha256 "4022509c77a9cce2e54638625b5000274decc7c46314b9c96fd9e1a8a37cd0ab" => :yosemite
-    sha256 "4c06b663debabd9dde61495eb23ffc30d8dbec5e042e73dc1d5405df5d05e71b" => :mavericks
+    sha256 "c113c29fd5bf9cd4defaf63103924f5f2c8f9809e1a86576e6730484b9889332" => :el_capitan
+    sha256 "11e49a632940b61b5e06d02c1e5181ba14edbdf484e753b0486e290e1959cc74" => :yosemite
+    sha256 "d229d035966c42b72f2b32e1273fc0119d9bf0550a89c37a7bef28b566e203ad" => :mavericks
   end
 
   option "without-opengl", "Disable OpenGL post-processing renderer"
