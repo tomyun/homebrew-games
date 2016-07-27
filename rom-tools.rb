@@ -8,9 +8,9 @@ class RomTools < Formula
 
   bottle do
     cellar :any
-    sha256 "4979a1815625565bd677184dab7f458e13d7a5d26f19fabcfbb58dbd6ea78d94" => :el_capitan
-    sha256 "49eff09e8d7d8643c401d30f0d7b68abc2e677e2cf02debf764cb8c168358073" => :yosemite
-    sha256 "10bf1d421137a537db7c189f9523ea947ca9f4de6e2a15bfafda627cdfd9e152" => :mavericks
+    sha256 "3a87fb7a6eac70f9fbc15bc60bf14cefecf89b097460768d89039713ff8af040" => :el_capitan
+    sha256 "914456f1f6de7a170982512a051a62756f57e09ad8180ce3f9d73fde08ed72f0" => :yosemite
+    sha256 "d75c256d78c34b2c8e9ea9bb3c1b8c8d9ead4f2f342366e54bd9f8635548bd77" => :mavericks
   end
 
   depends_on :python => :build if MacOS.version <= :snow_leopard
