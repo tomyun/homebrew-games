@@ -1,8 +1,8 @@
 class Onscripter < Formula
   desc "NScripter-compatible visual novel engine"
   homepage "https://onscripter.osdn.jp/"
-  url "https://onscripter.osdn.jp/onscripter-20160407.tar.gz"
-  sha256 "5db848ff0c477659389b29c56b331f8a1ec0a89cc8cd3de8ab847efc27bc9ad3"
+  url "https://onscripter.osdn.jp/onscripter-20160726.tar.gz"
+  sha256 "6860276e69f51e58fd651785fd6555144cb802d359ee4248bd19a4b116f07303"
 
   bottle do
     cellar :any
@@ -68,6 +68,6 @@ class Onscripter < Formula
   end
 
   test do
-    system "#{bin}/onscripter", "-v"
+    assert shell_output("#{bin}/onscripter -v").start_with? "ONScripter version #{version}"
   end
 end
