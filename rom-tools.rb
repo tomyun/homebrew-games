@@ -1,9 +1,9 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0175.tar.gz"
-  version "0.175"
-  sha256 "b24a889cff0fa98c04e0a14dc06f72ba8dbec57b251a01cdd201da1824a3afd4"
+  url "https://github.com/mamedev/mame/archive/mame0176.tar.gz"
+  version "0.176"
+  sha256 "ce69d65fc0431563e5617ce738a504826b73632ad261df53f16b314f67d5a48d"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -19,12 +19,6 @@ class RomTools < Formula
   depends_on "flac"
   depends_on "sqlite"
   depends_on "portmidi"
-
-  # Fix ldplayer compile error (fixed upstream)
-  patch do
-    url "https://github.com/mamedev/mame/commit/9a2ab78eb5e25cf1c3700635054177533c034c86.diff"
-    sha256 "1519f8f4f735b03e3f0355f4da14f2ffae1c63ebe90b2214d9786d66446ae1e4"
-  end
 
   def install
     inreplace "scripts/src/main.lua", /(targetsuffix) "\w+"/, '\1 ""'
@@ -47,21 +41,21 @@ class RomTools < Formula
   test do
     # system "#{bin}/aueffectutil" # segmentation fault
     system "#{bin}/castool"
-    # system "#{bin}/chdman"
+    assert_match "chdman info", shell_output("#{bin}/chdman help info", 1)
     system "#{bin}/floptool"
     system "#{bin}/imgtool", "listformats"
     system "#{bin}/jedutil", "-viewlist"
     system "#{bin}/ldplayer", "-help"
-    # system "#{bin}/ldresample"
-    # system "#{bin}/ldverify"
-    # system "#{bin}/nltool", "--help" # segmentation fault
-    # system "#{bin}/nlwav", "--help" # segmentation fault
-    # system "#{bin}/pngcmp"
-    # system "#{bin}/regrep"
+    assert_match "linear equation", shell_output("#{bin}/ldresample 2>&1", 1)
+    assert_match "avifile.avi", shell_output("#{bin}/ldverify 2>&1", 1)
+    system "#{bin}/nltool", "--help"
+    system "#{bin}/nlwav", "--help"
+    assert_match "image1", shell_output("#{bin}/pngcmp 2>&1", 10)
+    assert_match "summary", shell_output("#{bin}/regrep 2>&1", 1)
     system "#{bin}/romcmp"
     system "#{bin}/rom-split"
-    # system "#{bin}/src2html"
+    assert_match "template", shell_output("#{bin}/src2html 2>&1", 1)
     system "#{bin}/srcclean"
-    # system "#{bin}/unidasm"
+    assert_match "architecture", shell_output("#{bin}/unidasm", 1)
   end
 end
