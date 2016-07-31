@@ -3,7 +3,8 @@ class RomTools < Formula
   homepage "http://mamedev.org/"
   url "https://github.com/mamedev/mame/archive/mame0176.tar.gz"
   version "0.176"
-  sha256 "ce69d65fc0431563e5617ce738a504826b73632ad261df53f16b314f67d5a48d"
+  sha256 "e8837ae9c21ac6ca289c0214747a6d7ff7cc4683b9426377f42cda318fddcb25"
+  revision 1
   head "https://github.com/mamedev/mame.git"
 
   bottle do
