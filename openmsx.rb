@@ -1,9 +1,8 @@
 class Openmsx < Formula
   desc "MSX emulator"
   homepage "http://openmsx.org/"
-  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_0_12_0/openmsx-0.12.0.tar.gz"
-  sha256 "1d96a466badd625e7b6860a65afb10a7b5283a15721faa4186546693fec06a92"
-  revision 1
+  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_0_13_0/openmsx-0.13.0.tar.gz"
+  sha256 "41e37c938be6fc9f90659f8808418133601a85475058725d3e0dccf2902e62cb"
   head "https://github.com/openMSX/openMSX.git"
 
   bottle do
