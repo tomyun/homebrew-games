@@ -20,7 +20,8 @@ class Fuego < Formula
     system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-boost=#{Formula["boost"].opt_prefix}"
     system "make", "install"
   end
 end
