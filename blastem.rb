@@ -8,9 +8,9 @@ class Blastem < Formula
 
   bottle do
     cellar :any
-    sha256 "91409efedd7f6736faefe4bff23a99e2b49af3ae52b24311113cd76f7622e66d" => :el_capitan
-    sha256 "f4e396fe0fe13554903d2186b7c81dd7bc9c372519adfc1196619be34e7f01a2" => :yosemite
-    sha256 "d2786d311d8538275ea7155b818455c95601e316dc6c1fe335e655afa3b84755" => :mavericks
+    sha256 "5e3ec7570cc5ee1b1ef04f39ccd67b61733ed6cdb09036d5501962462c262e29" => :el_capitan
+    sha256 "5daabfa509007c404202a94981bf5b818456852ababcd97fd87731b997eb461f" => :yosemite
+    sha256 "cc31fd4511fc74c34f224b7bc0ee8aa755aff2e1a296dced84268dcef417cd9c" => :mavericks
   end
 
   depends_on "pkg-config" => :build
