@@ -19,7 +19,6 @@ class Inform6 < Formula
     sha256 "8426fbe1af57b5e7f8f26328335e56af3ad13814cece9d6697c60597d6caa9f8" => :mavericks
   end
 
-
   devel do
     url "http://ifarchive.flavorplex.com/if-archive/infocom/compilers/inform6/source/inform-6.33.1-b2.tar.gz"
     version "6.33.1-b2"
