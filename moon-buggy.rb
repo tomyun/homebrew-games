@@ -7,9 +7,10 @@ class MoonBuggy < Formula
     sha256 "f8296f3fabd93aa0f83c247fbad7759effc49eba6ab5fdd7992f603d2d78e51a"
   end
   bottle do
-    sha256 "9f44df57048fc5b62befc56fb63b662aacba8d653369e369cbc5e2750d37d47a" => :el_capitan
-    sha256 "a231f045e3ce9fad9f40f31c7ee9609ae17feb735325595e4a73ccd160ceb889" => :yosemite
-    sha256 "cb4ff729fadd4bc9ac84bb9bc695d06cb715c177660229466e5fb8f2cd83fff7" => :mavericks
+    revision 1
+    sha256 "09baeea891ef8e04546714bc917e69eebd359a3bdff2340f270f61e76653ac2f" => :el_capitan
+    sha256 "45fd9404d723b6e49dadc612b85b39ddc2534685e9135b940b58332b61379df8" => :yosemite
+    sha256 "a3a4c2e2d6e808524107ca651bfeeb8ee063ca5dd2d27054bdf1ea705553bbc7" => :mavericks
   end
 
   devel do
