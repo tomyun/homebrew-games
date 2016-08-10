@@ -12,7 +12,6 @@ class MoonBuggy < Formula
     sha256 "cb4ff729fadd4bc9ac84bb9bc695d06cb715c177660229466e5fb8f2cd83fff7" => :mavericks
   end
 
-
   devel do
     url "http://m.seehuhn.de/programs/moon-buggy-1.0.51.tar.gz"
     sha256 "352dc16ccae4c66f1e87ab071e6a4ebeb94ff4e4f744ce1b12a769d02fe5d23f"
