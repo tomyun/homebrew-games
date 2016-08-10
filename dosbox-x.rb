@@ -14,7 +14,6 @@ class DosboxX < Formula
     sha256 "cbe3b3c41f82ecb32a3abbb23b6df05b7916c9fbe7413e7de680bb1c5a8502f7" => :mountain_lion
   end
 
-
   depends_on "sdl"
   depends_on "sdl_net"
   depends_on "sdl_sound" => ["--with-libogg", "--with-libvorbis"]
