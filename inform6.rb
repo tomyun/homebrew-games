@@ -14,9 +14,10 @@ class Inform6 < Formula
     end
   end
   bottle do
-    sha256 "cb34e6f295f88c06963dda66a16898168176ac81c04a6066bc3b8f844d68589f" => :el_capitan
-    sha256 "b67089656bd67b7e2abcaf62c25077c09fd9ce8575978d8e79434bd5a5d99b7d" => :yosemite
-    sha256 "8426fbe1af57b5e7f8f26328335e56af3ad13814cece9d6697c60597d6caa9f8" => :mavericks
+    revision 1
+    sha256 "298362a553b468718d19a84750b3b90c59130ccd2fc12d8f6a533ac27ba6e177" => :el_capitan
+    sha256 "17ff38723a643158f9a50d59b34ea6c556dfd8a45ff704f40b6bb1cbd7d2dbd1" => :yosemite
+    sha256 "5c0982e9a614c5dfcd529a060725a46624a391f45095b8bfdcadaba34834b806" => :mavericks
   end
 
   devel do
