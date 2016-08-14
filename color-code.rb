@@ -1,8 +1,8 @@
 class ColorCode < Formula
   desc "Free advanced MasterMind clone"
   homepage "http://colorcode.laebisch.com/"
-  url "http://colorcode.laebisch.com/download/ColorCode-0.7.2.tar.gz"
-  sha256 "d1c5bf4d65c81de16c4159c2c69c096fc7ff47cca587d7233985e078d63c79aa"
+  url "http://colorcode.laebisch.com/download/ColorCode-0.8.5.tar.gz"
+  sha256 "7c128db12af6ab11439eb710091b4a448100553a4d11d3a7c8dafdfbc57c1a85"
 
   bottle do
     cellar :any
@@ -11,7 +11,7 @@ class ColorCode < Formula
     sha256 "d82d9e6fef4c86b55f13dc681b9fd117a86d4885b79e43960b2cbb28cec168aa" => :mavericks
   end
 
-  depends_on "qt"
+  depends_on "qt5"
 
   def install
     system "qmake"
