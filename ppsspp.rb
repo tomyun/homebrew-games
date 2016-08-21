@@ -3,6 +3,7 @@ class Ppsspp < Formula
   homepage "http://ppsspp.org/"
   url "https://github.com/hrydgard/ppsspp.git", :tag => "v1.2.2",
                                                 :revision => "8c9f3b9509e8a6850e086ec36a59ca7fa4082d60"
+  revision 1
   head "https://github.com/hrydgard/ppsspp.git"
 
   bottle do
