@@ -3,6 +3,7 @@ class Supertux < Formula
   homepage "http://supertuxproject.org/"
   url "https://github.com/SuperTux/supertux/releases/download/v0.4.0/supertux-0.4.0.tar.bz2"
   sha256 "d18dde3c415e619b4bb035e694ffc384be16576250c9df16929d9ec38daff782"
+  revision 1
 
   bottle do
     cellar :any
