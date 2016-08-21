@@ -1,6 +1,7 @@
 class FsUae < Formula
   desc "Amiga emulator"
   homepage "http://fs-uae.net/"
+  revision 1
 
   stable do
     url "http://fs-uae.net/fs-uae/stable/2.6.2/fs-uae-2.6.2.tar.gz"
@@ -15,9 +16,9 @@ class FsUae < Formula
   end
 
   devel do
-    url "http://fs-uae.net/fs-uae/devel/2.7.9dev/fs-uae-2.7.9dev.tar.gz"
-    version "2.7.9dev"
-    sha256 "4dd7c5f2e078bcec7d4a597e3a496e6afe49edb1a46aeab8ed79287d9cf9bbe0"
+    url "http://fs-uae.net/fs-uae/devel/2.7.14dev/fs-uae-2.7.14dev.tar.gz"
+    version "2.7.14dev"
+    sha256 "9df7445bccef5255a66135f040dfbcac48b20df79f09daced166c8771428da83"
   end
 
   head do
@@ -54,6 +55,6 @@ class FsUae < Formula
   end
 
   test do
-    assert_equal "#{version}", shell_output("#{bin}/fs-uae --version").chomp
+    assert_equal version.to_s, shell_output("#{bin}/fs-uae --version").chomp
   end
 end
