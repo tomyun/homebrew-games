@@ -3,6 +3,7 @@ class Rlvm < Formula
   homepage "http://www.rlvm.net/"
   url "https://github.com/eglaysher/rlvm/archive/release-0.14.tar.gz"
   sha256 "6d1717540b8db8aca1480ebafae3354b24e3122a77dd2ee81f4b964c7b10dcc0"
+  revision 1
   head "https://github.com/eglaysher/rlvm.git"
 
   bottle do
@@ -27,6 +28,13 @@ class Rlvm < Formula
   depends_on "sdl_image"
   depends_on "sdl_mixer"
   depends_on "sdl_ttf"
+
+  # Fix missing system header after boost update
+  # https://github.com/eglaysher/rlvm/issues/76
+  patch do
+    url "https://github.com/eglaysher/rlvm/commit/668863d2222b962ee8e7d9829e972ef05c990302.diff"
+    sha256 "048bb7a3794a7b3eccb3976e6f61e6f250e14fa37c8ac79a52b4d231612730a4"
+  end
 
   def install
     inreplace "SConstruct" do |s|
