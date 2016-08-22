@@ -1,8 +1,8 @@
 class Openclonk < Formula
   desc "Multiplayer action game"
   homepage "http://www.openclonk.org"
-  url "https://github.com/openclonk/openclonk/archive/v6.1.tar.gz"
-  sha256 "4e2e6cefedd4a13523593b285af23b530caa3a98ff02ac4adb215cf32889cb94"
+  url "http://www.openclonk.org/builds/release/7.0/openclonk-7.0-src.tar.bz2"
+  sha256 "bc1a231d72774a7aa8819e54e1f79be27a21b579fb057609398f2aa5700b0732"
   head "https://github.com/openclonk/openclonk", :using => :git
 
   bottle do
@@ -12,7 +12,8 @@ class Openclonk < Formula
     sha256 "522ebcef7cc4a6597f7593b976827b0409612f483e48df4876294e0de40a8119" => :mountain_lion
   end
 
-  depends_on :macos => :mountain_lion
+  # Requires some C++14 features missing in Mavericks
+  depends_on :macos => :yosemite
   depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"
@@ -30,5 +31,11 @@ class Openclonk < Formula
     system "cmake", ".", *std_cmake_args
     system "make"
     system "make", "install"
+    bin.write_exec_script "#{prefix}/openclonk.app/Contents/MacOS/openclonk"
+    bin.install Dir[prefix/"c4*"]
+  end
+
+  test do
+    system bin/"c4group"
   end
 end
