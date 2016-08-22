@@ -13,7 +13,6 @@ class DwarfFortress < Formula
   end
 
   depends_on :arch => :intel
-  depends_on :x11
 
   def install
     # Dwarf Fortress uses freetype from X11, but hardcodes a path that
