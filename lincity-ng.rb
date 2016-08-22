@@ -1,6 +1,7 @@
 class LincityNg < Formula
   desc "City simulation game"
   homepage "https://github.com/lincity-ng/lincity-ng/"
+  revision 1
   head "https://github.com/lincity-ng/lincity-ng.git"
 
   stable do
