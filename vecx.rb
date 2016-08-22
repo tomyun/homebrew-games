@@ -3,6 +3,7 @@ class Vecx < Formula
   homepage "https://github.com/jhawthorn/vecx"
   url "https://github.com/jhawthorn/vecx/archive/v1.0.tar.gz"
   sha256 "6aac0c1840982aa3cc8607d5fa65597b6644840f2ba1ea3715a0349522312f56"
+  revision 1
 
   bottle do
     cellar :any
