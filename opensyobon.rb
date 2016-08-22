@@ -4,6 +4,7 @@ class Opensyobon < Formula
   url "https://downloads.sourceforge.net/project/opensyobon/src/SyobonAction_rc2_src.tar.gz"
   version "1.0rc2"
   sha256 "a61a621de7e4603be047e8666c0376892200f2876c244fb2adc9e4afebc79728"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,16 +13,16 @@ class Opensyobon < Formula
     sha256 "9783443a25ad14d304f30c94047e43af514d51707da105b8b204e7ef69fb402e" => :mavericks
   end
 
-  resource "data" do
-    url "https://downloads.sourceforge.net/project/opensyobon/src/SyobonAction_rc2_data.tar.gz"
-    sha256 "073be7634600df28909701fa132c8e474de1ff9647bf05816f80416be3bcaa9f"
-  end
-
   depends_on "sdl"
   depends_on "sdl_gfx"
   depends_on "sdl_image"
   depends_on "sdl_mixer"
   depends_on "sdl_ttf"
+
+  resource "data" do
+    url "https://downloads.sourceforge.net/project/opensyobon/src/SyobonAction_rc2_data.tar.gz"
+    sha256 "073be7634600df28909701fa132c8e474de1ff9647bf05816f80416be3bcaa9f"
+  end
 
   def install
     inreplace "Makefile", "gcc", ENV.cxx
