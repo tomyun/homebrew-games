@@ -1,8 +1,8 @@
 class Libspectrum < Formula
   desc "Support library for ZX Spectrum emulator"
   homepage "http://fuse-emulator.sourceforge.net/libspectrum.php"
-  url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.2.0/libspectrum-1.2.0.tar.gz"
-  sha256 "5d08c624b181b18e708ca82183cae2162a9476dd524c421fbac52fe5ffba1e7a"
+  url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.2.2/libspectrum-1.2.2.tar.gz"
+  sha256 "1f8a365df30d7cb2bb5c289163cf122241660cae6dc2cb70687064c847ad12d1"
 
   bottle do
     cellar :any
