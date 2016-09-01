@@ -1,10 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0176.tar.gz"
-  version "0.176"
-  sha256 "e8837ae9c21ac6ca289c0214747a6d7ff7cc4683b9426377f42cda318fddcb25"
-  revision 1
+  url "https://github.com/mamedev/mame/archive/mame0177.tar.gz"
+  version "0.177"
+  sha256 "8b86fd7d3341f715eedcf678c2277cbd506a5d68de710cdf3764fc5e91067cb3"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -14,8 +13,9 @@ class Mame < Formula
     sha256 "3a9a3b1a59952d88331aa6059ec419d6451e9ef333a63bd6f6fff5da2fd6dca8" => :mavericks
   end
 
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on :macos => :yosemite
   depends_on "pkg-config" => :build
+  depends_on "sphinx-doc" => :build
   depends_on "sdl2"
   depends_on "jpeg"
   depends_on "flac"
@@ -34,8 +34,7 @@ class Mame < Formula
   def install
     inreplace "scripts/src/main.lua", /(targetsuffix) "\w+"/, '\1 ""'
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
-    system "make", "PTR64=#{MacOS.prefer_64_bit? ? 1 : 0}", # for old Macs
-                   "USE_LIBSDL=1",
+    system "make", "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=", # brewed version not picked up
                    "USE_SYSTEM_LIB_ZLIB=1",
                    "USE_SYSTEM_LIB_JPEG=1",
@@ -46,10 +45,12 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_PORTAUDIO=1",
                    "USE_SYSTEM_LIB_UV=1"
     bin.install "mame"
-    man6.install "docs/man/mame.6"
-    doc.install Dir["docs/*.txt", "docs/*.md", "docs/LICENSE"]
-    pkgshare.install %w[artwork bgfx hash keymaps plugins samples]
-    (pkgshare/"shader").install Dir["src/osd/modules/opengl/shader/*.[vf]sh"]
+    cd "docs" do
+      system "make", "text"
+      doc.install Dir["build/text/*"]
+      man6.install "man/mame.6"
+    end
+    pkgshare.install %w[artwork bgfx hash ini keymaps plugins samples uismall.bdf]
   end
 
   test do
