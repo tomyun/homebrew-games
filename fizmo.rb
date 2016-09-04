@@ -1,8 +1,8 @@
 class Fizmo < Formula
   desc "Z-Machine interpreter"
-  homepage "https://christoph-ender.de/fizmo/"
-  url "https://christoph-ender.de/fizmo/source/fizmo-0.7.10.tar.gz"
-  sha256 "0e3561492ece58ff60eba768f3b2cfa943ba111736b0f63b775e3face590462b"
+  homepage "https://fizmo.spellbreaker.org"
+  url "https://fizmo.spellbreaker.org/source/fizmo-0.8.2.tar.gz"
+  sha256 "369c3b58e019756229bf7e72cc5b15c049f1d6d5c65d7653267e67cef109e675"
 
   bottle do
     sha256 "f79c34c31907d62cd7594147ea29813696defa32c95a4cde25e1ccc91c67d99a" => :el_capitan
@@ -18,8 +18,6 @@ class Fizmo < Formula
   depends_on "sdl2"
 
   def install
-    ENV["ncursesw_CFLAGS"] = "-I#{MacOS.sdk_path}/usr/include"
-    ENV["ncursesw_LIBS"] = "-L#{MacOS.sdk_path}/usr/lib -lncurses"
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules"
@@ -27,6 +25,10 @@ class Fizmo < Formula
   end
 
   test do
-    assert_match /libfizmo version #{version}\.$/, shell_output("#{bin}/fizmo-console --help")
+    system "#{bin}/fizmo-console", "--help"
+    # Unable to test headless ncursew client
+    # https://github.com/Homebrew/homebrew-games/pull/366
+    # system "#{bin}/fizmo-ncursesw", "--help"
+    system "#{bin}/fizmo-sdl2", "--help"
   end
 end
