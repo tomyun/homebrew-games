@@ -19,6 +19,12 @@ class Nethack4 < Formula
     build 425
   end
 
+  # 'find_default_dynamic_libraries' failed on 10.11:
+  # https://github.com/Homebrew/homebrew-games/issues/642
+  fails_with :clang do
+    build 703
+  end
+
   def install
     ENV.refurbish_args
 
