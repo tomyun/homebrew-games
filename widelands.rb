@@ -4,6 +4,13 @@ class Widelands < Formula
   url "https://launchpad.net/widelands/build18/build-18/+download/widelands-build18-src.tar.bz2"
   sha256 "6dffd9178f93ff7a9c3c0c9b31b7d3b8eb060c79fbd98901e6311837390b7de3"
 
+  bottle do
+    cellar :any
+    sha256 "37a4e3d7eeb33a963f8ed568abe488df666385d5d8514fda4403dfc5939882c1" => :el_capitan
+    sha256 "da07952c61c3ff0a67eeb534754203e75cb31639d0335d30a28a3d17d908cd6f" => :yosemite
+    sha256 "618b7837413b5eb81be71f6db038e11e9c30436aee5450dcc167bd60e966e15c" => :mavericks
+  end
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libpng"
