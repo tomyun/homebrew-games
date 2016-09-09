@@ -7,9 +7,8 @@ class Openclonk < Formula
 
   bottle do
     cellar :any
-    sha256 "bab95c703bf739aa824087a2d7e74e6cb2ba39820d5579b4b844b278ed2ce312" => :yosemite
-    sha256 "78db1e1d29ff023e2bdf2c9a1e1cbee9793664c4ec42f9a6c2f017580c7a5ceb" => :mavericks
-    sha256 "522ebcef7cc4a6597f7593b976827b0409612f483e48df4876294e0de40a8119" => :mountain_lion
+    sha256 "b3f749b8945c227bfd7de499d873ce3185e5aa6f208b5e6dea77050807344418" => :el_capitan
+    sha256 "875ecfd0eb6ea4fa93943b5dea6dd166e8cb3f1672b82f2346906b0c6a082fef" => :yosemite
   end
 
   # Requires some C++14 features missing in Mavericks
