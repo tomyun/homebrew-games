@@ -4,6 +4,13 @@ class Guichan < Formula
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/guichan/guichan-0.8.2.tar.gz"
   sha256 "eedf206eae5201eaae027b133226d0793ab9a287bfd74c5f82c7681e3684eeab"
 
+  bottle do
+    cellar :any
+    sha256 "980c483e7566fc69294a26a603bcf474fe74c660840916ef238ea9f88a27daed" => :el_capitan
+    sha256 "60ac3594c93c20b0a992d85990d981e9d5f9de42492c0f3ab7b49a83286e655f" => :yosemite
+    sha256 "8e1358e9b004b2889abb90ff24fb9ce22f2fa6efb856db76a708ececac0609f1" => :mavericks
+  end
+
   depends_on "sdl_image"
   # "with-allegro" requires allegero-config. But that is no longer supplied from ver. 4.9.
 
