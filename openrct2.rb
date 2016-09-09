@@ -4,6 +4,13 @@ class Openrct2 < Formula
   url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.0.4.tar.gz"
   sha256 "ebcbbf1de3ccb76168535308ec9045271fae6c730bca4929575277f98deb40ab"
 
+  bottle do
+    cellar :any
+    sha256 "4a8e954236100631e4dfcfef40a40a7a022f6c6844b1853650424ed99ab0a694" => :el_capitan
+    sha256 "d0ab4dc42e818fdd6fd40c18ffb3032d58c5b7d76741f54742a11c0ebb00776b" => :yosemite
+    sha256 "d9a744d07526bb96ecaf8e48e486b32127ba4a38261f4495e78b68c1d6eee643" => :mavericks
+  end
+
   head do
     url "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
