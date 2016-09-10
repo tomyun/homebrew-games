@@ -5,6 +5,12 @@ class CdogsSdl < Formula
   sha256 "36035451286e3dd8af036ebfd84eb8ae4b9fa84bfc07a0bf2600cf7a78cbc167"
   head "https://github.com/cxong/cdogs-sdl.git"
 
+  bottle do
+    sha256 "a8ccf539f205813574832b014217d57134dd1e586c48f39002396c5fc0bce3e8" => :el_capitan
+    sha256 "42e4bb1a2ac861e97e5618cd5b3dec0d5863eef7a8dad695429210211b67d029" => :yosemite
+    sha256 "8ec7c95c87f7776e9c563a770739000395cfc65bc7471ad07590dca9b105329b" => :mavericks
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "sdl2"
