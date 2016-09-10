@@ -6,6 +6,13 @@ class GitIf < Formula
   sha256 "3ef7bd4ffddfe617cf914ae2f46dc28a30b4c5989590f93c97c53b1eb71a36c2"
   head "https://github.com/DavidKinder/Git.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "4393b0734b1d8febce948dd2eb094cc7ab7b68b394ac294cac8dbdac61c26ff5" => :el_capitan
+    sha256 "23c33be47e589e71960a4c42f61f08fc0f53f5a014c4a836b5c463b642b0f902" => :yosemite
+    sha256 "abb4ac0944be059cd3ec66d22b16dffac742c9b88c72b1a438b6470c24122f4b" => :mavericks
+  end
+
   option "with-cheapglk", "Build using cheapglk instead of glkterm"
   option "without-wide", "Disable glkterm wide character support"
 
