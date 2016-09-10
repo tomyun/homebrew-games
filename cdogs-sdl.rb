@@ -21,4 +21,12 @@ class CdogsSdl < Formula
     pkgshare.install ["data", "dogfights", "graphics", "missions", "music", "sounds"]
     doc.install Dir["doc/*"]
   end
+
+  test do
+    server = fork do
+      system "#{bin}/cdogs-sdl"
+    end
+    sleep 5
+    Process.kill("TERM", server)
+  end
 end
