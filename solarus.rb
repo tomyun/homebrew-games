@@ -1,8 +1,8 @@
 class Solarus < Formula
   desc "Action-RPG game engine"
   homepage "http://www.solarus-games.org/"
-  url "http://www.solarus-games.org/downloads/solarus/solarus-1.4.5-src.tar.gz"
-  sha256 "c251dd65502162a8db586e3559353871b3d6b2d3729e39ca814cf20ada362503"
+  url "http://www.solarus-games.org/downloads/solarus/solarus-1.5.0-src.tar.gz"
+  sha256 "f586877fe7eb28b3429fb41141fb4b1d9452f390061b386006773c8a1e0cd87f"
   head "https://github.com/christopho/solarus.git"
 
   bottle do
@@ -24,12 +24,12 @@ class Solarus < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", "-DSOLARUS_GUI=OFF", *std_cmake_args
       system "make", "install"
     end
   end
 
   test do
-    system "#{bin}/solarus_run", "-help"
+    system "#{bin}/solarus-run", "-help"
   end
 end
