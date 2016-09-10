@@ -3,6 +3,7 @@ class FuseEmulator < Formula
   homepage "http://fuse-emulator.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/fuse-emulator/fuse/1.2.0/fuse-1.2.0.tar.gz"
   sha256 "72621b23c31c69a31e97b698761c4a21a209b23f4d53f8b441291c14f6811acb"
+  revision 1
 
   bottle do
     sha256 "58f03ffbbc6f66249255c332eb52fa4f43c6cb6964611457d0246f3bdfbcbe00" => :el_capitan
