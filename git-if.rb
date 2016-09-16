@@ -13,27 +13,11 @@ class GitIf < Formula
     sha256 "abb4ac0944be059cd3ec66d22b16dffac742c9b88c72b1a438b6470c24122f4b" => :mavericks
   end
 
-  option "with-cheapglk", "Build using cheapglk instead of glkterm"
-  option "without-wide", "Disable glkterm wide character support"
+  option "with-glkterm", "Build with glkterm (without wide character support)"
 
-  # http://www.eblong.com/zarf/glk/index.html
-  resource "glkterm" do
-    url "http://www.eblong.com/zarf/glk/glkterm-104.tar.gz"
-    version "1.0.4"
-    sha256 "473d6ef74defdacade2ef0c3f26644383e8f73b4f1b348e37a9bb669a94d927e"
-  end
-
-  resource "glktermw" do
-    url "http://www.eblong.com/zarf/glk/glktermw-104.tar.gz"
-    version "1.0.4"
-    sha256 "5968630b45e2fd53de48424559e3579db0537c460f4dc2631f258e1c116eb4ea"
-  end
-
-  resource "cheapglk" do
-    url "http://www.eblong.com/zarf/glk/cheapglk-104.tar.gz"
-    version "1.0.4"
-    sha256 "87f1c0a1f2df7b6dc9e34a48b026b0c7bc1752b9a320e5cda922df32ff40cb57"
-  end
+  depends_on "cheapglk" => [:build, :optional]
+  depends_on "glkterm" => [:build, :optional]
+  depends_on "glktermw" => :build if build.without?("cheapglk") && build.without?("glkterm")
 
   # Fixes an issue caused by the use of noreturn as a macro name
   patch do
@@ -42,37 +26,21 @@ class GitIf < Formula
   end
 
   def install
-    glk_lib = libexec/"glk/lib"
-    glk_include = libexec/"glk/include"
-    glk = "glktermw"
-
-    if build.with? "cheapglk"
-      glk = "cheapglk"
-      resource("cheapglk").stage do
-        system "make"
-        glk_lib.install "libcheapglk.a"
-        glk_include.install "glk.h", "glkstart.h", "gi_blorb.h", "gi_dispa.h", "Make.cheapglk"
-      end
-    elsif build.without? "wide"
-      glk = "glkterm"
-      resource("glkterm").stage do
-        system "make"
-        glk_lib.install "libglkterm.a"
-        glk_include.install "glk.h", "glkstart.h", "gi_blorb.h", "gi_dispa.h", "Make.glkterm"
-      end
-    else
-      resource("glktermw").stage do
-        inreplace "gtoption.h", "/* #define LOCAL_NCURSESW */", "#define LOCAL_NCURSESW"
-        inreplace "Makefile", "-lncursesw", "-lncurses"
-        system "make"
-        glk_lib.install "libglktermw.a"
-        glk_include.install "glk.h", "glkstart.h", "gi_blorb.h", "gi_dispa.h", "Make.glktermw"
-      end
+    if build.with?("cheapglk") && build.with?("glkterm")
+      odie "Options --with-cheapglk and --with-glkterm are mutually exclusive."
     end
 
-    inreplace "Makefile", "#GLK = glkterm", "GLK = #{glk}"
-    inreplace "Makefile", "GLKINCLUDEDIR = ../$(GLK)", "GLKINCLUDEDIR = #{glk_include}"
-    inreplace "Makefile", "GLKLIBDIR = ../$(GLK)", "GLKLIBDIR = #{glk_lib}"
+    if build.with? "cheapglk"
+      glk = Formula["cheapglk"]
+    elsif build.with? "glkterm"
+      glk = Formula["glkterm"]
+    else
+      glk = Formula["glktermw"]
+    end
+
+    inreplace "Makefile", "GLK = cheapglk", "GLK = #{glk.name}" if build.without? "cheapglk"
+    inreplace "Makefile", "GLKINCLUDEDIR = ../$(GLK)", "GLKINCLUDEDIR = #{glk.include}"
+    inreplace "Makefile", "GLKLIBDIR = ../$(GLK)", "GLKLIBDIR = #{glk.lib}"
     inreplace "Makefile", /^OPTIONS = /, "OPTIONS = -DUSE_MMAP -DUSE_INLINE"
 
     system "make"
