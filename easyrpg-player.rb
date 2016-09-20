@@ -1,8 +1,8 @@
 class EasyrpgPlayer < Formula
   desc "RPG Maker 2000/2003 games interpreter"
-  homepage "https://easy-rpg.org/"
-  url "https://github.com/EasyRPG/Player/archive/0.4.1.tar.gz"
-  sha256 "04f5c91ec083425bef778380f42d691f2edaa5e5a694623e4a3f21e754e6b932"
+  homepage "https://easyrpg.org/"
+  url "https://github.com/EasyRPG/Player/archive/0.5.0.tar.gz"
+  sha256 "5cf8cf5c4383b2b9c28c8dbbf15ccef601b1c66af30f783c41b98c06a8a61977"
   head "https://github.com/EasyRPG/Player.git"
 
   bottle do
@@ -16,13 +16,18 @@ class EasyrpgPlayer < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost" => :build
+  depends_on "freetype"
+  depends_on "harfbuzz"
   depends_on "liblcf"
   depends_on "libpng"
-  depends_on "freetype"
+  depends_on "libsndfile"
+  depends_on "libvorbis"
+  depends_on "libxmp"
+  depends_on "mpg123"
   depends_on "pixman"
   depends_on "sdl2"
   depends_on "sdl2_mixer" => "with-libvorbis"
+  depends_on "speex"
 
   def install
     system "autoreconf", "-i"
