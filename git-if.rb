@@ -8,9 +8,10 @@ class GitIf < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4393b0734b1d8febce948dd2eb094cc7ab7b68b394ac294cac8dbdac61c26ff5" => :el_capitan
-    sha256 "23c33be47e589e71960a4c42f61f08fc0f53f5a014c4a836b5c463b642b0f902" => :yosemite
-    sha256 "abb4ac0944be059cd3ec66d22b16dffac742c9b88c72b1a438b6470c24122f4b" => :mavericks
+    rebuild 1
+    sha256 "1c94d04b4e3817073679802e421d2671e187a92e00670db15734ba05ba986276" => :sierra
+    sha256 "cc8ac3eb7effd10314d49eb715069d760a55492e0649bb70d49fe98b2b5498ce" => :el_capitan
+    sha256 "4fb19d7927a61865453b9cb2dc38321d7d58859fefd3f99c6cb342a9752ffebb" => :yosemite
   end
 
   option "with-glkterm", "Build with glkterm (without wide character support)"
