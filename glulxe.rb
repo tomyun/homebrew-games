@@ -6,6 +6,13 @@ class Glulxe < Formula
   sha256 "2f056987b38cf5bab7c2990cd13e493628dd0774583fb26ff20c338be8343ca6"
   head "https://github.com/erkyrath/glulxe.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3f1e25df9b3ad7c16a4aed52029f3db0d7787db3f845c4e53ebdc1d39d2df52c" => :sierra
+    sha256 "3ed4fe1d839e9e1cc878a2d1085045db77be40be647abe527badbead1d7cbf05" => :el_capitan
+    sha256 "b6a652f183e84c3057e3b13463d82a17c3f679b0e769ae3a637f434327021881" => :yosemite
+  end
+
   option "with-glkterm", "Build with glkterm (without wide character support)"
 
   depends_on "cheapglk" => [:build, :optional]
