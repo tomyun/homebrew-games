@@ -5,6 +5,13 @@ class Glkterm < Formula
   version "1.0.4"
   sha256 "473d6ef74defdacade2ef0c3f26644383e8f73b4f1b348e37a9bb669a94d927e"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "5a72c3f8490cd55598d1160533e951e5b188b319a2dccbf0cb6ee8a8b12dd4b0" => :sierra
+    sha256 "e1f42b6bef2421cf3c42e52f79b8e6153301b7c8d65fbaf4fe284b691705899c" => :el_capitan
+    sha256 "3fe7df7e54d96dcd88cc57674ae570b34af41b6a0511439a28c3036bc9e80580" => :yosemite
+  end
+
   keg_only "Conflicts with other Glk libraries"
 
   def install
