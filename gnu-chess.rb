@@ -1,9 +1,9 @@
 class GnuChess < Formula
   desc "GNU Chess"
   homepage "https://www.gnu.org/software/chess/"
-  url "http://ftpmirror.gnu.org/chess/gnuchess-6.2.2.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.2.tar.gz"
-  sha256 "7776c114eeb5889dea69dc4715a3622ec57f65efab667987e7d7183cc05381a8"
+  url "https://ftpmirror.gnu.org/chess/gnuchess-6.2.3.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.3.tar.gz"
+  sha256 "78999176b2f2b5e0325bcc69749b7b2cefb7b1ef4f02d101fa77ae24a1b31b82"
 
   bottle do
     sha256 "0579b3ce42325c257768bb3a2ce38644aa29c4ac618ba0b072c622a80db47fa2" => :el_capitan
@@ -22,7 +22,7 @@ class GnuChess < Formula
   option "with-book", "Download the opening book (~25MB)"
 
   resource "book" do
-    url "http://ftpmirror.gnu.org/chess/book_1.02.pgn.gz"
+    url "https://ftpmirror.gnu.org/chess/book_1.02.pgn.gz"
     sha256 "deac77edb061a59249a19deb03da349cae051e52527a6cb5af808d9398d32d44"
   end
 
