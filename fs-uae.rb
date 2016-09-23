@@ -9,9 +9,9 @@ class FsUae < Formula
 
   bottle do
     cellar :any
-    sha256 "3204920d6a626985b4241331cab489b41b9d15cbfb068e06373b7389a8e613e5" => :el_capitan
-    sha256 "8ab012e2af806983f3cc4a17d872c014fc197b405b4407c6c8f1dd8f97db610e" => :yosemite
-    sha256 "6651eefe49050d00499121e08e5fc8b076d43361f86f090fb1127842fb3a74d0" => :mavericks
+    sha256 "2d8f9a763565acbeab9736692ed7f8568d2e7f1ebe9eb7029cec08e460c0e3b7" => :sierra
+    sha256 "67e2c4286abcb9cd8087927533273d4e0234dd5b827b5b6a6d80368b1e56afbd" => :el_capitan
+    sha256 "812553c7854e38bc16bd50b67c6fc5bf999cd2e5c9ae1a8166f4e705f5442dd4" => :yosemite
   end
 
   head do
