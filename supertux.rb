@@ -1,9 +1,9 @@
 class Supertux < Formula
   desc "Classic 2D jump'n run sidescroller game"
-  homepage "http://supertuxproject.org/"
-  url "https://github.com/SuperTux/supertux/releases/download/v0.4.0/supertux-0.4.0.tar.bz2"
-  sha256 "d18dde3c415e619b4bb035e694ffc384be16576250c9df16929d9ec38daff782"
-  revision 1
+  homepage "https://supertuxproject.org/"
+  url "https://github.com/SuperTux/supertux/releases/download/v0.5.0/SuperTux-v0.5.0-Source.tar.gz"
+  sha256 "cfae0da40c41532fb414c3b17891c98396b59471fe583a8fc756b96aea61a73b"
+  head "https://github.com/SuperTux/supertux.git"
 
   bottle do
     cellar :any
@@ -20,17 +20,31 @@ class Supertux < Formula
   depends_on "sdl2_mixer" => "with-libvorbis"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "physfs"
   depends_on "glew"
 
   needs :cxx11
 
+  # Fix symlink passing to physfs
+  # https://github.com/SuperTux/supertux/issues/614
+  patch do
+    url "https://github.com/SuperTux/supertux/commit/47a353e2981161e2da12492822fe88d797af2fec.diff"
+    sha256 "bb88211eacf76698521b5b85972e2facd93bceab92fa37529ec3ff5482d82956"
+  end
+
   def install
     ENV.cxx11
-    system "cmake", ".", "-DDISABLE_CPACK_BUNDLING=ON", *std_cmake_args
+
+    args = std_cmake_args
+    args << "-DINSTALL_SUBDIR_BIN=bin"
+    args << "-DINSTALL_SUBDIR_SHARE=share/supertux"
+    system "cmake", ".", *args
     system "make", "install"
-    bin.write_exec_script "#{prefix}/SuperTux.app/Contents/MacOS/supertux2"
+
+    # Remove unnecessary files
     (share/"appdata").rmtree
+    (share/"applications").rmtree
+    (share/"pixmaps").rmtree
+    (prefix/"MacOS").rmtree
   end
 
   test do
