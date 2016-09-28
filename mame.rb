@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0177.tar.gz"
-  version "0.177"
-  sha256 "8b86fd7d3341f715eedcf678c2277cbd506a5d68de710cdf3764fc5e91067cb3"
+  url "https://github.com/mamedev/mame/archive/mame0178.tar.gz"
+  version "0.178"
+  sha256 "e48df1fbdd8e2a5c3ad87bf3cfa793c619ebbabc2462f5a5569c0f1d29ef0d37"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -31,7 +31,6 @@ class Mame < Formula
   end
 
   def install
-    inreplace "scripts/src/main.lua", /(targetsuffix) "\w+"/, '\1 ""'
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
     system "make", "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=", # brewed version not picked up
@@ -43,11 +42,12 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_PORTMIDI=1",
                    "USE_SYSTEM_LIB_PORTAUDIO=1",
                    "USE_SYSTEM_LIB_UV=1"
-    bin.install "mame"
+    bin.install "mame64" => "mame"
     cd "docs" do
       system "make", "text"
       doc.install Dir["build/text/*"]
-      man6.install "man/mame.6"
+      system "make", "man"
+      man1.install "build/man/MAME.1" => "mame.1"
     end
     pkgshare.install %w[artwork bgfx hash ini keymaps plugins samples uismall.bdf]
   end
