@@ -4,6 +4,13 @@ class NeopopSdl < Formula
   url "https://nih.at/NeoPop-SDL/NeoPop-SDL-0.2.tar.bz2"
   sha256 "2df1b717faab9e7cb597fab834dc80910280d8abf913aa8b0dcfae90f472352e"
 
+  bottle do
+    cellar :any
+    sha256 "3d8a1f106136142a38f8ec89e0bd2403d6294f51ba86211a1309e58186906f50" => :sierra
+    sha256 "6b56cf6822ca345a48cca6527417f449d884b35bde617b9d59058b1e29a2b7e4" => :el_capitan
+    sha256 "3eb50b57fef442f83df0d9d92f1612094a40feb38658b9d153eae568d0570472" => :yosemite
+  end
+
   head do
     url "http://hg.nih.at/NeoPop-SDL/", :using => :hg
     depends_on "autoconf" => :build
