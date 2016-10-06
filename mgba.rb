@@ -1,8 +1,9 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
-  homepage "http://mgba.io/"
-  url "https://github.com/mgba-emu/mgba/archive/0.4.1.tar.gz"
+  homepage "https://mgba.io/"
+  url "https://github.com/mgba-emu/mgba/archive/0.5.1.tar.gz"
   sha256 "73ae50b9ad11047e47c8b900a5965d39e4126563778f0bbfb264c5f45893aab5"
+  sha256 "d2173fbe69065ae1bd0abb323dcc3459d73c48ddc3d6934ef216cc50d1a0835d"
   head "https://github.com/mgba-emu/mgba.git"
 
   bottle do
@@ -24,7 +25,7 @@ class Mgba < Formula
   def install
     inreplace "src/platform/qt/CMakeLists.txt" do |s|
       # Avoid framework installation via tools/deploy-macosx.py
-      s.gsub! /(add_custom_command)/, '#\1'
+      s.gsub! /(add_custom_command\(TARGET \${BINARY_NAME}-qt)/, '#\1'
       # Install .app bundle into prefix, not prefix/Applications
       s.gsub! "Applications", "."
     end
