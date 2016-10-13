@@ -1,8 +1,8 @@
 class Onscripter < Formula
   desc "NScripter-compatible visual novel engine"
   homepage "https://onscripter.osdn.jp/"
-  url "https://onscripter.osdn.jp/onscripter-20161009.tar.gz"
-  sha256 "0bb6c2201268aaf3eb3d6525398945ccae8576036138b2b17abcea693218a059"
+  url "https://onscripter.osdn.jp/onscripter-20161010.tar.gz"
+  sha256 "90aeda16004ab14e93efd1c65cbd8ccd86f253ef6470046d7ac1135e457de3d2"
 
   bottle do
     cellar :any
