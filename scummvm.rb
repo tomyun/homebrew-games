@@ -1,9 +1,8 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "https://www.scummvm.org/"
-  url "https://www.scummvm.org/frs/scummvm/1.8.1/scummvm-1.8.1.tar.xz"
-  sha256 "935f53d7e4c460fbc22c58fee5007d4858891e4961831f53f575a3594b7f612a"
-  revision 1
+  url "https://www.scummvm.org/frs/scummvm/1.9.0/scummvm-1.9.0.tar.xz"
+  sha256 "2417edcb1ad51ca05a817c58aeee610bc6db5442984e8cf28e8a5fd914e8ae05"
   head "https://github.com/scummvm/scummvm.git"
 
   bottle do
@@ -14,7 +13,7 @@ class Scummvm < Formula
 
   option "with-all-engines", "Enable all engines (including broken or unsupported)"
 
-  depends_on "sdl"
+  depends_on "sdl2"
   depends_on "libvorbis" => :recommended
   depends_on "mad" => :recommended
   depends_on "flac" => :recommended
