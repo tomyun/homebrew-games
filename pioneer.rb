@@ -1,8 +1,8 @@
 class Pioneer < Formula
   desc "Game of lonely space adventure"
   homepage "http://pioneerspacesim.net/"
-  url "https://github.com/pioneerspacesim/pioneer/archive/20160907.tar.gz"
-  sha256 "89c981d7f0d2bc8876b1bea8437dfea53a95de0ab2b207a24f63fbee1fff3b28"
+  url "https://github.com/pioneerspacesim/pioneer/archive/20161022.tar.gz"
+  sha256 "072e10cb2ce71fd8412c52027522d6c8ab5736daee4c215aa858da85cfbdc3de"
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
@@ -28,6 +28,11 @@ class Pioneer < Formula
   def install
     ENV.cxx11
     ENV["PIONEER_DATA_DIR"] = "#{pkgshare}/data"
+
+    # Remove as soon as possible
+    # https://github.com/pioneerspacesim/pioneer/issues/3839
+    ENV["ARFLAGS"] = "cru"
+
     system "./bootstrap"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
