@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0178.tar.gz"
-  version "0.178"
-  sha256 "e48df1fbdd8e2a5c3ad87bf3cfa793c619ebbabc2462f5a5569c0f1d29ef0d37"
+  url "https://github.com/mamedev/mame/archive/mame0179.tar.gz"
+  version "0.179"
+  sha256 "d1616ef32b884c3e7913378ebf5282b6f846f895f419eb92a9068770581e081b"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -19,10 +19,8 @@ class Mame < Formula
   depends_on "sdl2"
   depends_on "jpeg"
   depends_on "flac"
-  depends_on "sqlite"
   depends_on "portmidi"
   depends_on "portaudio"
-  depends_on "libuv"
 
   # Needs GCC 4.9 or newer
   fails_with :gcc_4_0
@@ -39,10 +37,8 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_JPEG=1",
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_LUA=", # lua53 not available yet
-                   "USE_SYSTEM_LIB_SQLITE3=1",
                    "USE_SYSTEM_LIB_PORTMIDI=1",
-                   "USE_SYSTEM_LIB_PORTAUDIO=1",
-                   "USE_SYSTEM_LIB_UV=1"
+                   "USE_SYSTEM_LIB_PORTAUDIO=1"
     bin.install "mame64" => "mame"
     cd "docs" do
       system "make", "text"
