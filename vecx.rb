@@ -1,9 +1,9 @@
 class Vecx < Formula
   desc "Vectrex emulator"
   homepage "https://github.com/jhawthorn/vecx"
-  url "https://github.com/jhawthorn/vecx/archive/v1.0.tar.gz"
-  sha256 "6aac0c1840982aa3cc8607d5fa65597b6644840f2ba1ea3715a0349522312f56"
-  revision 1
+  url "https://github.com/jhawthorn/vecx/archive/v1.1.tar.gz"
+  sha256 "206ab30db547b9c711438455917b5f1ee96ff87bd025ed8a4bd660f109c8b3fb"
+  head "https://github.com/jhawthorn/vecx.git"
 
   bottle do
     cellar :any
@@ -12,13 +12,9 @@ class Vecx < Formula
     sha256 "85d465a4c67d097d64edb6fecee37643a0542dcb247e3bdf48e134b2b13f5327" => :mavericks
   end
 
-  head do
-    url "https://github.com/jhawthorn/vecx.git"
-    depends_on "sdl_image"
-  end
-
   depends_on "sdl"
   depends_on "sdl_gfx"
+  depends_on "sdl_image"
 
   def install
     # Fix missing symobls for inline functions
@@ -28,4 +24,9 @@ class Vecx < Formula
     system "make"
     bin.install "vecx"
   end
+
+  test do
+    assert_match "rom.dat: No such file or directory", shell_output("#{bin}/vecx 2>&1", 1)
+  end
+
 end
