@@ -8,9 +8,9 @@ class Glulxe < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3f1e25df9b3ad7c16a4aed52029f3db0d7787db3f845c4e53ebdc1d39d2df52c" => :sierra
-    sha256 "3ed4fe1d839e9e1cc878a2d1085045db77be40be647abe527badbead1d7cbf05" => :el_capitan
-    sha256 "b6a652f183e84c3057e3b13463d82a17c3f679b0e769ae3a637f434327021881" => :yosemite
+    sha256 "245660f65870ae1839eebd31e61c89f17654cbe82aa5b41ea2e7eb1ea8f18fae" => :sierra
+    sha256 "3dee7d6677f7162c744dc0fa74eeda736905208253b2aeb30b939c52cd563706" => :el_capitan
+    sha256 "65d3a2989e1679fc20c589a00328bbc2f31cda12782a9a8dfe12d1c7611b1946" => :yosemite
   end
 
   option "with-glkterm", "Build with glkterm (without wide character support)"
