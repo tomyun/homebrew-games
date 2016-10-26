@@ -1,9 +1,9 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0178.tar.gz"
-  version "0.178"
-  sha256 "e48df1fbdd8e2a5c3ad87bf3cfa793c619ebbabc2462f5a5569c0f1d29ef0d37"
+  url "https://github.com/mamedev/mame/archive/mame0179.tar.gz"
+  version "0.179"
+  sha256 "d1616ef32b884c3e7913378ebf5282b6f846f895f419eb92a9068770581e081b"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -17,7 +17,6 @@ class RomTools < Formula
   depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "flac"
-  depends_on "sqlite"
   depends_on "portmidi"
 
   def install
@@ -29,7 +28,7 @@ class RomTools < Formula
                    "USE_SYSTEM_LIB_ZLIB=1",
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_PORTMIDI=1"
-    bin.install %W[
+    bin.install %w[
       aueffectutil castool chdman floptool imgtool jedutil ldplayer ldresample
       ldverify nltool nlwav pngcmp regrep romcmp src2html srcclean unidasm
     ]
