@@ -11,4 +11,4 @@ brew install https://raw.githubusercontent.com/Homebrew/homebrew-games/master/<f
 ```
 
 ## Documentation
-`brew help`, `man brew` or check [Homebrew's documentation](https://github.com/Homebrew/brew/tree/master/share/doc/homebrew#readme).
+`brew help`, `man brew` or check [Homebrew's documentation](https://github.com/Homebrew/brew/tree/master/docs/#readme).
