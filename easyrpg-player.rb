@@ -3,6 +3,7 @@ class EasyrpgPlayer < Formula
   homepage "https://easyrpg.org/"
   url "https://github.com/EasyRPG/Player/archive/0.5.0.tar.gz"
   sha256 "5cf8cf5c4383b2b9c28c8dbbf15ccef601b1c66af30f783c41b98c06a8a61977"
+  revision 1
   head "https://github.com/EasyRPG/Player.git"
 
   bottle do
