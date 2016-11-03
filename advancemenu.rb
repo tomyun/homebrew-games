@@ -18,6 +18,6 @@ class Advancemenu < Formula
   end
 
   test do
-    system "advmenu", "--version"
+    system bin/"advmenu", "--version"
   end
 end
