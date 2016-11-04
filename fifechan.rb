@@ -1,8 +1,8 @@
 class Fifechan < Formula
   desc "C++ GUI library designed for games"
   homepage "https://fifengine.github.io/fifechan/"
-  url "https://github.com/fifengine/fifechan/archive/0.1.2.tar.gz"
-  sha256 "4a4239314ae33c5413e4d7d3e5f2f1a7e53fb596fd1480ea7443ee78041e6b2d"
+  url "https://github.com/fifengine/fifechan/archive/0.1.3.tar.gz"
+  sha256 "0b3dc9821a6f2acfc65299235e39b7fa5dc4c36bd9c50153d0debd8c27497e1e"
 
   bottle do
     cellar :any
@@ -17,8 +17,10 @@ class Fifechan < Formula
   depends_on "sdl_image" => :recommended
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
