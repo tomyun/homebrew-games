@@ -1,10 +1,9 @@
 class Hatari < Formula
   desc "Atari ST/STE/TT/Falcon emulator"
-  homepage "http://hatari.tuxfamily.org"
-  url "http://download.tuxfamily.org/hatari/1.9.0/hatari-1.9.0.tar.bz2"
-  sha256 "b2b56e6cbe7f8769a5e8b1d96599f392d9351b44cacf959da6905da06d30e992"
-  revision 1
-  head "http://hg.tuxfamily.org/mercurialroot/hatari/hatari", :using => :hg, :branch => "default"
+  homepage "https://hatari.tuxfamily.org"
+  url "https://download.tuxfamily.org/hatari/2.0.0/hatari-2.0.0.tar.bz2"
+  sha256 "52a447a59b6979d55d1525f3c4a21ec013e4371354d6683ede71546c5e6da577"
+  head "https://hg.tuxfamily.org/mercurialroot/hatari/hatari", :using => :hg, :branch => "default"
 
   bottle do
     cellar :any
@@ -15,7 +14,7 @@ class Hatari < Formula
 
   depends_on "cmake" => :build
   depends_on "libpng"
-  depends_on "sdl"
+  depends_on "sdl2"
   depends_on "portaudio"
 
   # Download EmuTOS ROM image
