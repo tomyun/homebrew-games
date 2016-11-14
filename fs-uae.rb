@@ -3,8 +3,9 @@ class FsUae < Formula
   homepage "http://fs-uae.net/"
 
   stable do
-    url "https://fs-uae.net/stable/2.8.0/fs-uae-2.8.0.tar.gz"
-    sha256 "45d038125489e1fbc9094d411ba8413d8394f8b3ab8072baba391308ffa47bb3"
+    url "https://fs-uae.net/stable/2.8.1u3/fs-uae-2.8.1u3.tar.gz"
+    version "2.8.1u3"
+    sha256 "7cc84844a77853f4fe2f2fc7da20ce94adc1a0c0c4b982ea28852a60b8a4d83a"
   end
 
   bottle do
