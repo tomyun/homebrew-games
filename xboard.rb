@@ -12,6 +12,12 @@ class Xboard < Formula
     sha256 "a715d902478cdf0d4d2e2e205d5119159c670f8ab7f2bd90c28afda4d33d7023" => :yosemite
   end
 
+  head do
+    url "git://git.sv.gnu.org/xboard.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "fairymax" => :recommended
   depends_on "polyglot" => :recommended
@@ -21,6 +27,7 @@ class Xboard < Formula
   depends_on "gtk+"
 
   def install
+    system "./autogen.sh" if build.head?
     args = ["--prefix=#{prefix}",
             "--with-gtk",
             "--without-Xaw",
