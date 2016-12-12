@@ -1,3 +1,4 @@
 {
-  "hedgewars": "caskroom/cask"
+  "hedgewars": "caskroom/cask",
+  "hugor": "homebrew/boneyard"
 }
