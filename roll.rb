@@ -1,8 +1,9 @@
 class Roll < Formula
   desc "CLI program for rolling a dice sequence"
-  homepage "http://matteocorti.ch/software/roll.html"
-  url "http://matteocorti.ch/software/roll/roll-2.0.2.tar.gz"
-  sha256 "15b3fb5fe43c61799da3e15574aec4fb414e30e7bfda3b1e4a3b4b398a3a99a9"
+  homepage "https://matteocorti.github.io/roll/"
+  url "https://github.com/matteocorti/roll/releases/download/v2.1.1/roll-2.1.1.tar.gz"
+  sha256 "5d499c690d30cbe93dc571eb8e3f11d1505ce4595c8151646777548ef89a7997"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ce7f741763e5a382bebe1faf1497e52c3c67250b517bdad146303f2eef3c1087" => :el_capitan
@@ -11,7 +12,7 @@ class Roll < Formula
   end
 
   head do
-    url "svn://svn.code.sf.net/p/roll/code/trunk/roll"
+    url "https://github.com/matteocorti/roll.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
