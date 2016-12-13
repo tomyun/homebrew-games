@@ -1,9 +1,8 @@
 class Stormlib < Formula
   desc "Library for handling Blizzard MPQ archives"
   homepage "http://www.zezula.net/en/mpq/stormlib.html"
-  url "https://github.com/ladislav-zezula/StormLib/archive/v9.20.tar.gz"
-  sha256 "fdfc7d0b444cd5d540c5732155a7c5011c573e90029947198f651aec93db4887"
-
+  url "https://github.com/ladislav-zezula/StormLib/archive/v9.21.tar.gz"
+  sha256 "e23e9f106c6367f161fc63e015e7da6156b261b14c7e4a5aa542df02009294f9"
   head "https://github.com/ladislav-zezula/StormLib.git"
 
   bottle do
@@ -19,7 +18,9 @@ class Stormlib < Formula
   patch :DATA
 
   def install
-    system "cmake", "CMakeLists.txt", "-DWITH_STATIC=YES", *std_cmake_args
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "make", "install"
   end
 
@@ -34,20 +35,20 @@ class Stormlib < Formula
       }
     EOS
     system ENV.cc, "-o", "test", "test.c"
-    assert_equal "#{version}", shell_output("./test")
+    assert_equal version.to_s, shell_output("./test")
   end
 end
 
 __END__
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 3b22069..03ed2c6 100644
+index 76c6aa9..4fd0a46 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -288,7 +288,6 @@ if(WITH_STATIC)
- endif()
-
- if(APPLE)
--    set_target_properties(storm PROPERTIES FRAMEWORK true)
-     set_target_properties(storm PROPERTIES PUBLIC_HEADER "src/StormLib.h src/StormPort.h")
-     set_target_properties(storm PROPERTIES LINK_FLAGS "-framework Carbon")
- endif()
+@@ -297,7 +297,6 @@ target_include_directories(${LIBRARY_NAME} PUBLIC src/)
+ set_target_properties(${LIBRARY_NAME} PROPERTIES PUBLIC_HEADER "src/StormLib.h;src/StormPort.h")
+ if(BUILD_SHARED_LIBS)
+     if(APPLE)
+-        set_target_properties(${LIBRARY_NAME} PROPERTIES FRAMEWORK true)
+         set_target_properties(${LIBRARY_NAME} PROPERTIES LINK_FLAGS "-framework Carbon")
+     endif()
+     if(UNIX)
