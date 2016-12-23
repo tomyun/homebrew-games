@@ -5,9 +5,9 @@ class FuseEmulator < Formula
   sha256 "576bf916b499a4d5932acc34d315e2acd36636d1d5a3911c839589487a6b68e6"
 
   bottle do
-    sha256 "c8be220bd885be72166dfdae2373e1a90e7b8182279129d1816de0bab7b95a72" => :sierra
-    sha256 "2de13fb630f6c002ae4ac04d165f1399820c01ca28803f9eb093b94da8360ff2" => :el_capitan
-    sha256 "cd9e07a77bc481ff335f9c4fe8414c24cab979e6a1b313eaf07f87b8e12df591" => :yosemite
+    sha256 "50f40554c9c5b2ac2ea8fa9a3921951953f34b6f701cade4e30c0a4a48d1ca97" => :sierra
+    sha256 "0ab8a31e1b8d350b96656ee105c2eca3ce60116f86e75c293eb3f2c6c3b35fce" => :el_capitan
+    sha256 "360cbef5b242257abe2885b77a39f49e7fa5cab45b9e94582107535f45a377ba" => :yosemite
   end
 
   head do
