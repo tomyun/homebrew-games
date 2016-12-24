@@ -7,9 +7,9 @@ class Stormlib < Formula
 
   bottle do
     cellar :any
-    sha256 "16962abbd9b652af114a43b56794d27760be1568fac7a391a698b6b12e697aef" => :el_capitan
-    sha256 "08d13e6ba1811b7716cb633ea4e13d6bf037af05878efcb01672c51d6241376c" => :yosemite
-    sha256 "9ca69941525fdf438fd604601b39a23c1918791393ea465626c3db1705c3f305" => :mavericks
+    sha256 "415a6b7424409864d906cf7e2694bff9f3aa6cf03e91e93b75a330df37d602c9" => :sierra
+    sha256 "9463671aa577c6054a9598d157eeeff15d1f3c4ef01cf74779ab8e74a0c0a4b8" => :el_capitan
+    sha256 "3f35322bf7290615a04f616d274f1228cdcb3d0d825ff0e454ccd78e01870735" => :yosemite
   end
 
   depends_on "cmake" => :build
