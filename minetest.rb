@@ -3,12 +3,12 @@ class Minetest < Formula
   homepage "http://www.minetest.net/"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/0.4.14.tar.gz"
-    sha256 "203de4d41a60466126ab92ca85f726d88d0084f2e78393da239e7416cb847054"
+    url "https://github.com/minetest/minetest/archive/0.4.15.tar.gz"
+    sha256 "5684e6118e3484f8901323f1ca4179202659010b33c72f02bc03df792493e3a9"
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/0.4.14.tar.gz"
-      sha256 "eebc2830d0e2f431f648691a0072fbb773d000c56deaf09ddc5e7416096cdf85"
+      url "https://github.com/minetest/minetest_game/archive/0.4.15.tar.gz"
+      sha256 "f583ea55f511bbcc106c60f7d488ec3fe6b961efc3fd648603b6acd0189d7d8a"
     end
   end
 
@@ -47,6 +47,10 @@ class Minetest < Formula
     args << "-DENABLE_LEVELDB=1" if build.with? "leveldb"
     args << "-DENABLE_FREETYPE=1" << "-DCMAKE_EXE_LINKER_FLAGS='-L#{Formula["freetype"].opt_lib}'" if build.with? "freetype"
     args << "-DENABLE_GETTEXT=1" << "-DCUSTOM_GETTEXT_PATH=#{Formula["gettext"].opt_prefix}" if build.with? "gettext"
+
+    # -ffast-math compiler flag is an issue on Mac
+    # https://github.com/minetest/minetest/issues/4274
+    inreplace "src/CMakeLists.txt", "-ffast-math", ""
 
     system "cmake", ".", *args
     system "make", "package"
