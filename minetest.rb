@@ -11,6 +11,12 @@ class Minetest < Formula
       sha256 "f583ea55f511bbcc106c60f7d488ec3fe6b961efc3fd648603b6acd0189d7d8a"
     end
   end
+  bottle do
+    sha256 "12219bfb7b38be2fcf9e1e3972b368b22186b9bd02825992b74a16640e22185f" => :sierra
+    sha256 "419e76cc823140f59d8333ffadc4d4d82ee345783646224bbb1c6b009726d57e" => :el_capitan
+    sha256 "6f6cfe8dd8745264abb8317d1d5876152c9503f3e8d8975def066118d09abe83" => :yosemite
+  end
+
 
   head do
     url "https://github.com/minetest/minetest.git"
