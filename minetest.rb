@@ -12,12 +12,6 @@ class Minetest < Formula
     end
   end
 
-  bottle do
-    sha256 "f3ba3ebf2ac234d8d6961b7b9449ccfb798f10987807506c313f9a45436674f3" => :el_capitan
-    sha256 "48f55279a5aa5f8d6736ef8a0863041d0d4cd34b8fc0e9a827d4fc2870c910e5" => :yosemite
-    sha256 "adea2ef1899a13ffae1cda55b4a116ab2ec614969cbb3d45f8cfb18102cbbbfb" => :mavericks
-  end
-
   head do
     url "https://github.com/minetest/minetest.git"
 
