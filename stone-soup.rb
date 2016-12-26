@@ -5,10 +5,9 @@ class StoneSoup < Formula
   sha256 "89374dc3e4282c7c2bae911ef780043845cc08cf529f4d54b7d81c0ce8355aa0"
 
   bottle do
-    rebuild 1
-    sha256 "f1f4895b6255480be051d1ecd310a72b82340aa41dd73b91e516de6be5519336" => :sierra
-    sha256 "41cbf61c0ba06bae2704c242bcb649973642a933f10388ecf2a0396c83b718f9" => :el_capitan
-    sha256 "9b5c6f276be7433417cf2d173d3a002d65559fa14e087180d366b0c7f9cdde10" => :yosemite
+    sha256 "cb56020ea9672a6d2aead43c16ade6372f72e23fe6cdeb3b4d2a60b7268f73a2" => :sierra
+    sha256 "07b6c62ae5b06c80aa2bb3fb7fdad161d84a498c0b0bfcf2fd81f1e7fab9565e" => :el_capitan
+    sha256 "b0908fc5925eac31cbc296b680cf62172ae2bb40b86d811b78880e2c9de91e37" => :yosemite
   end
 
   option "with-tiles", "Enable graphic tiles and sound"
