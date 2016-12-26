@@ -1,8 +1,8 @@
 class Supertux < Formula
   desc "Classic 2D jump'n run sidescroller game"
   homepage "https://supertuxproject.org/"
-  url "https://github.com/SuperTux/supertux/releases/download/v0.5.0/SuperTux-v0.5.0-Source.tar.gz"
-  sha256 "cfae0da40c41532fb414c3b17891c98396b59471fe583a8fc756b96aea61a73b"
+  url "https://github.com/SuperTux/supertux/releases/download/v0.5.1/SuperTux-v0.5.1-Source.tar.gz"
+  sha256 "c9dc3b42991ce5c5d0d0cb94e44c4ec2373ad09029940f0e92331e7e9ada0ac5"
   head "https://github.com/SuperTux/supertux.git"
 
   bottle do
@@ -23,13 +23,6 @@ class Supertux < Formula
   depends_on "glew"
 
   needs :cxx11
-
-  # Fix symlink passing to physfs
-  # https://github.com/SuperTux/supertux/issues/614
-  patch do
-    url "https://github.com/SuperTux/supertux/commit/47a353e2981161e2da12492822fe88d797af2fec.diff"
-    sha256 "bb88211eacf76698521b5b85972e2facd93bceab92fa37529ec3ff5482d82956"
-  end
 
   def install
     ENV.cxx11
