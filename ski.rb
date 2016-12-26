@@ -1,8 +1,8 @@
 class Ski < Formula
   desc "Evade the deadly Yeti on your jet-powered skis"
   homepage "http://catb.org/~esr/ski/"
-  url "http://www.catb.org/~esr/ski/ski-6.9.tar.gz"
-  sha256 "d0f2fd7770a63319340fab8ee275c6221dff0e0e7fe488f2298f567583902d37"
+  url "http://www.catb.org/~esr/ski/ski-6.11.tar.gz"
+  sha256 "8dd0335d093b3a0f4486abd269f2bde300d97d2972ef1467fd6dff5de9a31b26"
 
   bottle do
     cellar :any
