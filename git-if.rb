@@ -1,9 +1,9 @@
 class GitIf < Formula
   desc "Glulx interpreter that is optimized for speed"
   homepage "http://ifarchive.org/indexes/if-archiveXprogrammingXglulxXinterpretersXgit.html"
-  url "http://ifarchive.org/if-archive/programming/glulx/interpreters/git/git-134.zip"
-  version "1.3.4"
-  sha256 "3ef7bd4ffddfe617cf914ae2f46dc28a30b4c5989590f93c97c53b1eb71a36c2"
+  url "http://ifarchive.org/if-archive/programming/glulx/interpreters/git/git-135.zip"
+  version "1.3.5"
+  sha256 "4bdfae2e1ab085740efddf99d43ded6a044f1f2df274f753737e5f0e402fc4e9"
   head "https://github.com/DavidKinder/Git.git"
 
   bottle do
@@ -19,12 +19,6 @@ class GitIf < Formula
   depends_on "cheapglk" => [:build, :optional]
   depends_on "glkterm" => [:build, :optional]
   depends_on "glktermw" => :build if build.without?("cheapglk") && build.without?("glkterm")
-
-  # Fixes an issue caused by the use of noreturn as a macro name
-  patch do
-    url "https://github.com/DavidKinder/Git/commit/36ac371e8fcbf118c12c3dca08a8dc60a5bac93a.patch"
-    sha256 "a88ea0da5d323090156ba85441750221f4c790dc9d096002f241b1969f4b0226"
-  end
 
   def install
     if build.with?("cheapglk") && build.with?("glkterm")
