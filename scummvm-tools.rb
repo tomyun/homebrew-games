@@ -1,8 +1,8 @@
 class ScummvmTools < Formula
   desc "Collection of tools for ScummVM"
   homepage "http://www.scummvm.org/"
-  url "http://www.scummvm.org/frs/scummvm-tools/1.8.0/scummvm-tools-1.8.0.tar.xz"
-  sha256 "2c14050cee3fb8e178cb9ff16a4412ab584001757b4824c75b24240eb2d98bdd"
+  url "http://www.scummvm.org/frs/scummvm-tools/1.9.0/scummvm-tools-1.9.0.tar.xz"
+  sha256 "b7ab2e03c5a0efb71bb0c84434aa481331739b2b8759361d467e076b8410f938"
   head "https://github.com/scummvm/scummvm-tools.git"
 
   bottle do
