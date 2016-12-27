@@ -14,12 +14,12 @@ class Wumpus < Formula
   # Patches to allow `make install` to specify a prefix; both patches
   # can be removed in the next release
   patch do
-    url "http://thyrsus.com/gitweb/?p=wumpus.git;a=patch;h=ea272d4786a55dbaa493d016324b7a05b4f165b9"
-    sha256 "33730ae3874fe8cafd05ddd1a0280ba72d05f2eabbd9ffc6549eeff53b4a9963"
+    url "https://gitlab.com/esr/wumpus/commit/ea272d4786a55dbaa493d016324b7a05b4f165b9.diff"
+    sha256 "9a6d625e10425674329f14c625dba43b78b66c8137d356453d021e6c39ec339b"
   end
   patch do
-    url "http://thyrsus.com/gitweb/?p=wumpus.git;a=patch;h=99022db86e54c3338d6a670f219a0845fd531530"
-    sha256 "43beee9e6bbe42f351b7eabe91d4453d9aadd12a5a5f7f32bcc977cafbb23c13"
+    url "https://gitlab.com/esr/wumpus/commit/99022db86e54c3338d6a670f219a0845fd531530.diff"
+    sha256 "72e40a834eb87e8deef51e8f064c50d93880e85ff9904a50be6b7c85052cc157"
   end
 
   def install
