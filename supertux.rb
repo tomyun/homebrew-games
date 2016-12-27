@@ -22,6 +22,13 @@ class Supertux < Formula
   depends_on "libvorbis"
   depends_on "glew"
 
+  # Fix symlink passing to physfs
+  # https://github.com/SuperTux/supertux/issues/614
+  patch do
+    url "https://github.com/SuperTux/supertux/commit/47a353e2981161e2da12492822fe88d797af2fec.diff"
+    sha256 "bb88211eacf76698521b5b85972e2facd93bceab92fa37529ec3ff5482d82956"
+  end
+
   needs :cxx11
 
   def install
@@ -30,6 +37,8 @@ class Supertux < Formula
     args = std_cmake_args
     args << "-DINSTALL_SUBDIR_BIN=bin"
     args << "-DINSTALL_SUBDIR_SHARE=share/supertux"
+    # Without the following option, Cmake intend to use the library of MONO framework.
+    args << "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}"
     system "cmake", ".", *args
     system "make", "install"
 
