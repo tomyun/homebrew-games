@@ -16,6 +16,9 @@ class Ski < Formula
     depends_on "xmlto" => :build
   end
 
+  # Reported upstream by email
+  patch :DATA
+
   def install
     if build.head?
       ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
@@ -29,3 +32,16 @@ class Ski < Formula
     assert_match "Bye!", pipe_output("#{bin}/ski", "")
   end
 end
+
+__END__
+--- ski-6.11/ski
++++ ski-6.11/ski
+@@ -481,7 +481,7 @@
+             colordict[ch] = curses.tparm(color, idx)
+         else:
+             colordict[ch] = ""
+-    reset = curses.tigetstr("sgr0").decode("ascii") or ""
++    reset = (curses.tigetstr("sgr0") or "").decode("ascii")
+     terrain_key = colorize(terrain_key)
+
+     print("SKI!  Version %s.  Type ? for help." % version)
