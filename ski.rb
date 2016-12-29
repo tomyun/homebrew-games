@@ -5,10 +5,10 @@ class Ski < Formula
   sha256 "8dd0335d093b3a0f4486abd269f2bde300d97d2972ef1467fd6dff5de9a31b26"
 
   bottle do
-    cellar :any
-    sha256 "b0ade43d5fc9f2cf1daeddef39b20db8b99501325f8d95fd5737cf848d672d76" => :yosemite
-    sha256 "776cb7cf4cd96e64426121362702f00b6ec4766a14f224b125b21e56d90f530c" => :mavericks
-    sha256 "5a194977af957429157f86acf8b5e422f8fc293d233954f9e5e520f9a1448acc" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "d6d39457830786bc0aa2bdd303804636cb675a707fa7f2a12b382882cf6cea91" => :sierra
+    sha256 "fd3e643e162d93976d2b89cdfb40fe54bad73f6d02105e663c59e08d6623ab1d" => :el_capitan
+    sha256 "fd3e643e162d93976d2b89cdfb40fe54bad73f6d02105e663c59e08d6623ab1d" => :yosemite
   end
 
   head do
