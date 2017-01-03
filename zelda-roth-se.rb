@@ -13,6 +13,13 @@ class ZeldaRothSe < Formula
       sha256 "e8713c2b83e86821d4ca683c2653c36d0756d97a0fd8c3529a503d44c10e9306"
     end
   end
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "f8f772c82c7739b4f0d17b14c0307e3ef71260f16c8b63cbc2ac1e563c97ac5e" => :sierra
+    sha256 "2fa070bf6a0c9596a0606a5fc22e050a60d212924815e1ccaf38eab95b23fbad" => :el_capitan
+    sha256 "5064335d6471ccbafcef75fc18fe5d2c360e3920ccab61bc1420cdf8f040e2fd" => :yosemite
+  end
+
 
   depends_on "cmake" => :build
   depends_on "solarus"
