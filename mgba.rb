@@ -1,9 +1,8 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  url "https://github.com/mgba-emu/mgba/archive/0.5.1.tar.gz"
-  sha256 "73ae50b9ad11047e47c8b900a5965d39e4126563778f0bbfb264c5f45893aab5"
-  sha256 "d2173fbe69065ae1bd0abb323dcc3459d73c48ddc3d6934ef216cc50d1a0835d"
+  url "https://github.com/mgba-emu/mgba/archive/0.5.2.tar.gz"
+  sha256 "3d9fda762e6e0dd26ffbd3cbaa5365dc7ca7ed324cee5c65b7c85eaa3c37c4f3"
   head "https://github.com/mgba-emu/mgba.git"
 
   bottle do
@@ -30,7 +29,16 @@ class Mgba < Formula
       # Install .app bundle into prefix, not prefix/Applications
       s.gsub! "Applications", "."
     end
-    system "cmake", ".", *std_cmake_args
+
+    cmake_args = []
+    cmake_args << "-DUSE_EPOXY=OFF"  if build.without? "libepoxy"
+    cmake_args << "-DUSE_MAGICK=OFF" if build.without? "imagemagick"
+    cmake_args << "-DUSE_FFMPEG=OFF" if build.without? "ffmpeg"
+    cmake_args << "-DUSE_PNG=OFF"    if build.without? "libpng"
+    cmake_args << "-DUSE_LIBZIP=OFF" if build.without? "libzip"
+    cmake_args << "-DBUILD_QT=OFF"   if build.without? "qt5"
+
+    system "cmake", ".", *cmake_args, *std_cmake_args
     system "make", "install"
     if build.with? "qt5"
       # Replace SDL frontend binary with a script for running Qt frontend
