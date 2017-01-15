@@ -7,9 +7,9 @@ class Gearboy < Formula
 
   bottle do
     cellar :any
-    sha256 "e3d8b1a71e83e4a8503e52c37d913c9cc2aef92d7a43e66248bb7077a7e9314a" => :el_capitan
-    sha256 "1936e6577992dc5a827fa4c38ca4c8dad3f71a33549127848e9a84b0e6d4c4db" => :yosemite
-    sha256 "15a1efe26067a69f580889121f7d10fc120c44d7ed5649e0485965f448cb19d3" => :mavericks
+    sha256 "3f25391fa9689c7d1c53988a3bb064082b9ad400fb73bb1f3e923ef1310131ff" => :sierra
+    sha256 "7df8075dee5224be99ad9ed3a1d8244b198c5837282092959badc5e9a6b7ec3e" => :el_capitan
+    sha256 "c3ca114a29526d2908c11500b91f138a8a45f2b5df09b955668c39bdc25588a8" => :yosemite
   end
 
   depends_on "qt5"
